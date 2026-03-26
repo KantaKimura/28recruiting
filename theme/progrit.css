@@ -1,0 +1,409 @@
+/* ============================================================
+   theme/progrit.css — Progrit ブランドテーマ（ダーク + オレンジ）
+   プログリットのブランドカラー（オレンジ）を軸にしたダークテーマ。
+   参考スライドのオレンジ左バー・ボトムライン等をHTMLスライドに移植。
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+:root {
+  /* ── Progrit ブランドカラー ── */
+  --color-chrome:   #060606;
+  --color-bg:       #0C0C0C;
+  --color-fg:       #F2EFEA;           /* warm white */
+  --color-muted:    rgba(242,239,234,.42);
+  --color-accent:   #F07800;           /* Progrit Orange */
+  --color-accent-2: #FFAA44;           /* lighter amber */
+  --color-border:   rgba(255,255,255,.1);
+  --color-card-bg:  rgba(255,255,255,.05);
+  --color-num:      rgba(255,255,255,.12);
+
+  /* ── タイポグラフィ ── */
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Consolas", monospace;
+
+  /* ── サイズスケール ── */
+  --text-xs:   .75rem;    /* 12px */
+  --text-sm:   .875rem;   /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.25rem;   /* 20px */
+  --text-xl:   1.75rem;   /* 28px */
+  --text-2xl:  2.5rem;    /* 40px */
+  --text-3xl:  3.5rem;    /* 56px */
+  --text-4xl:  5rem;      /* 80px */
+
+  /* ── スペーシング ── */
+  --sp-xs:  .5rem;
+  --sp-sm:  1rem;
+  --sp-md:  1.5rem;
+  --sp-lg:  2.5rem;
+  --sp-xl:  4rem;
+
+  /* ── エフェクト ── */
+  --radius:    6px;
+  --radius-lg: 12px;
+  --border:    1px solid var(--color-border);
+  --shadow:    0 2px 20px rgba(0,0,0,.5);
+}
+
+/* ── ベースタイポグラフィ ── */
+body { font-family: var(--font-sans); }
+
+.slide h1 {
+  font-size: var(--text-4xl);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.slide h2 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.slide h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.slide p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+
+
+/* ============================================================
+   スライドタイプ
+   ============================================================ */
+
+/* ① title — タイトルスライド */
+.slide-title {
+  justify-content: flex-end;
+  gap: var(--sp-md);
+  padding-bottom: calc(var(--sp-xl) + 8px);
+  border-bottom: 2px solid var(--color-accent);
+}
+.slide-title .label {
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  letter-spacing: .15em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+.slide-title h1 { max-width: 860px; }
+.slide-title .sub {
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* ② content — 汎用コンテンツスライド */
+.slide-content { gap: var(--sp-lg); }
+.slide-content .body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  flex: 1;
+}
+
+/* content スライドの h2 には左オレンジバー（参考スライドから踏襲） */
+.slide-content > h2,
+.slide-content .body > h2 {
+  position: relative;
+  padding-left: 1.4rem;
+}
+.slide-content > h2::before,
+.slide-content .body > h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .1em;
+  bottom: .1em;
+  width: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ③ landing — 核心の一文（全画面ステートメント） */
+.slide-landing {
+  justify-content: center;
+  align-items: flex-start;
+  border-left: 3px solid var(--color-accent);
+  padding-left: calc(var(--sp-xl) - 3px);
+}
+.slide-landing h2 {
+  font-size: var(--text-3xl);
+  max-width: 900px;
+  line-height: 1.3;
+}
+
+/* ④ end — エンディング */
+.slide-end {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-md);
+}
+.slide-end .mark {
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+  margin: 0 auto;
+}
+
+/* ⑤ section — セクション区切り */
+.slide-section {
+  justify-content: center;
+  gap: var(--sp-sm);
+}
+.slide-section h2 {
+  font-size: var(--text-3xl);
+  font-weight: 900;
+}
+.slide-section p {
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+  max-width: 640px;
+}
+
+
+/* ============================================================
+   ユーティリティクラス
+   ============================================================ */
+.accent   { color: var(--color-accent); }
+.muted    { color: var(--color-muted); }
+.mono     { font-family: var(--font-mono); }
+.bold     { font-weight: 700; }
+.heavy    { font-weight: 900; }
+
+/* 区切り線 */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* 2カラムレイアウト */
+.cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-lg);
+}
+
+/* 3カラムレイアウト */
+.cols-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--sp-lg);
+  margin-block: auto;
+}
+
+/* 箇条書き（行頭にオレンジドット） */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  list-style: none;
+}
+.list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-sm);
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+.list li::before {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  margin-top: .55em;
+}
+
+/* ── カード（標準） ── */
+.card {
+  background: var(--color-card-bg);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+.card h3 { font-size: var(--text-lg); }
+.card p  { font-size: var(--text-base); }
+
+/* ── カード（上オレンジライン） ── */
+.card-top {
+  background: var(--color-card-bg);
+  border: var(--border);
+  border-top: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+/* ── カード（左オレンジライン） ── */
+.card-left {
+  background: var(--color-card-bg);
+  border: var(--border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+/* ── カード（下オレンジライン） ── */
+.card-bottom {
+  background: var(--color-card-bg);
+  border: var(--border);
+  border-bottom: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md) var(--sp-md) 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+  text-align: center;
+}
+
+/* ── フローチャート ── */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+}
+.flow-step {
+  flex: 1;
+  text-align: center;
+  padding: var(--sp-md);
+  background: var(--color-card-bg);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+}
+.flow-step h3 { font-size: var(--text-lg); margin-bottom: var(--sp-xs); }
+.flow-step p  { font-size: var(--text-sm); color: var(--color-muted); }
+.flow-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+}
+
+/* ── 数字ハイライト（KPIなど） ── */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-xs);
+  padding: var(--sp-md);
+  background: var(--color-card-bg);
+  border: var(--border);
+  border-bottom: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+}
+.stat .number {
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+.stat .label {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* ── ロゴ ── */
+.slide-logo {
+  position: absolute;
+  bottom: var(--sp-xl);
+  left: var(--sp-xl);
+  height: 20px;
+  opacity: .35;
+  pointer-events: none;
+}
+/* タイトル・ヒーロースライドのロゴは右上 */
+.slide-title .slide-logo,
+.slide-hero .slide-logo {
+  top: var(--sp-xl);
+  right: var(--sp-xl);
+  bottom: auto;
+  left: auto;
+  height: 24px;
+  opacity: .5;
+}
+
+/* ── 画像ボックス ── */
+.img-box {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* テキスト+画像の横並び */
+.text-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-lg);
+  flex: 1;
+  align-items: center;
+}
+.text-img .text { display: flex; flex-direction: column; gap: var(--sp-sm); }
+
+/* ── タグ（ラベルバッジ） ── */
+.tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  border: 1px solid rgba(240,120,0,.4);
+  background: rgba(240,120,0,.08);
+  border-radius: 100px;
+  padding: .2rem .9rem;
+  letter-spacing: .08em;
+}
+
+/* ── バッジ（塗りつぶし） ── */
+.badge {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #0C0C0C;
+  background: var(--color-accent);
+  border-radius: 100px;
+  padding: .3rem 1.2rem;
+  letter-spacing: .05em;
+}
+
+/* ── コピーライト ── */
+.copyright {
+  position: absolute;
+  bottom: var(--sp-md);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .65rem;
+  color: rgba(255,255,255,.18);
+  letter-spacing: .05em;
+  white-space: nowrap;
+  pointer-events: none;
+}

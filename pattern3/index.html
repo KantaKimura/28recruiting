@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>就活のルールが変わり始めている — PROGRIT Outstanding</title>
+  <link rel="stylesheet" href="../engine/slide.css">
+  <link rel="stylesheet" href="../theme/progrit.css">
+  <style>
+    /* =========================================================
+       デッキ固有スタイル — Outstanding Pattern 3
+       カジュアル・AI起点・全学生巻き込み型
+       ========================================================= */
+
+    /* ── 1. ヒーロースライド ── */
+    .slide-hero {
+      background:
+        radial-gradient(ellipse 70% 60% at 75% 50%, rgba(240,120,0,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(240,120,0,.06) 0%, transparent 60%),
+        linear-gradient(160deg, #110C07 0%, #0C0C0C 55%, #080808 100%);
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      max-width: 750px;
+    }
+    .hero-eyebrow {
+      font-size: var(--text-sm);
+      font-family: var(--font-mono);
+      letter-spacing: .3em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      border: 1px solid rgba(240,120,0,.35);
+      padding: .35rem 1.4rem;
+      border-radius: 100px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--color-muted);
+    }
+    .hero-em {
+      display: block;
+      font-size: 4rem;
+      background: linear-gradient(90deg, #F07800 20%, #FFAA44 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-top: .3rem;
+      font-weight: 900;
+    }
+    .hero-company {
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      letter-spacing: .12em;
+    }
+
+    /* ── タイムライン（自己紹介・簡潔版） ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--sp-xl);
+      flex: 1;
+      align-items: center;
+    }
+    .intro-speaker {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      letter-spacing: .18em;
+      margin-bottom: .8rem;
+    }
+    .intro-name {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.015em;
+    }
+    .intro-role {
+      margin-top: .8rem;
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      line-height: 1.85;
+    }
+    .intro-role strong { color: var(--color-fg); font-weight: 700; }
+    .intro-note {
+      margin-top: 1rem;
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--color-border);
+      padding-top: .8rem;
+      font-style: italic;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      padding-left: 1.6rem;
+      border-left: 2px solid rgba(240,120,0,.5);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 1.4rem;
+      align-items: flex-start;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.95rem;
+      top: .52em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+    .tl-year {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 4.5rem;
+      padding-top: .08em;
+    }
+    .tl-desc {
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      line-height: 1.7;
+    }
+    .tl-desc strong { color: var(--color-fg); font-weight: 700; }
+
+    /* ── slide-special ── */
+    .slide-special {
+      background:
+        radial-gradient(ellipse 65% 75% at 50% 55%, rgba(240,120,0,.13) 0%, transparent 65%),
+        linear-gradient(180deg, #0C0C0C 0%, #0E0904 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    .special-eyebrow {
+      font-size: var(--text-sm);
+      font-family: var(--font-mono);
+      letter-spacing: .28em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+    }
+    .special-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .special-em {
+      display: block;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      margin-top: .3rem;
+      line-height: 1.2;
+    }
+
+    /* ── 変化カード ── */
+    .change-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .change-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 2rem 2.5rem;
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .change-col.is-new {
+      border-color: rgba(240,120,0,.35);
+      background: rgba(240,120,0,.05);
+    }
+    .change-arrow {
+      width: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    .change-label {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-muted);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .change-label.orange { color: var(--color-accent); }
+    .change-col h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .change-col p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+
+    /* ── 成長曲線ビジュアル ── */
+    .curve-visual {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 3rem;
+      flex: 1;
+      padding-bottom: 1rem;
+    }
+    .curve-bar-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .8rem;
+    }
+    .curve-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: .8rem;
+      height: 180px;
+    }
+    .curve-bar {
+      width: 54px;
+      border-radius: 6px 6px 0 0;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: .8rem;
+    }
+    .curve-bar.slow {
+      height: 40%;
+      background: var(--color-card-bg);
+      border: var(--border);
+    }
+    .curve-bar.fast {
+      height: 90%;
+      background: rgba(240,120,0,.15);
+      border: 1px solid rgba(240,120,0,.4);
+    }
+    .curve-bar span {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--color-muted);
+    }
+    .curve-bar.fast span {
+      color: var(--color-accent);
+    }
+    .curve-label {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      text-align: center;
+    }
+    .curve-label strong {
+      color: var(--color-fg);
+      font-weight: 700;
+    }
+    .curve-year-labels {
+      display: flex;
+      gap: .8rem;
+    }
+    .curve-year-labels span {
+      width: 54px;
+      text-align: center;
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-muted);
+    }
+
+    /* ── 3条件カード ── */
+    .cond-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-top: 2px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem var(--sp-md);
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+    .cond-num {
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      opacity: .45;
+      line-height: 1;
+    }
+    .cond-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .cond-card p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+    .cond-note {
+      margin-top: .8rem;
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+
+    /* ── KPIカード ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: .5rem;
+    }
+    .kpi-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem var(--sp-md) 1.6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-accent);
+    }
+    .kpi-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--color-fg);
+      line-height: 1.1;
+    }
+    .kpi-num span {
+      font-size: .5em;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .kpi-label {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      margin-top: .7rem;
+      line-height: 1.55;
+    }
+
+    /* ── VS比較 ── */
+    .vs-wrap {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      align-items: stretch;
+      gap: 0;
+    }
+    .vs-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.4rem;
+      padding: 2rem 2.5rem;
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .vs-col.is-accent {
+      border-color: rgba(240,120,0,.35);
+      background: rgba(240,120,0,.05);
+    }
+    .vs-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vs-badge {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      font-weight: 900;
+      letter-spacing: .12em;
+      color: var(--color-accent);
+      border: 1px solid rgba(240,120,0,.4);
+      background: rgba(240,120,0,.08);
+      border-radius: 100px;
+      padding: .5rem .7rem;
+    }
+    .vs-type {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-muted);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .vs-type.orange { color: var(--color-accent); }
+    .vs-output-label {
+      font-size: var(--text-xs);
+      color: var(--color-muted);
+      font-family: var(--font-mono);
+      letter-spacing: .05em;
+    }
+    .vs-output-val {
+      font-size: var(--text-xl);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    /* ── メリットカード ── */
+    .merit-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-top: 2px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-md);
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+    .merit-num {
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      opacity: .45;
+      line-height: 1;
+    }
+    .merit-card h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.45; }
+    .merit-card p { font-size: var(--text-sm); color: var(--color-muted); line-height: 1.6; }
+
+    /* ── ターゲットカード ── */
+    .target-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .target-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem var(--sp-md);
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .target-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .target-card p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.5;
+    }
+    .target-icon {
+      font-size: 1.6rem;
+      margin-bottom: .3rem;
+    }
+
+    /* ── スケジュール ── */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.3rem var(--sp-md);
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .s-loc {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-accent);
+      min-width: 3rem;
+    }
+    .s-date { font-size: var(--text-lg); font-weight: 700; }
+    .urgent-tag {
+      display: inline-block;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-accent);
+      border: 1px solid rgba(240,120,0,.4);
+      padding: .3rem 1.1rem;
+      border-radius: 100px;
+      letter-spacing: .05em;
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ===== 1. タイトル ===== -->
+  <section class="slide slide-hero">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Outstanding / Case Study</span>
+      <div class="hero-title">
+        就活のルールが、
+        <span class="hero-em">変わり始めている。</span>
+      </div>
+      <p class="hero-company">株式会社プログリット / 代表取締役社長 岡田祥吾</p>
+    </div>
+  </section>
+
+  <!-- ===== 2. 問いかけ ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>あなたの就活の常識、<br><span class="accent">1年後も通用しますか？</span></h2>
+    <p>AIの進化で、仕事の前提が変わっている。<br>就活の「正解」も、同時に変わり始めている。</p>
+  </section>
+
+  <!-- ===== 3. 自己紹介 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="intro-grid">
+        <div>
+          <p class="intro-speaker">Speaker</p>
+          <div class="intro-name">岡田 祥吾</div>
+          <div class="intro-role">
+            株式会社プログリット<br>
+            <strong>代表取締役社長</strong>
+          </div>
+          <p class="intro-note">「正解だと思っていた道を、あえて選ばなかった側の人間です」</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="tl-year">2012</span>
+            <span class="tl-desc"><strong>大阪大学 工学部</strong> 卒業</span>
+          </div>
+          <div class="timeline-item">
+            <span class="tl-year">2012</span>
+            <span class="tl-desc"><strong>マッキンゼー</strong>に入社</span>
+          </div>
+          <div class="timeline-item">
+            <span class="tl-year">2016</span>
+            <span class="tl-desc">マッキンゼーを辞め、<strong>プログリットを創業</strong></span>
+          </div>
+          <div class="timeline-item">
+            <span class="tl-year">2022</span>
+            <span class="tl-desc"><strong>東証グロース市場に上場</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 今日の約束 ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>今日は、<br>会社の説明はしません。</h2>
+    <p>皆さんの会社選びに使える<br>「判断基準」を一つだけ、持ち帰ってもらいます。</p>
+  </section>
+
+  <!-- ===== 5. AIが変えていること ===== -->
+  <section class="slide slide-special">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT" style="opacity:.25;">
+    <div class="special-eyebrow">The Shift</div>
+    <div class="special-title">
+      1年前、AIでプロダクトを作れる学生は<br>ほぼいなかった。
+      <span class="special-em">今は、文系でもできる。</span>
+    </div>
+  </section>
+
+  <!-- ===== 6. 常識の変化 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>就活の「正解」が変わっている</h2>
+      <div class="change-grid">
+        <div class="change-col">
+          <span class="change-label">これまでの常識</span>
+          <h3>いい大学 → 大企業 → 安泰</h3>
+          <p>ブランド力のある会社に入れば、キャリアは安心。多くの人がそう考えていた</p>
+        </div>
+        <div class="change-arrow">→</div>
+        <div class="change-col is-new">
+          <span class="change-label orange">今、起きていること</span>
+          <h3>AIで仕事の前提が変わり、<br><span class="accent">「どこで何を経験するか」</span>が全てになる</h3>
+          <p>会社の看板より、自分がどんな力をつけたかが問われる時代へ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. 安心させる ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>でも、焦る必要はない。</h2>
+    <p>大事なのは、変化の中で「何を見ればいいか」を知っていること。<br>今日から使える判断基準を、一つだけ持ち帰ってください。</p>
+  </section>
+
+  <!-- ===== 8. 問い ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>3年後、<br>あなたはどんな<span class="accent">力</span>を<br>手にしているか？</h2>
+  </section>
+
+  <!-- ===== 9. 成長曲線 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>入社後の成長曲線は、環境で決まる</h2>
+      <div class="curve-visual">
+        <div class="curve-bar-group">
+          <div class="curve-bars">
+            <div class="curve-bar slow"><span></span></div>
+            <div class="curve-bar slow" style="height:50%"><span></span></div>
+            <div class="curve-bar slow" style="height:55%"><span></span></div>
+          </div>
+          <div class="curve-year-labels">
+            <span>1年目</span><span>3年目</span><span>5年目</span>
+          </div>
+          <p class="curve-label">環境A<br>ゆるやかな成長</p>
+        </div>
+        <div class="curve-bar-group">
+          <div class="curve-bars">
+            <div class="curve-bar fast" style="height:45%"><span></span></div>
+            <div class="curve-bar fast" style="height:72%"><span></span></div>
+            <div class="curve-bar fast"><span></span></div>
+          </div>
+          <div class="curve-year-labels">
+            <span>1年目</span><span>3年目</span><span>5年目</span>
+          </div>
+          <p class="curve-label"><strong>環境B</strong><br><strong class="accent">急速な成長</strong></p>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:var(--text-base);color:var(--color-muted);margin-top:.5rem;">
+        新卒時点の差より、<strong style="color:var(--color-fg)">最初の環境がつくる成長曲線の差</strong>の方がはるかに大きい
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 10. 3つの条件 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>成長曲線を決める3つのこと</h2>
+      <div class="cols-3" style="margin-top:.3rem;">
+        <div class="cond-card">
+          <div class="cond-num">01</div>
+          <h3>自分で回せるか</h3>
+          <p>企画から実行、結果の検証まで一人で持てる環境かどうか</p>
+        </div>
+        <div class="cond-card">
+          <div class="cond-num">02</div>
+          <h3>会社自体が<br>伸びているか</h3>
+          <p>市場の追い風ではなく、会社そのものに成長する力があるか</p>
+        </div>
+        <div class="cond-card">
+          <div class="cond-num">03</div>
+          <h3>面白いと<br>思えるか</h3>
+          <p>熱量を持って向き合えるテーマがあるかどうか</p>
+        </div>
+      </div>
+      <p class="cond-note">
+        大企業でもベンチャーでも関係ない。<strong style="color:var(--color-fg)">この3つが揃っているかどうか</strong>で見る。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 11. プログリット（30秒） ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>プログリットって？</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-num">英語 <span>× Tech</span></div>
+          <div class="kpi-label">英語コーチング×テクノロジーで<br>教育を再定義する会社</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num">70<span>億円</span></div>
+          <div class="kpi-label">今期売上見込み<br>東証グロース上場</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num">+33<span>% / 年</span></div>
+          <div class="kpi-label">上場後 平均成長率<br>英語業界 売上No.1</div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:1.2rem;font-size:var(--text-lg);font-weight:700;">
+        でも、英語だけの会社じゃない。<br>
+        <span class="accent">人の可能性を開花させるテクノロジーカンパニー。</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 12. なぜインターンか ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>就活で一番もったいないのは、<br><span class="accent">情報不足のまま決める</span>こと。</h2>
+    <p>だから、体感する場を作りました。</p>
+  </section>
+
+  <!-- ===== 13. 2days AIインターン VS比較 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>2DAYS AIインターン</h2>
+      <div class="vs-wrap">
+        <div class="vs-col">
+          <span class="vs-type">一般的なインターン</span>
+          <h3 class="muted" style="font-size:1.4rem;line-height:1.6;">企画して、<br>発表して、<br>終わり。</h3>
+          <div>
+            <div class="vs-output-label">成果物</div>
+            <div class="vs-output-val muted">パワーポイント</div>
+          </div>
+        </div>
+        <div class="vs-center">
+          <span class="vs-badge">VS</span>
+        </div>
+        <div class="vs-col is-accent">
+          <span class="vs-type orange">プログリットのインターン</span>
+          <h3 style="font-size:1.4rem;line-height:1.6;">企画して、<br>AIで実装して、<br><span class="accent bold">動かす。</span></h3>
+          <div>
+            <div class="vs-output-label">成果物</div>
+            <div class="vs-output-val accent">実装レベルのプロトタイプ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14. 3つのメリット ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>参加する3つのメリット</h2>
+      <div class="cols-3" style="margin-top:.3rem;">
+        <div class="merit-card">
+          <div class="merit-num">01</div>
+          <h3>AI時代の<br>キャリア戦略が見える</h3>
+          <p>ビジネス現場のAI活用をリアルに体感。業界選びの解像度が上がる。</p>
+        </div>
+        <div class="merit-card">
+          <div class="merit-num">02</div>
+          <h3>立案から実装まで<br>一気通貫で体験</h3>
+          <p>企画→プロトタイプ制作。他社インターンやGDで圧倒的な差になる経験。</p>
+        </div>
+        <div class="merit-card">
+          <div class="merit-num">03</div>
+          <h3>社長 + メンターから<br>本気のフィードバック</h3>
+          <p>マッキンゼー出身の代表・岡田と優秀なメンターが忖度なしで直接指導。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15. こんな人に来てほしい ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>こんな人に来てほしい</h2>
+      <div class="target-grid">
+        <div class="target-card">
+          <div class="target-icon">🔍</div>
+          <h3>まだ軸が<br>決まっていない人</h3>
+          <p>判断基準が手に入る。<br>今の時点で方向性はなくてOK</p>
+        </div>
+        <div class="target-card">
+          <div class="target-icon">🏢</div>
+          <h3>コンサル・大企業を<br>見ている人</h3>
+          <p>比較材料として最適。<br>視野が一気に広がる</p>
+        </div>
+        <div class="target-card">
+          <div class="target-icon">⚡</div>
+          <h3>何か面白いことを<br>してみたい人</h3>
+          <p>AIでプロダクトを作る体験は、<br>純粋に面白い</p>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:var(--text-base);color:var(--color-muted);margin-top:1rem;">
+        ※ プログリットの志望度は<strong style="color:var(--color-fg)">ゼロでOK</strong>です
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 16. エントリー案内 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>エントリーのご案内</h2>
+      <div style="display:flex;flex-direction:column;gap:1.2rem;flex:1;">
+        <span class="urgent-tag">残り枠わずか</span>
+        <div class="schedule-grid">
+          <div class="schedule-item">
+            <span class="s-loc">大阪</span>
+            <span class="s-date">3/29(土) - 3/30(日)</span>
+          </div>
+          <div class="schedule-item">
+            <span class="s-loc">東京</span>
+            <span class="s-date">4/4(金) - 4/5(土)</span>
+          </div>
+          <div class="schedule-item">
+            <span class="s-loc">大阪</span>
+            <span class="s-date">4/11(金) - 4/12(土)</span>
+          </div>
+          <div class="schedule-item">
+            <span class="s-loc">東京</span>
+            <span class="s-date">5/16(金) - 5/17(土)</span>
+          </div>
+        </div>
+        <p style="font-size:var(--text-sm);color:var(--color-muted);text-align:center;">※ 定員に達し次第、締め切ります</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 17. 締め ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>迷ったら、<br>まず<span class="accent">体験</span>してみてください。</h2>
+  </section>
+
+</div><!-- /.deck -->
+
+<div class="slide-ui">
+  <div class="slide-counter">01 / 17</div>
+  <div class="slide-nav">
+    <button id="btn-prev">← Prev</button>
+    <button id="btn-next">Next →</button>
+    <button id="btn-pdf" title="PDF書き出し">PDF</button>
+    <button id="btn-fs" title="フルスクリーン (F)">⛶</button>
+  </div>
+</div>
+
+<script src="../engine/slide.js"></script>
+</body>
+</html>
