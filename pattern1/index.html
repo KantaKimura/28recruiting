@@ -11,6 +11,16 @@
    Outstanding P1 v6 — ゼロベース再構築
    ============================================================ */
 
+/* --- テーマ変数上書き（白背景用） --- */
+:root {
+  --color-bg: #FFFFFF !important;
+  --color-fg: #1A1A1A !important;
+  --color-muted: #1A1A1A !important;
+  --color-accent: #F07800 !important;
+  --color-border: rgba(0,0,0,.12) !important;
+  --color-card-bg: #F8F8F8 !important;
+}
+
 /* --- 全スライド共通 --- */
 .slide {
   background: #FFF !important;
@@ -19,6 +29,7 @@
 }
 .slide * { color: #1A1A1A; box-sizing: border-box; }
 .accent { color: #F07800 !important; }
+.muted { color: #1A1A1A !important; }
 
 /* --- コンテンツスライド共通レイアウト --- */
 .s-body {
@@ -511,16 +522,17 @@
 <p class="imp-msg" style="font-size:3rem;">世界で自由に活躍できる人を増やす</p>
 </section>
 
-<!-- 21a 教育 -->
+<!-- 21a 日本の強みは人だ -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.2rem;">教育こそが国家の競争力であり、<br>企業の成長エンジンであり、<br><span class="accent">個人の人生の選択肢を決める土台</span>である。</p>
+<p class="imp-msg" style="font-size:3.5rem;">日本の強みは、<span class="accent">「人」</span>だ。</p>
 </section>
 
-<!-- 21b 日本の強み -->
+<!-- 21b 教育こそが国家の競争力 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">日本の強みは、人の可能性にある</div><div class="s-main">
-<div style="max-width:750px;font-size:1.1rem;line-height:2;">
-<p>真面目に取り組む姿勢、完璧を目指す美意識、<br>他者へのリスペクト、コミュニケーションの丁寧さ。</p>
+<div class="s-body"><div class="s-title">教育こそが国家の競争力である</div><div class="s-main">
+<div style="max-width:750px;font-size:1.15rem;line-height:2;">
+<p>教育は学校で完結するものではなく、<b>すべてのインフラ</b>です。</p>
+<p style="margin-top:16px;">真面目に取り組む姿勢、完璧を目指す美意識、<br>他者へのリスペクト、コミュニケーションの丁寧さ。</p>
 <p style="margin-top:16px;"><b>教育の質を底上げすることが、国力を高めるレバーになります。</b></p>
 </div>
 </div></div>
@@ -529,7 +541,7 @@
 <!-- 21c 私たちの存在 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">だからこそ、私たちの存在意義がある</div><div class="s-main">
-<div style="max-width:750px;font-size:1.1rem;line-height:2;">
+<div style="max-width:750px;font-size:1.15rem;line-height:2;">
 <p>人の可能性を最大化し、<b style="color:#F07800">テクノロジーの力</b>で科学と仕組みを用いて<br>成果を再現性を持って出し続ける。</p>
 <p style="margin-top:16px;">企業として圧倒的に成長し、<br><b>国力を上げるレバーとなる存在</b>です。</p>
 </div>
