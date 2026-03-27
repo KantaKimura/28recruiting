@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2DAYS INTERNSHIP — PROGRIT</title>
+  <link rel="stylesheet" href="../engine/slide.css">
+  <link rel="stylesheet" href="../theme/progrit.css">
+  <style>
+    /* =========================================================
+       白背景テーマ オーバーライド
+       ========================================================= */
+    :root {
+      --color-bg: #FFFFFF;
+      --color-fg: #1A1A1A;
+      --color-muted: #1A1A1A;
+      --color-card-bg: rgba(240,120,0,.03);
+      --color-border: rgba(0,0,0,.08);
+      --color-chrome: #F8F8F8;
+      --color-num: rgba(0,0,0,.06);
+    }
+    .slide {
+      background:
+        radial-gradient(ellipse 80% 70% at 85% 20%, rgba(240,120,0,.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(240,120,0,.04) 0%, transparent 50%),
+        #FFFFFF;
+    }
+    .slide p { color: #1A1A1A; }
+    .list li { color: #1A1A1A; }
+    .list li::before { background: var(--color-accent); }
+    .card, .card-top, .card-left, .card-bottom {
+      background: rgba(240,120,0,.03);
+      border-color: rgba(0,0,0,.08);
+    }
+    .copyright { color: rgba(0,0,0,.2); }
+    .slide-logo { filter: none; opacity: .2; }
+
+    /* =========================================================
+       ヒーロースライド
+       ========================================================= */
+    .slide-hero {
+      background:
+        radial-gradient(ellipse 70% 60% at 75% 50%, rgba(240,120,0,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 15% 85%, rgba(240,120,0,.08) 0%, transparent 50%),
+        linear-gradient(135deg, #FFFFFF 0%, #FFF8F2 100%);
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 750px;
+    }
+    .hero-eyebrow {
+      font-size: var(--text-sm);
+      font-family: var(--font-mono);
+      letter-spacing: .3em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      border: 1.5px solid rgba(240,120,0,.4);
+      padding: .4rem 1.6rem;
+      border-radius: 100px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.35;
+      color: #1A1A1A;
+    }
+    .hero-em {
+      display: block;
+      font-size: 5.5rem;
+      background: linear-gradient(90deg, #F07800 20%, #FFAA44 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-top: .4rem;
+    }
+    .hero-logo-img {
+      height: 28px;
+      opacity: .6;
+    }
+
+    /* =========================================================
+       人物紹介
+       ========================================================= */
+    .person-slide {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      flex: 1;
+      align-items: center;
+    }
+    .person-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+    .person-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .person-role-tag {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      letter-spacing: .2em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .person-name {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #1A1A1A;
+    }
+    .person-name-sub {
+      font-size: var(--text-lg);
+      color: #1A1A1A;
+      margin-top: .2rem;
+    }
+    .person-dept {
+      font-size: var(--text-lg);
+      color: #1A1A1A;
+      line-height: 1.6;
+    }
+    .person-dept strong {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .person-hobby {
+      font-size: var(--text-base);
+      color: #1A1A1A;
+      margin-top: .5rem;
+      padding-top: .8rem;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+
+    /* =========================================================
+       ランディング
+       ========================================================= */
+    .slide-landing { border-left-color: var(--color-accent); }
+    .slide-landing h2 { color: #1A1A1A; }
+
+    /* =========================================================
+       セクション区切り
+       ========================================================= */
+    .slide-section h2 { color: #1A1A1A; }
+    .slide-section p { color: #1A1A1A; }
+
+    /* =========================================================
+       オレンジ背景
+       ========================================================= */
+    .slide-orange {
+      background: linear-gradient(135deg, #F07800 0%, #FF9A30 100%) !important;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .slide-orange h2, .slide-orange p {
+      color: #FFFFFF !important;
+    }
+    .slide-orange .slide-logo { filter: brightness(10); opacity: .25; }
+
+    /* =========================================================
+       Claude Code（白背景リデザイン）
+       ========================================================= */
+    .claude-card {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .claude-logo-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .8rem;
+      flex-shrink: 0;
+    }
+    .claude-logo-area img {
+      height: 50px;
+    }
+    .claude-model-badge {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: #FFFFFF;
+      background: linear-gradient(90deg, #D97757, #E8956A);
+      border-radius: 100px;
+      padding: .35rem 1.2rem;
+      letter-spacing: .05em;
+    }
+    .claude-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+    }
+    .claude-desc h3 {
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      color: #1A1A1A;
+      line-height: 1.3;
+    }
+    .claude-desc p {
+      font-size: var(--text-lg);
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       ミッション
+       ========================================================= */
+    .mission-slide {
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(240,120,0,.08) 0%, transparent 60%),
+        #FFFFFF !important;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    .mission-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1A1A1A;
+      letter-spacing: -.02em;
+      line-height: 1.5;
+      max-width: 800px;
+    }
+    .mission-sub {
+      font-size: var(--text-xl);
+      color: #1A1A1A;
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       論点カード
+       ========================================================= */
+    .ronten-card {
+      background: rgba(240,120,0,.04);
+      border: 1.5px solid rgba(240,120,0,.15);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .ronten-num {
+      font-size: 5rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      opacity: .3;
+      line-height: 1;
+    }
+    .ronten-q {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1A1A1A;
+      line-height: 1.35;
+    }
+    .ronten-hints {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: .5rem;
+    }
+    .ronten-hints p {
+      font-size: var(--text-lg);
+      padding-left: 1.2rem;
+      border-left: 3px solid rgba(240,120,0,.3);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       3論点 横長カード
+       ========================================================= */
+    .ronten-overview {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .ronten-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.8rem 2.2rem;
+      background: rgba(240,120,0,.04);
+      border: 1px solid rgba(240,120,0,.12);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 12px;
+    }
+    .ronten-row .tag {
+      flex-shrink: 0;
+    }
+    .ronten-row h3 {
+      font-size: var(--text-xl);
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+
+    /* =========================================================
+       フレームワーク
+       ========================================================= */
+    .fw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      flex: 1;
+      align-items: stretch;
+    }
+    .fw-card {
+      background: rgba(240,120,0,.03);
+      border: 1px solid rgba(0,0,0,.06);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 16px;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .fw-card h3 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #1A1A1A;
+      line-height: 1.4;
+    }
+    .fw-card p {
+      font-size: var(--text-base);
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       スケジュール
+       ========================================================= */
+    .sched-list {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .sched-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(240,120,0,.03);
+      border: 1px solid rgba(0,0,0,.04);
+    }
+    .sched-item.is-accent {
+      background: rgba(240,120,0,.08);
+      border-color: rgba(240,120,0,.2);
+    }
+    .sched-time {
+      font-family: var(--font-mono);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-accent);
+      min-width: 8.5rem;
+      flex-shrink: 0;
+    }
+    .sched-label {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: #1A1A1A;
+    }
+
+    /* =========================================================
+       中間FB成果物
+       ========================================================= */
+    .mid-fb-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .mid-fb-main {
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      color: #1A1A1A;
+      line-height: 1.5;
+    }
+    .mid-fb-sub {
+      font-size: var(--text-lg);
+      color: #1A1A1A;
+    }
+
+    /* =========================================================
+       最終発表成果物
+       ========================================================= */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      flex: 1;
+      align-items: center;
+    }
+    .deliverable-card {
+      background: rgba(240,120,0,.04);
+      border: 1.5px solid rgba(240,120,0,.12);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .deliverable-icon { font-size: 3rem; line-height: 1; }
+    .deliverable-card h3 {
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+    .deliverable-card p { font-size: var(--text-lg); }
+
+    /* =========================================================
+       メンターヘッダー
+       ========================================================= */
+    .mentor-header {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .mentor-header h2 {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+    .mentor-header p { font-size: var(--text-xl); }
+
+    /* =========================================================
+       アイスブレイク
+       ========================================================= */
+    .icebreak {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .icebreak h2 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+    .icebreak .time-badge {
+      font-size: var(--text-xl);
+      font-weight: 900;
+      color: var(--color-accent);
+      border: 2px solid rgba(240,120,0,.3);
+      padding: .5rem 2rem;
+      border-radius: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ===== 1. タイトル ===== -->
+  <section class="slide slide-hero">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">PROGRIT 2DAY INTERNSHIP</span>
+      <div class="hero-title">
+        AI &times; Zero to One
+        <span class="hero-em">2DAYS<br>INTERNSHIP</span>
+      </div>
+      <img class="hero-logo-img" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    </div>
+  </section>
+
+  <!-- ===== 2. Hirona ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../shared/images/Hirona_司会_画像.png" alt="Hirona">
+        <div class="person-info">
+          <span class="person-role-tag">Facilitator</span>
+          <div class="person-name">Hirona</div>
+          <div class="person-dept">株式会社プログリット</div>
+          <div class="person-hobby">本日の進行を担当します。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. セクション: インターン概要 ===== -->
+  <section class="slide slide-section">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>インターン概要</h2>
+  </section>
+
+  <!-- ===== 4. Kanta ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../shared/images/マーケティング責任者_木村_画像01.png" alt="Kanta">
+        <div class="person-info">
+          <div class="person-name">Kanta</div>
+          <div class="person-name-sub">木村 環太（きむら かんた）</div>
+          <div class="person-dept">
+            株式会社プログリット<br>
+            <strong>シャドテン事業部 マーケティング責任者</strong><br>
+            兼 <strong>新卒採用責任者</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. インターン概要ミッション ===== -->
+  <section class="slide mission-slide">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="mission-title">
+      人の可能性を開花させる新規事業を立案し、<br>それを<span class="accent">AIで形にしてください</span>
+    </div>
+    <p class="mission-sub">
+      課題を発見し、解決策を設計し、実際に動くプロダクトをAIで開発する。
+    </p>
+  </section>
+
+  <!-- ===== 6. なぜこのインターンをするのか？ ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>なぜこのインターンを<br>するのか？</h2>
+  </section>
+
+  <!-- ===== 7. AIメッセージ ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2><span class="accent">AIが、この1年で、</span><br>私たちの働き方を<br>根本から変えているから。</h2>
+  </section>
+
+  <!-- ===== 8. AI体験メッセージ ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>最先端のAIを、<br>少しでも<br><span class="accent">体験してほしい。</span></h2>
+  </section>
+
+  <!-- ===== 9. Claude Code 紹介（白背景） ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>今回使うAI</h2>
+      <div class="claude-card">
+        <div class="claude-logo-area">
+          <img src="../shared/images/Claude_logo_画像.svg" alt="Claude">
+          <span class="claude-model-badge">Latest Model — Opus 4.6</span>
+        </div>
+        <div class="claude-desc">
+          <h3>ビジネスユースに特化した<br>最先端AI</h3>
+          <p>コードを書く、戦略を練る、プロダクトを作る。<br>プロフェッショナルが実務で使うAIです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. 3つの論点（横長カード） ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>答えるべき<span class="accent">3つの論点</span></h2>
+      <div class="ronten-overview">
+        <div class="ronten-row">
+          <span class="tag">01</span>
+          <h3>誰のどんな課題を解決するのか</h3>
+        </div>
+        <div class="ronten-row">
+          <span class="tag">02</span>
+          <h3>それをどのように解決するのか</h3>
+        </div>
+        <div class="ronten-row">
+          <span class="tag">03</span>
+          <h3>ビジネスとして儲かり得るか</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11. 論点① ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="ronten-card">
+        <span class="ronten-num">01</span>
+        <div class="ronten-q">誰のどんな課題を<br>解決するのか？</div>
+        <div class="ronten-hints">
+          <p>「社会人全般」ではなく、<span class="accent bold">1人のペルソナ</span>を描く。</p>
+          <p>現状どのような状態で、<span class="accent bold">理想の状態</span>は何か？</p>
+          <p>その課題を解決するために<span class="accent bold">お金を支払う</span>のか？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 12. 論点② ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="ronten-card">
+        <span class="ronten-num">02</span>
+        <div class="ronten-q">それをどのように<br>解決するのか？</div>
+        <div class="ronten-hints">
+          <p>その方法でターゲットの課題は解消されるのか？<span class="accent bold">理想状態</span>になれるのか？</p>
+          <p>既存サービスでは<span class="accent bold">なぜダメ</span>なのか？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 13. 論点③ ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="ronten-card">
+        <span class="ronten-num">03</span>
+        <div class="ronten-q">ビジネスとして<br>儲かり得るか？</div>
+        <div class="ronten-hints">
+          <p>ビジネスモデルはどうする？<span class="accent bold">誰からいくらもらう</span>？</p>
+          <p><span class="accent bold">売り上げ</span>はいくら？<span class="accent bold">コスト</span>は？</p>
+          <p>5年後にはどれくらいの<span class="accent bold">事業</span>になっている？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14. 思考のヒント ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>思考のヒント</h2>
+      <div class="fw-grid">
+        <div class="fw-card">
+          <span class="tag">Framework 01</span>
+          <h3>課題の特定</h3>
+          <p>ターゲットが現在苦心している状態は何か？その人はどのような状態になろうとしているのか？この現状と理想のギャップが"課題"である。</p>
+        </div>
+        <div class="fw-card">
+          <span class="tag">Framework 02</span>
+          <h3>カスタマー<br>ジャーニー</h3>
+          <p>ターゲットは1日の中のどんなシーンでその課題に直面する？</p>
+        </div>
+        <div class="fw-card">
+          <span class="tag">Framework 03</span>
+          <h3>症状 → 病因</h3>
+          <p>出てきた課題は「症状」。その裏にある「病因（根本原因）」は何？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15. セクション: スケジュール ===== -->
+  <section class="slide slide-section">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>2日間のスケジュール</h2>
+  </section>
+
+  <!-- ===== 16. DAY 1 スケジュール ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2><span class="accent">DAY 1</span> Schedule</h2>
+      <div class="sched-list">
+        <div class="sched-item">
+          <span class="sched-time">10:00 – 10:30</span>
+          <span class="sched-label">オープニング</span>
+        </div>
+        <div class="sched-item is-accent">
+          <span class="sched-time">10:30 – 12:00</span>
+          <span class="sched-label">ワーク</span>
+        </div>
+        <div class="sched-item">
+          <span class="sched-time">12:00 – 13:00</span>
+          <span class="sched-label">ランチ</span>
+        </div>
+        <div class="sched-item">
+          <span class="sched-time">13:00 – 14:00</span>
+          <span class="sched-label">就活講座</span>
+        </div>
+        <div class="sched-item is-accent">
+          <span class="sched-time">14:00 – 16:30</span>
+          <span class="sched-label">ワーク</span>
+        </div>
+        <div class="sched-item" style="background:rgba(240,120,0,.12);border-color:rgba(240,120,0,.3);">
+          <span class="sched-time">16:30 – 17:30</span>
+          <span class="sched-label" style="color:var(--color-accent);">中間フィードバック</span>
+        </div>
+        <div class="sched-item">
+          <span class="sched-time">17:30 – 18:00</span>
+          <span class="sched-label">振り返り + Day2準備</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 17. 中間FBの成果物 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>中間フィードバックの<span class="accent">成果物</span></h2>
+      <div class="mid-fb-content">
+        <div class="mid-fb-main">
+          3つの論点に対する、<br>その時点でのチームの解。
+        </div>
+        <div class="mid-fb-sub">
+          ドキュメントでOK。資料の体裁は問わない。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 18. DAY 2 スケジュール ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2><span class="accent">DAY 2</span> Schedule</h2>
+      <div class="sched-list">
+        <div class="sched-item is-accent">
+          <span class="sched-time">10:00 – 12:30</span>
+          <span class="sched-label">ワーク</span>
+        </div>
+        <div class="sched-item">
+          <span class="sched-time">12:30 – 13:30</span>
+          <span class="sched-label">ランチ</span>
+        </div>
+        <div class="sched-item is-accent">
+          <span class="sched-time">13:30 – 16:00</span>
+          <span class="sched-label">ワーク</span>
+        </div>
+        <div class="sched-item" style="background:rgba(240,120,0,.12);border-color:rgba(240,120,0,.3);">
+          <span class="sched-time">16:00 – 17:30</span>
+          <span class="sched-label" style="color:var(--color-accent);">最終プレゼン + FB</span>
+        </div>
+        <div class="sched-item">
+          <span class="sched-time">17:30 – 18:00</span>
+          <span class="sched-label">クロージング</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 19. 最終発表の成果物 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>最終発表の<span class="accent">成果物</span></h2>
+      <div class="deliverables-grid">
+        <div class="deliverable-card">
+          <div class="deliverable-icon">&#x1F4CA;</div>
+          <h3>プレゼン資料</h3>
+          <p>3つの論点への解答を<br>ストーリーとして伝える</p>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-icon">&#x1F680;</div>
+          <h3>動くプロダクト</h3>
+          <p>AIで開発した<br>プロトタイプのデモ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 20. SPECIAL INVITATION ===== -->
+  <section class="slide slide-orange">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <span class="hero-eyebrow" style="color:#FFF;border-color:rgba(255,255,255,.4);">Special Invitation</span>
+    <h2 style="font-size:3.5rem;font-weight:900;line-height:1.4;">
+      優秀者には、特別なイベントに<br>招待します。
+    </h2>
+    <p style="font-size:var(--text-lg);margin-top:.5rem;opacity:.9;">
+      マーケティング、営業、ファイナンス。<br>各領域のプロフェッショナルから直接学べます。
+    </p>
+  </section>
+
+  <!-- ===== 21. メンターシステム ===== -->
+  <section class="slide slide-orange">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2 style="font-size:3.8rem;font-weight:900;line-height:1.4;">
+      1班に1人、<br>メンターがつきます。
+    </h2>
+    <p style="font-size:var(--text-xl);margin-top:1rem;opacity:.9;">
+      使い倒してください。
+    </p>
+  </section>
+
+  <!-- ===== 22. メンター紹介ヘッダー ===== -->
+  <section class="slide slide-content mentor-header">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <span class="person-role-tag" style="font-size:var(--text-sm);">Your Team</span>
+    <h2>Mentors</h2>
+    <p>あなたのチームを全力でサポートするメンターです。</p>
+  </section>
+
+  <!-- ===== 23. Hideki ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../shared/images/Hideki_メンター_画像.png" alt="Hideki">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Hideki</div>
+          <div class="person-dept">
+            株式会社プログリット<br>
+            <strong>法人営業部</strong>
+          </div>
+          <div class="person-hobby">趣味: サッカー、野球、将棋</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 24. Kosuke ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../shared/images/Kosuke_メンター_画像.jpg" alt="Kosuke">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Kosuke</div>
+          <div class="person-dept">
+            株式会社プログリット<br>
+            <strong>プロダクト戦略部 Analyticsグループ</strong>
+          </div>
+          <div class="person-hobby">趣味: AIと遊ぶこと</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 25. Yusuke ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../shared/images/Yusuke_メンター_画像.jpeg" alt="Yusuke">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Yusuke</div>
+          <div class="person-name-sub">森田 侑裕（もりた ゆうすけ）</div>
+          <div class="person-dept">
+            株式会社プログリット<br>
+            <strong>法人営業部</strong>
+          </div>
+          <div class="person-hobby">趣味: 漫才（見るじゃなくて、やる方）、麻雀、キャンプ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 26. Kanato ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../shared/images/kanato_メンター_画像.jpg" alt="Kanato">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Kanato</div>
+          <div class="person-name-sub">澤村 奏人（さわむら かなと）</div>
+          <div class="person-dept">
+            株式会社プログリット<br>
+            <strong>人事部</strong>
+          </div>
+          <div class="person-hobby">趣味: 宿代ゼロの海外旅行</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 27. アイスブレイク ===== -->
+  <section class="slide slide-content icebreak">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>チーム内自己紹介</h2>
+    <p style="font-size:var(--text-xl);">お互いの名前を覚えましょう。</p>
+    <span class="time-badge">5 min</span>
+  </section>
+
+  <!-- ===== 28. ワーク開始 ===== -->
+  <section class="slide mission-slide">
+    <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <span class="hero-eyebrow">Let's Start</span>
+    <div class="mission-title">
+      <span class="accent">ワーク開始</span>
+    </div>
+  </section>
+
+</div><!-- /.deck -->
+
+<div class="slide-ui">
+  <div class="slide-counter">01 / 28</div>
+  <div class="slide-nav">
+    <button id="btn-prev">&larr; Prev</button>
+    <button id="btn-next">Next &rarr;</button>
+    <button id="btn-pdf" title="PDF書き出し">PDF</button>
+    <button id="btn-fs" title="フルスクリーン (F)">&#x26F6;</button>
+  </div>
+</div>
+
+<script src="../engine/slide.js"></script>
+</body>
+</html>
