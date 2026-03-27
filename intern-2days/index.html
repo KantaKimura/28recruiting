@@ -83,8 +83,8 @@
       margin-top: .4rem;
     }
     .hero-logo-img {
-      height: 28px;
-      opacity: .6;
+      height: 46px;
+      opacity: 1;
     }
 
     /* =========================================================
@@ -148,12 +148,23 @@
     /* =========================================================
        ランディング
        ========================================================= */
-    .slide-landing { border-left-color: var(--color-accent); }
+    .slide-landing {
+      border-left: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-left: var(--sp-xl);
+    }
     .slide-landing h2 { color: #1A1A1A; }
 
     /* =========================================================
        セクション区切り
        ========================================================= */
+    .slide-section {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
     .slide-section h2 { color: #1A1A1A; }
     .slide-section p { color: #1A1A1A; }
 
@@ -231,7 +242,7 @@
       gap: 2rem;
     }
     .mission-title {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: 900;
       color: #1A1A1A;
       letter-spacing: -.02em;
@@ -537,7 +548,7 @@
   <section class="slide mission-slide">
     <img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="mission-title">
-      人の可能性を開花させる新規事業を立案し、<br>それを<span class="accent">AIで形にしてください</span>
+      人の可能性を開花させる<br>新規事業を立案し、<br>それを<span class="accent">AIで形にしてください</span>
     </div>
     <p class="mission-sub">
       課題を発見し、解決策を設計し、実際に動くプロダクトをAIで開発する。
