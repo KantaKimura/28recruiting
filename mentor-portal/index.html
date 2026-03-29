@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンターポータル — 2DAYS INTERNSHIP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans JP',sans-serif;background:#FAFAFA;color:#1A1A1A;min-height:100vh;}
+
+    /* ── Hero ── */
+    .hero{
+      background:linear-gradient(135deg,#FFF 0%,#FFF8F2 50%,#FFF 100%);
+      padding:3.5rem 2rem 3rem;
+      text-align:center;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .hero-badge{
+      display:inline-block;
+      font-size:.75rem;font-weight:700;letter-spacing:.25em;
+      color:#F07800;border:1.5px solid rgba(240,120,0,.4);
+      padding:.35rem 1.4rem;border-radius:100px;margin-bottom:1.2rem;
+    }
+    .hero h1{font-size:1.8rem;font-weight:900;line-height:1.4;margin-bottom:1.6rem;}
+    .hero h1 span{color:#F07800;}
+
+    /* ── Goal Card ── */
+    .goal{
+      max-width:760px;margin:0 auto;
+      background:#FFF;border:2px solid #F07800;border-radius:16px;
+      padding:2rem 2.4rem;text-align:left;position:relative;
+    }
+    .goal::before{
+      content:'GOAL';position:absolute;top:-14px;left:24px;
+      background:#F07800;color:#FFF;font-size:.7rem;font-weight:900;
+      letter-spacing:.2em;padding:.3rem 1rem;border-radius:6px;
+    }
+    .goal p{font-size:1.05rem;line-height:1.85;font-weight:500;}
+    .goal strong{color:#F07800;font-weight:900;}
+    .goal .sub{margin-top:.8rem;font-size:.9rem;color:#666;line-height:1.7;}
+
+    /* ── Nav Cards ── */
+    .nav-section{max-width:760px;margin:2.5rem auto;padding:0 1.5rem;}
+    .nav-section h2{font-size:1rem;font-weight:900;letter-spacing:.1em;color:#999;margin-bottom:1rem;}
+    .nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .nav-card{
+      display:block;text-decoration:none;color:#1A1A1A;
+      background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;
+      padding:1.6rem 1.8rem;transition:all .2s;
+    }
+    .nav-card:hover{border-color:#F07800;box-shadow:0 4px 20px rgba(240,120,0,.1);transform:translateY(-2px);}
+    .nav-card .icon{font-size:1.6rem;margin-bottom:.6rem;}
+    .nav-card h3{font-size:1.05rem;font-weight:900;margin-bottom:.4rem;}
+    .nav-card p{font-size:.82rem;color:#888;line-height:1.5;}
+    .nav-card-wide{grid-column:1/-1;}
+
+    /* ── Footer ── */
+    .footer{text-align:center;padding:2rem;font-size:.75rem;color:#CCC;}
+
+    @media(max-width:600px){
+      .nav-grid{grid-template-columns:1fr;}
+      .hero h1{font-size:1.4rem;}
+      .goal{padding:1.4rem 1.6rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">MENTOR PORTAL</div>
+  <h1>AI × Zero to One<br><span>2DAYS INTERNSHIP</span><br>メンターガイド</h1>
+</div>
+
+<div style="max-width:760px;margin:0 auto;padding:2rem 1.5rem 0;">
+  <div class="goal">
+    <p>
+      学生が「この会社の人は<strong>優秀である</strong>」「<strong>その上で、かつ温かい</strong>」「<strong>熱量が高い</strong>」と感じて帰ること。
+    </p>
+    <p class="sub">
+      そのために、<strong>問いかけの質</strong>で知性を見せ、<strong>ポジティブな声がけ</strong>で温かさを見せ、<strong>最後まで一緒に走る姿勢</strong>で熱量を見せる。
+    </p>
+  </div>
+</div>
+
+<div class="nav-section">
+  <h2>CONTENTS</h2>
+  <div class="nav-grid">
+
+    <a class="nav-card" href="./frameworks.html">
+      <div class="icon">&#128218;</div>
+      <h3>フレームワーク集</h3>
+      <p>ジョブ理論・構造化思考・コンセプトの型・プレゼンの型。フェーズ別の問いかけマップ付き。</p>
+    </a>
+
+    <a class="nav-card" href="./evaluation.html">
+      <div class="icon">&#128203;</div>
+      <h3>評価基準</h3>
+      <p>Must 4項目 + Type 2項目。3段階評価の具体的な行動指標と総合判定の考え方。</p>
+    </a>
+
+    <a class="nav-card nav-card-wide" href="../intern-2days/" target="_blank">
+      <div class="icon">&#127916;</div>
+      <h3>インターン当日スライド</h3>
+      <p>学生に投影する当日のプレゼン資料。プログラム概要・フレームワーク講義・スケジュール等。</p>
+    </a>
+
+  </div>
+</div>
+
+<div style="max-width:760px;margin:0 auto;padding:1rem 1.5rem 0;">
+  <div style="background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;padding:1.6rem 1.8rem;">
+    <h3 style="font-size:.95rem;font-weight:900;margin-bottom:.8rem;">DO / DON'T</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:.85rem;line-height:1.7;">
+      <div>
+        <div style="font-weight:700;color:#2E9E5A;margin-bottom:.4rem;">DO</div>
+        <ul style="padding-left:1.2rem;color:#444;">
+          <li>問いかけで思考を深める</li>
+          <li>具体例で考えさせる</li>
+          <li>「手を動かそう」と促す</li>
+          <li>良い点を具体的に褒める</li>
+          <li>全員に発言機会を作る</li>
+          <li>学生に判断させる</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#D32F2F;margin-bottom:.4rem;">DON'T</div>
+        <ul style="padding-left:1.2rem;color:#444;">
+          <li>答えを直接教える</li>
+          <li>抽象的な指摘で終わる</li>
+          <li>手が止まるのを放置する</li>
+          <li>ダメ出しばかりする</li>
+          <li>自分が主役になる</li>
+          <li>方向性を決めてしまう</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">PROGRIT Inc. — 28 Intern Mentor Portal</div>
+
+</body>
+</html>

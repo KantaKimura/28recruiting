@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フレームワーク集 — メンターポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans JP',sans-serif;background:#FAFAFA;color:#1A1A1A;}
+
+    /* ── Header ── */
+    .header{
+      background:#FFF;border-bottom:1px solid rgba(0,0,0,.06);
+      padding:1rem 2rem;display:flex;align-items:center;gap:1rem;
+      position:sticky;top:0;z-index:100;
+    }
+    .header a{text-decoration:none;color:#F07800;font-size:.85rem;font-weight:700;}
+    .header h1{font-size:1.1rem;font-weight:900;}
+
+    /* ── Content ── */
+    .content{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+    /* ── TOC ── */
+    .toc{
+      background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;
+      padding:1.4rem 1.8rem;margin-bottom:2.5rem;
+    }
+    .toc h2{font-size:.8rem;font-weight:900;color:#999;letter-spacing:.15em;margin-bottom:.8rem;}
+    .toc ol{padding-left:1.4rem;font-size:.9rem;line-height:2;}
+    .toc a{color:#F07800;text-decoration:none;font-weight:700;}
+    .toc a:hover{text-decoration:underline;}
+
+    /* ── Section ── */
+    .section{margin-bottom:3rem;}
+    .section-badge{
+      display:inline-block;font-size:.7rem;font-weight:900;letter-spacing:.2em;
+      color:#FFF;background:#F07800;padding:.25rem .9rem;border-radius:6px;
+      margin-bottom:.6rem;
+    }
+    .section h2{font-size:1.35rem;font-weight:900;margin-bottom:1rem;line-height:1.4;}
+    .section h3{font-size:1.05rem;font-weight:900;margin:1.5rem 0 .6rem;color:#F07800;}
+
+    /* ── Card ── */
+    .card{
+      background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;
+      padding:1.5rem 1.8rem;margin-bottom:1rem;
+    }
+    .card h4{font-size:.95rem;font-weight:900;margin-bottom:.5rem;}
+    .card p,.card li{font-size:.88rem;line-height:1.8;color:#444;}
+    .card ul,.card ol{padding-left:1.4rem;}
+    .card .label{
+      display:inline-block;font-size:.7rem;font-weight:700;
+      color:#F07800;background:rgba(240,120,0,.08);
+      padding:.15rem .6rem;border-radius:4px;margin-bottom:.4rem;
+    }
+
+    /* ── Example Callout ── */
+    .example{
+      background:rgba(240,120,0,.04);border-left:3px solid #F07800;
+      border-radius:0 10px 10px 0;padding:1.2rem 1.5rem;margin:.8rem 0;
+    }
+    .example p,.example li{font-size:.85rem;line-height:1.8;color:#555;}
+    .example strong{color:#1A1A1A;}
+    .example .bad{color:#D32F2F;}
+    .example .good{color:#2E9E5A;}
+
+    /* ── Phase Table ── */
+    .phase-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.8rem 0;}
+    .phase-table th{
+      background:rgba(240,120,0,.08);text-align:left;
+      padding:.6rem .8rem;font-weight:700;font-size:.8rem;
+      border-bottom:2px solid #F07800;
+    }
+    .phase-table td{padding:.7rem .8rem;border-bottom:1px solid #F0F0F0;vertical-align:top;line-height:1.6;}
+    .phase-table tr:hover{background:rgba(240,120,0,.02);}
+
+    .divider{border:none;border-top:1px solid #E8E8E8;margin:2.5rem 0;}
+
+    @media(max-width:600px){
+      .content{padding:1.2rem 1rem 3rem;}
+      .card{padding:1.2rem 1.4rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <a href="./index.html">&larr; ポータルに戻る</a>
+  <h1>フレームワーク集</h1>
+</div>
+
+<div class="content">
+
+<!-- TOC -->
+<div class="toc">
+  <h2>CONTENTS</h2>
+  <ol>
+    <li><a href="#job-theory">ジョブ理論</a> — 課題発見の武器</li>
+    <li><a href="#structured">構造化思考</a> — 全フェーズで使える武器</li>
+    <li><a href="#concept">コンセプトの型</a> — ソリューション設計の武器</li>
+    <li><a href="#newbiz">新規事業の4つの発想軸</a></li>
+    <li><a href="#presentation">伝わるプレゼンの型</a></li>
+    <li><a href="#phase-map">フェーズ別 問いかけマップ</a></li>
+  </ol>
+</div>
+
+<!-- ===== 1. ジョブ理論 ===== -->
+<div class="section" id="job-theory">
+  <span class="section-badge">FRAMEWORK 01</span>
+  <h2>ジョブ理論</h2>
+  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1rem;">顧客はプロダクトを「購入」するのではなく、<strong>進歩するために「雇用」する</strong>。</p>
+
+  <div class="card">
+    <h4>5つの問い</h4>
+    <ol>
+      <li>その人が成し遂げようとしている<strong>進歩</strong>は何か？（機能的・社会的・感情的側面）</li>
+      <li><strong>苦心している状況</strong>は何か？（誰が・いつ・どこで・何をしている時）</li>
+      <li>進歩を阻む<strong>障害物</strong>は何か？</li>
+      <li><strong>不完全な解決策で我慢</strong>していないか？</li>
+      <li>より良い解決策のために<strong>トレードオフにしていいもの</strong>は何か？</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <p><strong>活用例:</strong> 学生が「英語学習で困っている人向けのアプリ」と言ったら</p>
+    <p class="bad">&#10060; そのまま進めさせる</p>
+    <p class="good">&#9989; 以下の順番で問いかける：</p>
+    <ol>
+      <li>「英語学習で困っている人って、具体的に<strong>誰</strong>？」（問い②）</li>
+      <li>「その人は<strong>今どうやって</strong>勉強してる？」（問い④）</li>
+      <li>「それで<strong>なぜ上手くいってない</strong>の？」（問い③）</li>
+      <li>「本当に求めている<strong>進歩</strong>って何？」（問い①）</li>
+      <li>「その進歩のためなら、<strong>何を犠牲にしてもいい</strong>？」（問い⑤）</li>
+    </ol>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 2. 構造化思考 ===== -->
+<div class="section" id="structured">
+  <span class="section-badge">FRAMEWORK 02</span>
+  <h2>構造化思考</h2>
+
+  <div class="card">
+    <h4>基本フロー</h4>
+    <p><strong>キークエスチョン → 論点分解 → 仮説構築 → 検証</strong></p>
+    <p style="margin-top:.5rem;">キークエスチョン: 「誰が」「どのような状態になっている必要があるか」を疑問形に</p>
+  </div>
+
+  <div class="card">
+    <h4>論点分解の4つの方法</h4>
+    <ol>
+      <li><strong>文章を区切る</strong> — キークエスチョン自体を構成要素に分割</li>
+      <li><strong>フレームワーク活用</strong> — 3C、4P、SWOT等で網羅性を担保</li>
+      <li><strong>前提条件で分解（そもそも分解）</strong> — 「そもそもその判断の前提は？」</li>
+      <li><strong>通念的概念で分解</strong> — 現在/未来、ソフト/ハード、静的/動的 等</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4>論理性の4チェック</h4>
+    <ul>
+      <li>問いを外していないか？</li>
+      <li>漏れがないか？</li>
+      <li>飛躍がないか？</li>
+      <li>ファクトが正しいか？</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>活用例:</strong> 学生が「就活がうまくいかない人を助けたい」と言ったら</p>
+    <p>&#9758; 「構造化しよう。"就活がうまくいかない"って、具体的に何がゴール？<strong>"誰が、どのような状態になっていれば成功なのか"</strong>を疑問形にしてみて」</p>
+    <p style="margin-top:.4rem;">&#9758; 「じゃあそのキークエスチョンを解くために、明らかにすべきことは？<strong>論点に分解して</strong>」</p>
+    <p style="margin-top:.4rem;">&#9758; 「この3つのうち、<strong>一番本質的なボトルネック</strong>はどれ？そこにAIで解決策を当てよう」</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 3. コンセプトの型 ===== -->
+<div class="section" id="concept">
+  <span class="section-badge">FRAMEWORK 03</span>
+  <h2>コンセプトの型</h2>
+
+  <div class="card">
+    <h4>Who × What × How</h4>
+    <ul>
+      <li><strong>Who</strong> — 名前がつけられるレベルで具体的に</li>
+      <li><strong>Insight</strong> — 本人が気づいていない、行動の裏にある本当の動機</li>
+      <li><strong>Benefit</strong> — 機能的価値 + 感情的価値 + 社会的価値</li>
+      <li><strong>RTB</strong> — なぜ自分たちにそれが実現できるのか</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>活用例:</strong> 学生が「面接練習をAIでやるアプリ」と言ったら</p>
+    <ol>
+      <li><strong>Who</strong>を具体化: 「<strong>誰</strong>が使う？初めての面接で緊張する人？何社も落ちて改善点がわからない人？」</li>
+      <li><strong>Insight</strong>を探る: 「本当に欲しいのは"面接練習の場"？"自分の何がダメなのか客観的に知りたい"ってこと？」</li>
+      <li><strong>Benefit</strong>を言語化: 「機能的には"AI面接官と練習できる"。感情的な価値は？社会的な価値は？」</li>
+      <li><strong>RTB</strong>を確認: 「AIだから実現できる理由は何？"24時間""何回でも""客観スコア"」</li>
+    </ol>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 4. 新規事業の4つの発想軸 ===== -->
+<div class="section" id="newbiz">
+  <span class="section-badge">FRAMEWORK 04</span>
+  <h2>新規事業の4つの発想軸</h2>
+
+  <div class="card">
+    <ol>
+      <li><strong>ニーズから</strong> — ペインポイント・アンメットニーズから</li>
+      <li><strong>シーズから</strong> — 既存アセット（今回はAI）を活かして</li>
+      <li><strong>バリューチェーンから</strong> — 川上・川下の収益プール</li>
+      <li><strong>メガトレンドから</strong> — 環境変化・技術変化</li>
+    </ol>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 5. プレゼンの型 ===== -->
+<div class="section" id="presentation">
+  <span class="section-badge">FRAMEWORK 05</span>
+  <h2>伝わるプレゼンの型</h2>
+
+  <div class="card">
+    <h4>基本構成</h4>
+    <ol>
+      <li><strong>前提を揃える</strong>（聞き手のレベル・スコープを定める）</li>
+      <li><strong>結論・主張</strong>（一言で。＋聞き手に期待するアクション）</li>
+      <li><strong>根拠・理由</strong>（3つに絞る。客観的事実で構築）</li>
+      <li><strong>補足情報</strong>（本編から切り離す）</li>
+      <li><strong>結論の再提示＋アクション</strong></li>
+    </ol>
+    <p style="margin-top:.6rem;font-size:.85rem;color:#666;">相手が知りたいこと（課題の深刻さ）から始めて、自分が伝えたいこと（プロダクトの価値）につなげる。余計な情報を削ぎ落として一本道のストーリーを作る。</p>
+  </div>
+
+  <div class="example">
+    <p><strong>学生のプレゼンが「機能説明の羅列」になっていたら：</strong></p>
+    <p class="bad">&#10060; 「まず画面を見せて、この機能があって、次にこの機能があって…」</p>
+    <p class="good">&#9989; 「プレゼンの順番を変えよう」</p>
+    <ol>
+      <li>「皆さん、○○で困った経験ありませんか？」（前提を揃える）</li>
+      <li>「私たちは○○を作りました。一言で言うと"△△"です」（結論）</li>
+      <li>「なぜこれが必要か。理由は3つ」（根拠）</li>
+      <li>「実際に見てください」— 一番"おっ"となるシーンから見せる（デモ）</li>
+      <li>「このプロダクトが広がれば、○○な世界が実現します」（アクション）</li>
+    </ol>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 6. フェーズ別 問いかけマップ ===== -->
+<div class="section" id="phase-map">
+  <span class="section-badge">PRACTICE</span>
+  <h2>フェーズ別 問いかけマップ</h2>
+  <p style="font-size:.88rem;color:#666;margin-bottom:1.5rem;">各フェーズで「この問いを投げれば学生の思考が動く」という問いかけ集。</p>
+
+  <!-- Phase 1 -->
+  <h3>Phase 1: 課題発見</h3>
+  <p style="font-size:.82rem;color:#999;margin-bottom:.6rem;">ジョブ理論 + 構造化思考</p>
+
+  <div class="card">
+    <span class="label">序盤 — テーマ選定</span>
+    <table class="phase-table">
+      <tr><th style="width:55%">問いかけ</th><th>狙い</th></tr>
+      <tr><td>「直近1週間で、<strong>自分自身が</strong>一番イラっとしたことは？」</td><td>原体験からテーマを出させる</td></tr>
+      <tr><td>「それ、<strong>周りの人も同じように困ってる</strong>？」</td><td>個人的な不満→市場性のある課題へ</td></tr>
+      <tr><td>「一番<strong>"切実度"が高い</strong>のはどれ？」</td><td>ペインの深さで選ばせる</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <span class="label">中盤 — ターゲット具体化</span>
+    <table class="phase-table">
+      <tr><th style="width:55%">問いかけ</th><th>狙い</th></tr>
+      <tr><td>「その人に<strong>名前</strong>つけられる？年齢、職業、どんな生活？」</td><td>ペルソナの具体化</td></tr>
+      <tr><td>「その人は今、<strong>どうやって解決しようとしてる</strong>？」</td><td>既存の代替手段を把握</td></tr>
+      <tr><td>「その解決策の<strong>何が不満</strong>？時間？お金？効果？」</td><td>ペインの解像度を上げる</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <span class="label">終盤 — 仮説構築</span>
+    <table class="phase-table">
+      <tr><th style="width:55%">問いかけ</th><th>狙い</th></tr>
+      <tr><td>「ここまでの話を<strong>一文にまとめて</strong>」</td><td>課題仮説の言語化</td></tr>
+      <tr><td>「その仮説が正しいかどうか、<strong>どうやって検証する</strong>？」</td><td>仮説思考を鍛える</td></tr>
+      <tr><td>「本当の<strong>"進歩"</strong>って何？根本的な欲求は？」</td><td>機能的→感情的・社会的ジョブへ</td></tr>
+    </table>
+  </div>
+
+  <!-- Phase 2 -->
+  <h3>Phase 2: ソリューション設計</h3>
+  <p style="font-size:.82rem;color:#999;margin-bottom:.6rem;">新規事業 + コンセプトの型 + 構造化思考</p>
+
+  <div class="card">
+    <table class="phase-table">
+      <tr><th style="width:55%">問いかけ</th><th>狙い</th></tr>
+      <tr><td>「AIを使わなくても同じことできない？<strong>AIだから初めて可能になること</strong>は？」</td><td>AIの必然性を確認</td></tr>
+      <tr><td>「<strong>Who × What × How</strong>で説明して」</td><td>コンセプトの整理</td></tr>
+      <tr><td>「最初の30秒で<strong>"おっ"となる機能</strong>はどれ？それだけ作ろう」</td><td>MVP定義</td></tr>
+      <tr><td>「課題を<strong>3つの論点</strong>に分解して」</td><td>構造的に考えさせる</td></tr>
+      <tr><td>「同じ課題の<strong>既存サービス</strong>は？違いは？」</td><td>競争優位性の確認</td></tr>
+    </table>
+  </div>
+
+  <!-- Phase 3 -->
+  <h3>Phase 3: プロダクト開発</h3>
+  <p style="font-size:.82rem;color:#999;margin-bottom:.6rem;">行動の加速が最重要</p>
+
+  <div class="card">
+    <table class="phase-table">
+      <tr><th style="width:55%">問いかけ</th><th>タイミング</th></tr>
+      <tr><td>「それ、<strong>AIに聞いたら30分で終わらない？</strong>」</td><td>手作業で時間をかけている時</td></tr>
+      <tr><td>「<strong>今一番不安なところ</strong>はどこ？そこから潰そう」</td><td>何から手をつけるか迷っている時</td></tr>
+      <tr><td>「初めて使う人は<strong>最初に何をする</strong>？その体験を作ろう」</td><td>機能を作り込みすぎている時</td></tr>
+      <tr><td>「完璧じゃなくていい。<strong>60点で一旦見せて</strong>」</td><td>なかなか形にならない時</td></tr>
+      <tr><td>「ユーザー1人に見せたら<strong>最初に何て言う</strong>？」</td><td>Day2の磨き込みフェーズ</td></tr>
+    </table>
+  </div>
+
+  <!-- Phase 4 -->
+  <h3>Phase 4: プレゼン準備</h3>
+  <p style="font-size:.82rem;color:#999;margin-bottom:.6rem;">伝わるプレゼンの型</p>
+
+  <div class="card">
+    <table class="phase-table">
+      <tr><th style="width:55%">問いかけ</th><th>狙い</th></tr>
+      <tr><td>「ショウゴさんは<strong>経営者として何を知りたいと思う</strong>？」</td><td>聞き手視点での構成</td></tr>
+      <tr><td>「聞いた後に<strong>どう動いてほしい</strong>？」</td><td>アクションの明確化</td></tr>
+      <tr><td>「結論を<strong>一言</strong>で。言えないならまだ整理できてない」</td><td>クリスタライズ</td></tr>
+      <tr><td>「根拠は<strong>3つ</strong>に絞ろう。事実ベースで」</td><td>根拠の客観性</td></tr>
+      <tr><td>「<strong>補足情報は全部後ろに回そう</strong>。本編は一本道」</td><td>情報の取捨選択</td></tr>
+      <tr><td>「ショウゴさんは <strong>①課題の深さ ②作ると考えるのバランス ③チーム貢献</strong> を見ている」</td><td>評価観点のヒント</td></tr>
+    </table>
+  </div>
+</div>
+
+<div style="text-align:center;padding:2rem 0;">
+  <a href="./index.html" style="color:#F07800;font-weight:700;text-decoration:none;">&larr; ポータルに戻る</a>
+</div>
+
+</div>
+</body>
+</html>

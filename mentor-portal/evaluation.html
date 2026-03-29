@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>評価基準 — メンターポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans JP',sans-serif;background:#FAFAFA;color:#1A1A1A;}
+
+    .header{
+      background:#FFF;border-bottom:1px solid rgba(0,0,0,.06);
+      padding:1rem 2rem;display:flex;align-items:center;gap:1rem;
+      position:sticky;top:0;z-index:100;
+    }
+    .header a{text-decoration:none;color:#F07800;font-size:.85rem;font-weight:700;}
+    .header h1{font-size:1.1rem;font-weight:900;}
+
+    .content{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+    .intro{
+      background:#FFF;border:2px solid #F07800;border-radius:14px;
+      padding:1.5rem 1.8rem;margin-bottom:2.5rem;position:relative;
+    }
+    .intro::before{
+      content:'OVERVIEW';position:absolute;top:-14px;left:24px;
+      background:#F07800;color:#FFF;font-size:.7rem;font-weight:900;
+      letter-spacing:.2em;padding:.25rem .9rem;border-radius:6px;
+    }
+    .intro p{font-size:.95rem;line-height:1.8;}
+    .intro strong{color:#F07800;}
+
+    /* ── Criteria Card ── */
+    .criteria{
+      background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;
+      padding:1.8rem 2rem;margin-bottom:1.5rem;
+    }
+    .criteria-num{
+      display:inline-block;font-size:.7rem;font-weight:900;letter-spacing:.15em;
+      padding:.2rem .7rem;border-radius:5px;margin-bottom:.5rem;
+    }
+    .criteria-must .criteria-num{background:rgba(240,120,0,.1);color:#F07800;}
+    .criteria-type .criteria-num{background:rgba(59,130,246,.1);color:#3B82F6;}
+    .criteria h2{font-size:1.15rem;font-weight:900;margin-bottom:1rem;}
+
+    .grade{margin-bottom:.8rem;}
+    .grade-label{
+      display:inline-block;font-size:.75rem;font-weight:900;
+      padding:.15rem .5rem;border-radius:4px;margin-bottom:.3rem;
+    }
+    .grade-good .grade-label{background:rgba(46,158,90,.1);color:#2E9E5A;}
+    .grade-mid .grade-label{background:rgba(245,158,11,.1);color:#B45309;}
+    .grade-bad .grade-label{background:rgba(211,47,47,.1);color:#D32F2F;}
+    .grade p{font-size:.88rem;line-height:1.8;color:#444;}
+
+    .divider{border:none;border-top:1px solid #E8E8E8;margin:0;}
+
+    /* ── Judgment ── */
+    .judgment{
+      background:linear-gradient(135deg,#FFF8F2,#FFF);
+      border:2px solid #F07800;border-radius:14px;
+      padding:1.8rem 2rem;margin-top:2rem;
+    }
+    .judgment h2{font-size:1.15rem;font-weight:900;margin-bottom:1rem;color:#F07800;}
+    .judgment-grid{display:grid;grid-template-columns:90px 1fr;gap:.3rem .8rem;font-size:.9rem;line-height:1.8;}
+    .judgment-rank{font-weight:900;}
+    .judgment-s{color:#F07800;}
+    .judgment-a{color:#2E9E5A;}
+    .judgment-b{color:#3B82F6;}
+    .judgment-ng{color:#D32F2F;}
+    .judgment .note{
+      margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(240,120,0,.2);
+      font-size:.85rem;color:#666;line-height:1.7;
+    }
+    .judgment .note strong{color:#D32F2F;}
+
+    @media(max-width:600px){
+      .content{padding:1.2rem 1rem 3rem;}
+      .criteria{padding:1.4rem 1.4rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <a href="./index.html">&larr; ポータルに戻る</a>
+  <h1>評価基準</h1>
+</div>
+
+<div class="content">
+
+<div class="intro">
+  <p><strong>Must 4項目 + Type 2項目 = 計6項目</strong><br>各項目を3段階（&#9678; / &#9651; / &#10005;）で評価</p>
+</div>
+
+<!-- ===== Must① ===== -->
+<div class="criteria criteria-must">
+  <span class="criteria-num">MUST 01</span>
+  <h2>成果への執着</h2>
+  <div class="grade grade-good">
+    <span class="grade-label">&#9678; 非常にいい状態</span>
+    <p>「これで終わり」にしない。最終プレゼンの直前まで質を追い込んでいる。チームの議論が「まあこれでいいか」という空気になったとき、「もう一段上げられないか」と問いかける。ワークの冒頭で「何をもってゴールとするか」を自ら定義しにいく。</p>
+  </div>
+  <div class="grade grade-mid">
+    <span class="grade-label">&#9651; NGではない状態</span>
+    <p>与えられたタスクには真面目に取り組んでいる。手を抜いている様子はない。ただし、自分から基準を上げにいく動きはない。時間が来たら「できた範囲で出す」という姿勢。</p>
+  </div>
+  <div class="grade grade-bad">
+    <span class="grade-label">&#10005; NG</span>
+    <p>途中で明らかに諦める。「時間ないし、こんなもんでしょ」という発言や態度。アウトプットの質に対するこだわりが見えず、完成させること自体が目的になっている。</p>
+  </div>
+</div>
+
+<!-- ===== Must② ===== -->
+<div class="criteria criteria-must">
+  <span class="criteria-num">MUST 02</span>
+  <h2>素直さ</h2>
+  <div class="grade grade-good">
+    <span class="grade-label">&#9678; 非常にいい状態</span>
+    <p>メンターや社員からのFBを受けて、<strong>Day2で明確に行動が変わっている</strong>。単に言われた通りにするのではなく、FBの意図を自分なりに解釈し、自分のやり方にアレンジして取り入れている。チーム内でも、他メンバーの良い意見に「それいいね、そっちでいこう」と自然に乗れる。</p>
+  </div>
+  <div class="grade grade-mid">
+    <span class="grade-label">&#9651; NGではない状態</span>
+    <p>FBに対して「なるほど」と反応はするが、行動の変化が限定的。部分的には取り入れているが、根本的には自分のやり方を変えていない。悪気はないが、吸収のスピードが遅い。</p>
+  </div>
+  <div class="grade grade-bad">
+    <span class="grade-label">&#10005; NG</span>
+    <p>FBに対して防御的になる。「いや、それは○○だから」と言い訳が先に出る。あるいは表面的に「わかりました」と言いながら、次のアウトプットが何も変わっていない。</p>
+  </div>
+</div>
+
+<!-- ===== Must③ ===== -->
+<div class="criteria criteria-must">
+  <span class="criteria-num">MUST 03</span>
+  <h2>自責思考</h2>
+  <div class="grade grade-good">
+    <span class="grade-label">&#9678; 非常にいい状態</span>
+    <p>ワークがうまくいかなかったとき、<strong>真っ先に「自分が何を変えればいいか」の話をする</strong>。「さっきの議論が散らかったのは、自分が最初に論点を整理すべきだった」のように、改善の主語が自分。振り返りでチーム全体の結果に対して当事者として語れる。</p>
+  </div>
+  <div class="grade grade-mid">
+    <span class="grade-label">&#9651; NGではない状態</span>
+    <p>自分の担当部分についてはちゃんと責任を感じている。ただし、チーム全体の結果については「自分の範囲は頑張った」で止まる。当事者意識のスコープが自分の担当に閉じている。</p>
+  </div>
+  <div class="grade grade-bad">
+    <span class="grade-label">&#10005; NG</span>
+    <p>うまくいかなかった原因を外に求める。「チームメンバーが」「時間が」「お題が」が主語になる。最悪のケースは、チーム内で他のメンバーのせいにする発言が出ること。</p>
+  </div>
+</div>
+
+<!-- ===== Must④ ===== -->
+<div class="criteria criteria-must">
+  <span class="criteria-num">MUST 04</span>
+  <h2>チームワーク</h2>
+  <div class="grade grade-good">
+    <span class="grade-label">&#9678; 非常にいい状態</span>
+    <p><strong>チームの成果を最大化するために自分の役割を柔軟に変えられる</strong>。発言が少ないメンバーに意見を求める。自分が得意でない領域は素直に任せる。必要であれば空気を壊してでも異論を言える。プレゼン後に他者の貢献に自然に言及する。</p>
+  </div>
+  <div class="grade grade-mid">
+    <span class="grade-label">&#9651; NGではない状態</span>
+    <p>チームの中で自分の役割は果たしている。協力的で揉め事は起こさない。ただし、チームの力を引き出す動きはなく、自分の持ち場を守っている印象。</p>
+  </div>
+  <div class="grade grade-bad">
+    <span class="grade-label">&#10005; NG</span>
+    <p>独走型（合意を無視して一人で進める）、フリーライド型（議論に参加せず他人の成果に乗る）、偽の協調型（衝突を恐れ全てに同意）、政治型（自分が目立つためにチームを利用）のいずれかに該当。</p>
+  </div>
+</div>
+
+<!-- ===== Type⑤ ===== -->
+<div class="criteria criteria-type">
+  <span class="criteria-num">TYPE 05</span>
+  <h2>意思決定力（牽引型の特徴）</h2>
+  <div class="grade grade-good">
+    <span class="grade-label">&#9678; 非常にいい状態</span>
+    <p>チームの議論が止まったとき、<strong>最初に「こっちでいこう」と方向を示す</strong>。情報が不十分でも仮説を立てて判断できる。決めた後にブレない。「まずやってみて、ダメなら変えよう」と前に進められる。</p>
+  </div>
+  <div class="grade grade-mid">
+    <span class="grade-label">&#9651; NGではない状態</span>
+    <p>自分で判断する場面はあるが、大きな意思決定では様子を見る。他の誰かが方向を示した後に賛同して動くタイプ。</p>
+  </div>
+  <div class="grade grade-bad">
+    <span class="grade-label">&#10005; NG</span>
+    <p>判断を先送りする。「もう少し情報を集めてから」「みんなどう思う？」で時間を消費。決めた後にすぐ覆す。</p>
+  </div>
+  <p style="font-size:.82rem;color:#999;margin-top:.5rem;">※参謀型の学生はここが低い場合でも一定許容。Type⑥とセットで判断する。</p>
+</div>
+
+<!-- ===== Type⑥ ===== -->
+<div class="criteria criteria-type">
+  <span class="criteria-num">TYPE 06</span>
+  <h2>構造化思考力（参謀型の特徴）</h2>
+  <div class="grade grade-good">
+    <span class="grade-label">&#9678; 非常にいい状態</span>
+    <p>ワーク開始直後に<strong>「この問題は○○と○○に分解できる」と問題の構造を示す</strong>。議論が散らかったとき交通整理ができる。最終プレゼンのロジック構造が明快。物事を抽象化して本質を掴む力がある。</p>
+  </div>
+  <div class="grade grade-mid">
+    <span class="grade-label">&#9651; NGではない状態</span>
+    <p>論理的に考えようとする姿勢はある。ただし構造化が浅い。「要するに何が本質か」まで到達していない。プレゼンのロジックに飛躍がある。</p>
+  </div>
+  <div class="grade grade-bad">
+    <span class="grade-label">&#10005; NG</span>
+    <p>思いつきベースで発言する。議論に構造がなく、論点が散らかっていることに気づいていない。最終プレゼンが「言いたいことの羅列」。</p>
+  </div>
+  <p style="font-size:.82rem;color:#999;margin-top:.5rem;">※牽引型の学生はここが低い場合でも一定許容。Type⑤とセットで判断する。</p>
+</div>
+
+<!-- ===== 総合判定 ===== -->
+<div class="judgment">
+  <h2>総合判定</h2>
+  <div class="judgment-grid">
+    <span class="judgment-rank judgment-s">S-class</span>
+    <span>Must 4項目のうち3つ以上が&#9678; + Type いずれかが&#9678;</span>
+    <span class="judgment-rank judgment-a">A-class</span>
+    <span>Must 4項目のうち2つ以上が&#9678;</span>
+    <span class="judgment-rank judgment-b">B-class</span>
+    <span>全項目が&#9651;以上（&#10005;がない）</span>
+    <span class="judgment-rank judgment-ng">不合格</span>
+    <span>Must のいずれかが&#10005;</span>
+  </div>
+  <div class="note">
+    <p><strong>原則：Must項目に&#10005;が一つでもあれば、Typeがどれだけ高くても不合格。</strong></p>
+    <p>Must 4つは「プログリットで活躍するための最低条件」。ここを妥協すると、入社後に組織の足を引っ張る。</p>
+    <p style="margin-top:.5rem;font-size:.82rem;color:#999;">※本基準は2daysインターン時点の初回評価。面接フェーズで改めて調整する前提。</p>
+  </div>
+</div>
+
+<div style="text-align:center;padding:2rem 0;">
+  <a href="./index.html" style="color:#F07800;font-weight:700;text-decoration:none;">&larr; ポータルに戻る</a>
+</div>
+
+</div>
+</body>
+</html>
