@@ -38,7 +38,7 @@
   top: 0; left: 0; right: 0; bottom: 0;
   display: flex;
   flex-direction: column;
-  padding: 48px 56px 40px;
+  padding: 32px 40px;
 }
 
 /* 見出し: 全ページ共通固定位置 top:48px */
@@ -108,6 +108,10 @@
 }
 
 /* --- 100k固定センター --- */
+.slide.slide-100k {
+  background: #FFFFFF !important;
+  color: #1A1A1A !important;
+}
 .slide-100k {
   position: relative !important;
   background: #FFFFFF !important;
@@ -180,7 +184,7 @@
 
 /* --- 2つの基準 --- */
 .cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
-.cr-card { padding: 48px 40px; border-radius: 16px; border-top: 4px solid #F07800; background: #F8F8F8; border-left: 1px solid #E8E8E8; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; display: flex; flex-direction: column; gap: 16px; }
+.cr-card { padding: 48px 40px; border-radius: 16px; border-top: 4px solid #F07800; background: #F8F8F8; border-left: 1px solid #E8E8E8; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
 .cr-num { font-size: 2.8rem; font-weight: 900; font-family: var(--font-mono); color: #F07800 !important; }
 .cr-card h3 { font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
 
@@ -266,7 +270,7 @@
 
 /* --- 10年 4項目 --- */
 .y10-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
-.y10-item { display: flex; align-items: flex-start; gap: 20px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 14px; padding: 32px 28px; }
+.y10-item { display: flex; align-items: center; justify-content: center; gap: 20px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 14px; padding: 32px 28px; }
 .y10-num { font-family: var(--font-mono); font-weight: 900; color: #F07800 !important; font-size: 2.8rem; flex-shrink: 0; line-height: 1; }
 .y10-item span { font-size: 1.4rem; font-weight: 700; line-height: 1.6; }
 
@@ -340,12 +344,12 @@
 .img-fan {
   flex: 1;
   position: relative;
-  min-height: 90px;
+  min-height: 120px;
 }
 .fan-img {
   position: absolute;
-  width: 130px;
-  height: 88px;
+  width: 160px;
+  height: 110px;
   object-fit: cover;
   border-radius: 4px;
   border: 1.5px solid #DDD;
@@ -360,9 +364,9 @@
   flex: 1;
   gap: 40px;
 }
-.lecture-text { flex: 0 0 auto; z-index: 2; display: flex; flex-direction: column; gap: 16px; }
-.lecture-eyebrow { font-size: .75rem; font-family: var(--font-mono); color: #F07800 !important; letter-spacing: .2em; }
-.lecture-title { font-size: 2rem; font-weight: 900; line-height: 1.5; }
+.lecture-text { flex: 0 0 auto; z-index: 2; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+.lecture-eyebrow { font-size: .85rem; font-family: var(--font-mono); color: #F07800 !important; letter-spacing: .2em; }
+.lecture-title { font-size: 2.4rem; font-weight: 900; line-height: 1.5; }
 .lecture-title .accent { color: #F07800 !important; }
 .lecture-imgs { flex: 1; position: relative; height: 420px; }
 .lecture-img-card {
@@ -465,7 +469,7 @@
 
 <!-- 08 市場価値を上げる -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg"><span class="accent">「自分の市場価値を上げる」</span></p>
+<p class="imp-msg" style="font-size:4rem;"><span class="accent">「自分の市場価値を上げる」</span></p>
 <p class="imp-sub">市場価値とは、あなたのスキル・経験・知識に対して<br>企業が「払ってもいい」と思える<b>対価の大きさ</b>のことです。</p>
 </section>
 
@@ -504,7 +508,7 @@
 
 <!-- 12 式 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">市場価値の構造</div><div class="s-main" style="align-items:center;justify-content:center;">
+<div class="s-body"><div class="s-title">市場価値の構造</div><div class="s-main" style="flex:1;align-items:center;justify-content:center;">
 <div class="mv-eq">
 <div class="mv-box res"><h3>市場価値</h3></div>
 <span class="mv-op">=</span>
@@ -692,8 +696,8 @@
 
 <!-- 21b なぜ「人」なのか -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">日本の強みは、<span class="accent">「人」</span>だ。</div><div class="s-main" style="justify-content:center;">
-<div style="max-width:780px;font-size:1.1rem;line-height:2;">
+<div class="s-body"><div class="s-title">日本の強みは、<span class="accent">「人」</span>だ。</div><div class="s-main" style="justify-content:center;align-items:center;">
+<div style="max-width:780px;width:100%;font-size:1.1rem;line-height:2;">
 <p>世界には、ものすごく広大な土地があり、豊富な資源があり、<br>膨大な人口を抱える国がある。</p>
 <p style="margin-top:16px;">しかし日本は、国土は狭く、資源も十分ではない。<br>それでもこれほどの大国になれたのは、<b style="color:#F07800;">「人」が強い</b>からだ。</p>
 <p style="margin-top:16px;">真面目に取り組む姿勢、自制心、完璧を目指す美意識、<br>他者へのリスペクト、コミュニケーションの丁寧さ。</p>
@@ -704,8 +708,8 @@
 
 <!-- 21c 教育こそが国家の成長エンジン + 私たちの存在意義 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">教育こそが国家の成長エンジンである</div><div class="s-main" style="justify-content:center;">
-<div style="max-width:780px;font-size:1.1rem;line-height:2;">
+<div class="s-body"><div class="s-title">教育こそが国家の成長エンジンである</div><div class="s-main" style="justify-content:center;align-items:center;">
+<div style="max-width:780px;width:100%;font-size:1.1rem;line-height:2;">
 <p>教育こそが<b style="color:#F07800;">国家の競争力</b>であり、<b style="color:#F07800;">企業の成長エンジン</b>であり、<b style="color:#F07800;">個人の選択肢を決める土台</b>になる。</p>
 <p style="margin-top:16px;">教育とは、国家の人的資本であり、産業の新陳代謝であり、一人ひとりが自分の人生を自分で選べるようになる力だ。</p>
 <p style="margin-top:16px;">だからこそ私たちは、人の可能性を最大化し、<b style="color:#F07800">テクノロジーの力</b>で科学と仕組みを用いて成果を再現性を持って出し続ける。</p>
@@ -733,7 +737,7 @@
 </div>
 <div class="ft-col">
 <h3>抜擢文化</h3>
-<div style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center;">
+<div style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center;align-items:stretch;">
 <div class="pc">
 <img src="../shared/images/スピフル事業責任者_越野_画像.png" alt="">
 <div><h4>新卒3年目で新規事業責任者</h4><p>スピフル事業部 / ゼロから売上5〜6億円規模まで成長中</p></div>
