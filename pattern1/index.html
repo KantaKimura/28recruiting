@@ -280,7 +280,7 @@
 .ft-col h3 { font-size: 1.2rem; font-weight: 900; flex-shrink: 0; color: #F07800 !important; }
 
 /* Chart.js ラッパー */
-.chart-wrap { flex: 1; position: relative; min-height: 0; max-height: 280px; }
+.chart-wrap { flex: 1; position: relative; min-height: 0; }
 .growth-badge {
   display: inline-flex;
   align-items: center;
@@ -297,10 +297,10 @@
 .growth-badge .arrow { font-size: 1.3rem; }
 
 /* 人物カード */
-.pc { display: flex; gap: 12px; align-items: center; padding: 14px; background: #FFF; border: 1.5px solid #E0E0E0; border-left: 3px solid #F07800; border-radius: 10px; }
-.pc img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
-.pc h4 { font-size: .9rem; font-weight: 700; line-height: 1.3; }
-.pc p { font-size: .75rem; color: #1A1A1A !important; margin-top: 2px; }
+.pc { display: flex; gap: 16px; align-items: center; padding: 20px; background: #FFF; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 12px; flex: 1; }
+.pc img { width: 100px; height: 100px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.pc h4 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; }
+.pc p { font-size: .85rem; color: #1A1A1A !important; margin-top: 4px; }
 
 /* --- VS比較 --- */
 .vs { display: grid; grid-template-columns: 1fr 48px 1fr; align-items: stretch; flex: 1; }
@@ -409,7 +409,7 @@
 
 <!-- 02 自己紹介 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-main"><div class="intro-wrap">
+<div class="s-body" style="padding:24px 32px;"><div class="s-main"><div class="intro-wrap">
 <img class="intro-photo" src="../shared/images/代表取締役社長_岡田_ボクシング.png" alt="">
 <div class="intro-info">
 <p class="intro-sp">SPEAKER</p><div class="intro-nm">岡田 祥吾</div><div class="intro-en">Shogo Okada</div>
@@ -431,17 +431,17 @@
 </section>
 
 <!-- 04a クイズ -->
-<section class="slide slide-100k"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></div>
-<div class="sub-area">
+<section class="slide slide-100k" style="background:#FFFFFF !important;color:#1A1A1A !important;"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="imp-num" style="color:#F07800 !important;">100<span class="c" style="color:#1A1A1A !important;">,</span>000<span class="u" style="color:#F07800 !important;">時間</span></div>
+<div class="sub-area" style="color:#1A1A1A !important;">
 <p class="imp-sub">これ、何の時間だと思いますか？</p>
 </div>
 </section>
 
 <!-- 04b 答え -->
-<section class="slide slide-100k"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></div>
-<div class="sub-area">
+<section class="slide slide-100k" style="background:#FFFFFF !important;color:#1A1A1A !important;"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="imp-num" style="color:#F07800 !important;">100<span class="c" style="color:#1A1A1A !important;">,</span>000<span class="u" style="color:#F07800 !important;">時間</span></div>
+<div class="sub-area" style="color:#1A1A1A !important;">
 <p class="imp-sub">皆さんが<b>生涯で仕事に使う時間</b>です。</p>
 <p style="font-size:.9rem;font-family:var(--font-mono);color:#1A1A1A !important;">10時間 × 5日 × 4週 × 12か月 × 43年</p>
 <p style="font-size:.9rem;color:#1A1A1A !important;">小学校から大学までの授業時間の<b style="color:#F07800">約7倍</b></p>
@@ -449,9 +449,9 @@
 </section>
 
 <!-- 04c どう過ごすか -->
-<section class="slide slide-100k"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></div>
-<div class="sub-area">
+<section class="slide slide-100k" style="background:#FFFFFF !important;color:#1A1A1A !important;"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="imp-num" style="color:#F07800 !important;">100<span class="c" style="color:#1A1A1A !important;">,</span>000<span class="u" style="color:#F07800 !important;">時間</span></div>
+<div class="sub-area" style="color:#1A1A1A !important;">
 <p class="imp-msg" style="font-size:2.2rem;">それでは、この時間を<br><span class="accent">どう過ごすか？</span></p>
 </div>
 </section>
@@ -875,7 +875,7 @@
 (function() {
   var ctx = document.getElementById('growthChart');
   if (!ctx) return;
-  var labels = ['17/8','18/8','19/8','20/8','21/8','22/8','23/8','24/8','25/8','26/8\n予想'];
+  var labels = ['17/8','18/8','19/8','20/8','21/8','22/8','23/8','24/8','25/8','26/8\n71億円'];
   var data   = [106, 693, 1711, 2183, 1981, 2253, 3024, 4453, 5748, 7100];
   var colors = data.map(function(_, i) {
     return i === data.length - 1 ? '#E08800' : 'rgba(240,120,0,0.65)';
