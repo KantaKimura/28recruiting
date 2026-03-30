@@ -519,84 +519,54 @@
     }
 
     /* =========================================================
-       ダークネイビー セクション区切り
+       選考フロー・特別イベント（白ベース）
        ========================================================= */
-    .slide-dark-section {
-      background: #0D1117 !important;
-      border-left-color: rgba(212,168,83,.3);
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .dark-eyebrow {
-      font-size: var(--text-sm);
-      font-family: var(--font-mono);
-      letter-spacing: .25em;
-      color: #D4A853;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
 
-    /* =========================================================
-       ダークネイビー コンテンツ
-       ========================================================= */
-    .slide-dark-content {
-      background:
-        radial-gradient(ellipse 70% 55% at 80% 20%, rgba(212,168,83,.06) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 50% at 15% 85%, rgba(212,168,83,.04) 0%, transparent 50%),
-        #0D1117 !important;
-      border-left-color: rgba(212,168,83,.3);
-    }
-    .slide-dark-content p { color: #8B949E; }
-    .slide-dark-content .copyright { color: rgba(255,255,255,.1); }
-
-    /* =========================================================
-       タイムライン
-       ========================================================= */
+    /* ── タイムライン ── */
     .tl-wrapper {
       display: flex;
       flex-direction: column;
       flex: 1;
       justify-content: center;
-      gap: 1.8rem;
-      padding: 0 1rem;
+      gap: 1rem;
+      padding: 0 .5rem;
     }
     .tl-subtitle {
       font-size: var(--text-sm);
       font-family: var(--font-mono);
       letter-spacing: .1em;
-      color: #8B949E !important;
+      color: #999;
     }
-    .tl-block {
+    .tl-section {
       display: flex;
       align-items: flex-start;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
-    .tl-block-placeholder {
-      height: 100px;
+    .tl-section-placeholder {
+      min-height: 90px;
     }
     .tl-label {
       flex-shrink: 0;
-      width: 140px;
-      font-size: .72rem;
+      width: 130px;
+      font-size: .68rem;
       font-weight: 700;
       line-height: 1.5;
-      padding: .6rem 1rem;
+      padding: .5rem .8rem;
       border-radius: 8px;
       text-align: center;
-      margin-top: .2rem;
+      margin-top: 1rem;
     }
     .tl-label-normal {
-      background: #21262D;
-      color: #8B949E;
+      background: #F0F0F0;
+      color: #666;
     }
     .tl-label-special {
-      background: linear-gradient(135deg, #D4A853, #B8922E);
-      color: #0D1117;
+      background: linear-gradient(135deg, #F07800, #FFAA44);
+      color: #FFF;
     }
     .tl-label-special strong {
       display: block;
-      font-size: .8rem;
+      font-size: .75rem;
     }
     .tl-axis {
       flex: 1;
@@ -605,205 +575,117 @@
     .tl-months {
       display: flex;
       justify-content: space-between;
-      font-size: .6rem;
+      font-size: .55rem;
       font-family: var(--font-mono);
-      color: #484F58;
-      padding-bottom: .4rem;
-      border-bottom: 1px solid #30363D;
+      color: #999;
+      padding-bottom: .3rem;
+      border-bottom: 1px solid rgba(0,0,0,.08);
     }
     .tl-track {
       position: relative;
-      height: 36px;
-      margin-top: .5rem;
+      height: 32px;
+      margin-top: .4rem;
     }
     .tl-bar {
       position: absolute;
       top: 0;
-      height: 36px;
+      height: 32px;
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .65rem;
+      font-size: .6rem;
       font-weight: 700;
-      letter-spacing: .03em;
+      letter-spacing: .02em;
       white-space: nowrap;
     }
-    .tl-bar-gold {
-      background: linear-gradient(135deg, #D4A853, #E8C97A);
-      color: #0D1117;
+    .tl-bar-orange {
+      background: linear-gradient(135deg, #F07800, #FFAA44);
+      color: #FFF;
     }
-    .tl-bar-steel {
-      background: #58687A;
-      color: #E6EDF3;
+    .tl-bar-gray {
+      background: #E8E8E8;
+      color: #666;
+    }
+    .tl-bar-green {
+      background: linear-gradient(135deg, #2E9E5A, #3DBB6E);
+      color: #FFF;
     }
     .tl-divider {
-      border-top: 1px dashed #30363D;
-      margin: .3rem 0;
+      border-top: 1.5px dashed rgba(240,120,0,.25);
+      margin: .2rem 0;
     }
     .tl-footer {
       text-align: center;
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       font-weight: 700;
-      color: #D4A853 !important;
-      margin-top: .5rem;
-    }
-
-    /* =========================================================
-       SPECIAL INVITATION カード群
-       ========================================================= */
-    .inv-wrapper {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: center;
-      padding: 0 .5rem;
-    }
-    .inv-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 1rem;
-      width: 100%;
-    }
-    .inv-card {
-      background: #161B22;
-      border: 1px solid #30363D;
-      border-radius: 12px;
-      padding: 1.4rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: .6rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .inv-card-top-line {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #D4A853, #E8C97A);
-    }
-    .inv-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 10px;
-      object-fit: cover;
+      color: var(--color-accent);
       margin-top: .3rem;
     }
-    .inv-title {
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: #E6EDF3;
-      line-height: 1.3;
-    }
-    .inv-sub {
-      font-size: .75rem;
-      font-weight: 700;
-      color: #D4A853;
-      letter-spacing: .05em;
-    }
-    .inv-career {
-      font-size: .6rem;
-      color: #8B949E;
-      line-height: 1.5;
-    }
-    .inv-desc {
-      font-size: .6rem;
-      color: #C9D1D9 !important;
-      line-height: 1.6;
-      margin-top: auto;
-    }
 
-    /* =========================================================
-       タイムライン 追加スタイル
-       ========================================================= */
-    .tl-bar-es {
-      font-size: .6rem;
-    }
-    .tl-bar-naitei {
-      background: linear-gradient(135deg, #2E9E5A, #3DBB6E) !important;
-      color: #FFF !important;
-    }
-    .tl-track-detail {
-      position: relative;
-      height: 18px;
-      margin-top: .2rem;
-    }
-    .tl-track-detail span {
-      position: absolute;
-      font-size: .5rem;
-      color: #484F58;
-      font-family: var(--font-mono);
-    }
-
-    /* =========================================================
-       スペシャリスト紹介
-       ========================================================= */
+    /* ── スペシャリスト紹介 ── */
     .sp-wrapper {
       display: flex;
       flex-direction: column;
       flex: 1;
       justify-content: center;
       align-items: center;
-      gap: 1.8rem;
+      gap: 1.4rem;
       padding: 0 1rem;
     }
     .sp-heading {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 900;
-      color: #E6EDF3;
+      color: #1A1A1A;
       text-align: center;
       line-height: 1.6;
     }
     .sp-accent {
-      color: #D4A853;
+      color: var(--color-accent);
     }
     .sp-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: .8rem;
       width: 100%;
+      max-width: 700px;
     }
     .sp-card {
-      background: #161B22;
-      border: 1px solid #30363D;
+      background: rgba(240,120,0,.03);
+      border: 1.5px solid rgba(0,0,0,.06);
       border-radius: 12px;
-      padding: 1.2rem .8rem .8rem;
+      padding: 1rem .8rem .7rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: .5rem;
+      gap: .35rem;
     }
     .sp-photo {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #30363D;
+      border: 2px solid rgba(240,120,0,.15);
     }
     .sp-name {
-      font-size: .95rem;
+      font-size: .9rem;
       font-weight: 900;
-      color: #E6EDF3;
+      color: #1A1A1A;
     }
     .sp-domain {
-      font-size: .65rem;
+      font-size: .62rem;
       font-weight: 700;
-      color: #D4A853;
+      color: var(--color-accent);
       line-height: 1.4;
     }
     .sp-logo {
-      height: 18px;
+      height: 16px;
       width: auto;
-      max-width: 80px;
+      max-width: 72px;
       object-fit: contain;
-      opacity: .6;
-      margin-top: auto;
-      filter: brightness(0) invert(1);
+      opacity: .35;
+      margin-top: .15rem;
     }
   </style>
 </head>
@@ -1311,140 +1193,129 @@
   </section>
 
   <!-- ===== 33. プログリットの新卒採用について ===== -->
-  <section class="slide slide-dark-section">
-    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT" style="filter:brightness(10);opacity:.15;">
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:1.5rem;text-align:center;">
-      <h2 style="font-size:3.2rem;font-weight:900;color:#E6EDF3;line-height:1.4;">プログリットの<br>新卒採用について</h2>
-    </div>
+  <section class="slide slide-section">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2>プログリットの新卒採用について</h2>
   </section>
 
   <!-- ===== 34. 今後の選考フローについて（見出し） ===== -->
-  <section class="slide slide-dark-section">
-    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT" style="filter:brightness(10);opacity:.15;">
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:1.5rem;text-align:center;">
-      <span class="dark-eyebrow">SELECTION FLOW</span>
-      <h2 style="font-size:3rem;font-weight:900;color:#E6EDF3;line-height:1.4;">今後の選考フローについて</h2>
-    </div>
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2 style="font-size:3.2rem;">今後の<span class="accent">選考フロー</span>について</h2>
   </section>
 
   <!-- ===== 35. 選考タイムライン（通常フローのみ） ===== -->
-  <section class="slide slide-dark-content">
-    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT" style="filter:brightness(10);opacity:.15;">
-    <div class="tl-wrapper">
-      <p class="tl-subtitle">PROGRIT 新卒採用 選考スケジュール</p>
-      <!-- 通常フロー -->
-      <div class="tl-block">
-        <div class="tl-label tl-label-normal">通常の選考フロー</div>
-        <div class="tl-axis">
-          <div class="tl-months">
-            <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
-          </div>
-          <div class="tl-track">
-            <div class="tl-bar tl-bar-steel" style="left:0%;width:30.8%;">2 Days Internship</div>
-            <div class="tl-bar tl-bar-steel tl-bar-es" style="left:76.9%;width:7.7%;">ES</div>
-            <div class="tl-bar tl-bar-steel" style="left:84.6%;width:15.4%;">面接（×5回）</div>
-          </div>
-          <div class="tl-track-detail">
-            <span style="left:0%;">AI021</span>
-            <span style="left:7.7%;">AI041</span>
-            <span style="left:15.4%;">AI051</span>
-            <span style="left:23.1%;">AI061</span>
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="tl-wrapper">
+        <h2 style="font-size:1.2rem;margin-bottom:.3rem;">選考<span class="accent">スケジュール</span></h2>
+        <!-- 通常フロー -->
+        <div class="tl-section">
+          <div class="tl-label tl-label-normal">通常の選考フロー</div>
+          <div class="tl-axis">
+            <div class="tl-months">
+              <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
+            </div>
+            <div class="tl-track">
+              <div class="tl-bar tl-bar-gray" style="left:0%;width:30.8%;">2 Days Internship</div>
+              <div class="tl-bar tl-bar-gray" style="left:76.9%;width:7.7%;font-size:.55rem;">ES</div>
+              <div class="tl-bar tl-bar-gray" style="left:84.6%;width:15.4%;">面接（×5回）</div>
+            </div>
           </div>
         </div>
+        <!-- 下段スペース -->
+        <div class="tl-section tl-section-placeholder"></div>
       </div>
-      <!-- 下段スペース（空） -->
-      <div class="tl-block tl-block-placeholder"></div>
     </div>
   </section>
 
   <!-- ===== 36. 選考タイムライン（通常+特別フロー） ===== -->
-  <section class="slide slide-dark-content">
-    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT" style="filter:brightness(10);opacity:.15;">
-    <div class="tl-wrapper">
-      <p class="tl-subtitle">PROGRIT 新卒採用 選考スケジュール</p>
-      <!-- 通常フロー（同一配置） -->
-      <div class="tl-block">
-        <div class="tl-label tl-label-normal">通常の選考フロー</div>
-        <div class="tl-axis">
-          <div class="tl-months">
-            <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
-          </div>
-          <div class="tl-track">
-            <div class="tl-bar tl-bar-steel" style="left:0%;width:30.8%;">2 Days Internship</div>
-            <div class="tl-bar tl-bar-steel tl-bar-es" style="left:76.9%;width:7.7%;">ES</div>
-            <div class="tl-bar tl-bar-steel" style="left:84.6%;width:15.4%;">面接（×5回）</div>
-          </div>
-        </div>
-      </div>
-      <!-- 区切り線 -->
-      <div class="tl-divider"></div>
-      <!-- 特別フロー -->
-      <div class="tl-block">
-        <div class="tl-label tl-label-special">インターン参加者限定<br><strong>特別選考フロー</strong></div>
-        <div class="tl-axis">
-          <div class="tl-months">
-            <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
-          </div>
-          <div class="tl-track">
-            <div class="tl-bar tl-bar-gold" style="left:0%;width:30.8%;">2 Days Internship</div>
-            <div class="tl-bar tl-bar-gold" style="left:30.8%;width:15.4%;">特別イベント</div>
-            <div class="tl-bar tl-bar-gold" style="left:46.2%;width:23.1%;">特別早期選考</div>
-            <div class="tl-bar tl-bar-gold tl-bar-naitei" style="left:69.2%;width:7.7%;">内定</div>
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="tl-wrapper">
+        <h2 style="font-size:1.2rem;margin-bottom:.3rem;">選考<span class="accent">スケジュール</span></h2>
+        <!-- 通常フロー（同一配置） -->
+        <div class="tl-section">
+          <div class="tl-label tl-label-normal">通常の選考フロー</div>
+          <div class="tl-axis">
+            <div class="tl-months">
+              <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
+            </div>
+            <div class="tl-track">
+              <div class="tl-bar tl-bar-gray" style="left:0%;width:30.8%;">2 Days Internship</div>
+              <div class="tl-bar tl-bar-gray" style="left:76.9%;width:7.7%;font-size:.55rem;">ES</div>
+              <div class="tl-bar tl-bar-gray" style="left:84.6%;width:15.4%;">面接（×5回）</div>
+            </div>
           </div>
         </div>
+        <!-- 区切り線 -->
+        <div class="tl-divider"></div>
+        <!-- 特別フロー: 2day IS〜7月、特別選考8〜9月、内定9月〜 -->
+        <div class="tl-section">
+          <div class="tl-label tl-label-special">インターン参加者限定<br><strong>特別選考フロー</strong></div>
+          <div class="tl-axis">
+            <div class="tl-months">
+              <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
+            </div>
+            <div class="tl-track">
+              <div class="tl-bar tl-bar-orange" style="left:0%;width:38.5%;">2 Days Internship</div>
+              <div class="tl-bar tl-bar-orange" style="left:38.5%;width:15.4%;">特別早期選考</div>
+              <div class="tl-bar tl-bar-green" style="left:53.8%;width:7.7%;">内定</div>
+            </div>
+          </div>
+        </div>
+        <p class="tl-footer">インターンに参加したあなただけの、特別な選考ルートです。</p>
       </div>
-      <!-- フッターメッセージ -->
-      <p class="tl-footer">インターンに参加したあなただけの、特別な選考ルートです。</p>
     </div>
   </section>
 
   <!-- ===== 37. 特別イベント紹介 ===== -->
-  <section class="slide slide-dark-content">
-    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT" style="filter:brightness(10);opacity:.15;">
-    <div class="sp-wrapper">
-      <h2 class="sp-heading">プログリットの各領域を率いる<br>スペシャリストから学び実践する<span class="sp-accent">特別インターン</span></h2>
-      <div class="sp-grid">
-        <!-- Emy -->
-        <div class="sp-card">
-          <img class="sp-photo" src="../../shared/images/emy_画像.png" alt="Emy">
-          <div class="sp-name">Emy</div>
-          <div class="sp-domain">マーケティング</div>
-          <img class="sp-logo" src="../../shared/images/logos/loreal.png" alt="L'Oréal">
-        </div>
-        <!-- Hiroto -->
-        <div class="sp-card">
-          <img class="sp-photo" src="../../shared/images/Hiroto_画像.png" alt="Hiroto">
-          <div class="sp-name">Hiroto</div>
-          <div class="sp-domain">プロダクト企画</div>
-          <img class="sp-logo" src="../../shared/images/logos/dena.png" alt="DeNA">
-        </div>
-        <!-- Shogo / 岡田 -->
-        <div class="sp-card">
-          <img class="sp-photo" src="../../shared/images/代表取締役社長_岡田_写真.jpg" alt="Shogo">
-          <div class="sp-name">Shogo</div>
-          <div class="sp-domain">経営・ロジカルシンキング</div>
-          <img class="sp-logo" src="../../shared/images/logos/mckinsey.png" alt="McKinsey">
-        </div>
-        <!-- Ryota / 谷内 -->
-        <div class="sp-card">
-          <img class="sp-photo" src="../../shared/images/取締役CFO_谷内_写真.jpg" alt="Ryota">
-          <div class="sp-name">Ryota</div>
-          <div class="sp-domain">ファイナンス</div>
-          <img class="sp-logo" src="../../shared/images/logos/goldman_sachs.png" alt="Goldman Sachs">
-        </div>
-        <!-- Yoshimasa -->
-        <div class="sp-card">
-          <img class="sp-photo" src="../../shared/images/Yoshimasa_法人営業部長_画像.jpeg" alt="Yoshimasa">
-          <div class="sp-name">Yoshimasa</div>
-          <div class="sp-domain">営業</div>
-          <img class="sp-logo" src="../../shared/images/logos/mitsui.png" alt="三井物産">
-        </div>
-        <!-- Shunta / 山﨑 -->
-        <div class="sp-card">
-          <img class="sp-photo" src="../../shared/images/取締役副社長_山碕_写真.jpg" alt="Shunta">
-          <div class="sp-name">Shunta</div>
-          <div class="sp-domain">新規事業企画・組織構築</div>
-          <img class="sp-logo" src="../../shared/images/logos/recruit.png" alt="リクルート">
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="sp-wrapper">
+        <h2 class="sp-heading">プログリットの各領域を率いるスペシャリストから<br>学び実践する<span class="sp-accent">特別インターン</span></h2>
+        <div class="sp-grid">
+          <!-- Row 1: Shogo, Shunta, Ryota -->
+          <div class="sp-card">
+            <img class="sp-photo" src="../../shared/images/代表取締役社長_岡田_写真.jpg" alt="Shogo">
+            <div class="sp-name">Shogo</div>
+            <div class="sp-domain">経営・ロジカルシンキング</div>
+            <img class="sp-logo" src="../../shared/images/logos/mckinsey.png" alt="McKinsey">
+          </div>
+          <div class="sp-card">
+            <img class="sp-photo" src="../../shared/images/取締役副社長_山碕_写真.jpg" alt="Shunta">
+            <div class="sp-name">Shunta</div>
+            <div class="sp-domain">新規事業企画・組織構築</div>
+            <img class="sp-logo" src="../../shared/images/logos/recruit.png" alt="リクルート">
+          </div>
+          <div class="sp-card">
+            <img class="sp-photo" src="../../shared/images/取締役CFO_谷内_写真.jpg" alt="Ryota">
+            <div class="sp-name">Ryota</div>
+            <div class="sp-domain">ファイナンス</div>
+            <img class="sp-logo" src="../../shared/images/logos/goldman_sachs.png" alt="Goldman Sachs">
+          </div>
+          <!-- Row 2: Emy, Yoshimasa, Hiroto -->
+          <div class="sp-card">
+            <img class="sp-photo" src="../../shared/images/emy_画像.png" alt="Emy">
+            <div class="sp-name">Emy</div>
+            <div class="sp-domain">マーケティング</div>
+            <img class="sp-logo" src="../../shared/images/logos/loreal.png" alt="L'Oréal">
+          </div>
+          <div class="sp-card">
+            <img class="sp-photo" src="../../shared/images/Yoshimasa_法人営業部長_画像.jpeg" alt="Yoshimasa">
+            <div class="sp-name">Yoshimasa</div>
+            <div class="sp-domain">営業</div>
+            <img class="sp-logo" src="../../shared/images/logos/mitsui.png" alt="三井物産">
+          </div>
+          <div class="sp-card">
+            <img class="sp-photo" src="../../shared/images/Hiroto_画像.png" alt="Hiroto">
+            <div class="sp-name">Hiroto</div>
+            <div class="sp-domain">プロダクト企画</div>
+            <img class="sp-logo" src="../../shared/images/logos/dena.png" alt="DeNA">
+          </div>
         </div>
       </div>
     </div>
