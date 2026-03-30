@@ -107,36 +107,8 @@
   max-width: 700px;
 }
 
-/* --- 100k固定センター --- */
-.slide.slide-100k {
-  background: #FFFFFF !important;
-  color: #1A1A1A !important;
-}
-.slide-100k {
-  position: relative !important;
-  background: #FFFFFF !important;
-  color: #1A1A1A !important;
-  padding: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-.slide-100k .imp-num {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.slide-100k .sub-area {
-  position: absolute;
-  top: 62%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 80%;
+/* slide-100k 廃止 → slide-impact を使用。以下は不使用 */
+.slide-100k-unused {
   text-align: center;
 }
 
@@ -431,29 +403,23 @@
 </section>
 
 <!-- 04a クイズ -->
-<section class="slide slide-100k" style="background:#FFFFFF !important;color:#1A1A1A !important;"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="imp-num" style="color:#F07800 !important;">100<span class="c" style="color:#1A1A1A !important;">,</span>000<span class="u" style="color:#F07800 !important;">時間</span></div>
-<div class="sub-area" style="color:#1A1A1A !important;">
+<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<p class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></p>
 <p class="imp-sub">これ、何の時間だと思いますか？</p>
-</div>
 </section>
 
 <!-- 04b 答え -->
-<section class="slide slide-100k" style="background:#FFFFFF !important;color:#1A1A1A !important;"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="imp-num" style="color:#F07800 !important;">100<span class="c" style="color:#1A1A1A !important;">,</span>000<span class="u" style="color:#F07800 !important;">時間</span></div>
-<div class="sub-area" style="color:#1A1A1A !important;">
+<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<p class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></p>
 <p class="imp-sub">皆さんが<b>生涯で仕事に使う時間</b>です。</p>
 <p style="font-size:.9rem;font-family:var(--font-mono);color:#1A1A1A !important;">10時間 × 5日 × 4週 × 12か月 × 43年</p>
 <p style="font-size:.9rem;color:#1A1A1A !important;">小学校から大学までの授業時間の<b style="color:#F07800">約7倍</b></p>
-</div>
 </section>
 
 <!-- 04c どう過ごすか -->
-<section class="slide slide-100k" style="background:#FFFFFF !important;color:#1A1A1A !important;"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="imp-num" style="color:#F07800 !important;">100<span class="c" style="color:#1A1A1A !important;">,</span>000<span class="u" style="color:#F07800 !important;">時間</span></div>
-<div class="sub-area" style="color:#1A1A1A !important;">
+<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<p class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></p>
 <p class="imp-msg" style="font-size:2.2rem;">それでは、この時間を<br><span class="accent">どう過ごすか？</span></p>
-</div>
 </section>
 
 <!-- 04e 就活の定義 -->
