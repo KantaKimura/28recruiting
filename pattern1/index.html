@@ -271,12 +271,12 @@
 .y10-item span { font-size: 1.4rem; font-weight: 700; line-height: 1.6; }
 
 /* --- 特徴2カラム --- */
-.ft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; align-items: stretch; }
-.ft-col { display: flex; flex-direction: column; gap: 12px; }
-.ft-col h3 { font-size: 1.3rem; font-weight: 900; flex-shrink: 0; color: #F07800 !important; }
+.ft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1; align-items: stretch; }
+.ft-col { display: flex; flex-direction: column; gap: 8px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-top: 3px solid #F07800; border-radius: 14px; padding: 20px; overflow: hidden; }
+.ft-col h3 { font-size: 1.2rem; font-weight: 900; flex-shrink: 0; color: #F07800 !important; }
 
 /* Chart.js ラッパー */
-.chart-wrap { flex: 1; position: relative; min-height: 0; }
+.chart-wrap { flex: 1; position: relative; min-height: 0; max-height: 280px; }
 .growth-badge {
   display: inline-flex;
   align-items: center;
@@ -293,10 +293,10 @@
 .growth-badge .arrow { font-size: 1.3rem; }
 
 /* 人物カード */
-.pc { display: flex; gap: 16px; align-items: center; padding: 16px 18px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 3px solid #F07800; border-radius: 10px; flex: 1; }
-.pc img { width: 80px; height: 80px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-.pc h4 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
-.pc p { font-size: .85rem; color: #1A1A1A !important; margin-top: 4px; }
+.pc { display: flex; gap: 12px; align-items: center; padding: 14px; background: #FFF; border: 1.5px solid #E0E0E0; border-left: 3px solid #F07800; border-radius: 10px; }
+.pc img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.pc h4 { font-size: .9rem; font-weight: 700; line-height: 1.3; }
+.pc p { font-size: .75rem; color: #1A1A1A !important; margin-top: 2px; }
 
 /* --- VS比較 --- */
 .vs { display: grid; grid-template-columns: 1fr 48px 1fr; align-items: stretch; flex: 1; }
@@ -340,12 +340,12 @@
 .img-fan {
   flex: 1;
   position: relative;
-  min-height: 60px;
+  min-height: 90px;
 }
 .fan-img {
   position: absolute;
-  width: 80px;
-  height: 55px;
+  width: 130px;
+  height: 88px;
   object-fit: cover;
   border-radius: 4px;
   border: 1.5px solid #DDD;
@@ -364,11 +364,11 @@
 .lecture-eyebrow { font-size: .75rem; font-family: var(--font-mono); color: #F07800 !important; letter-spacing: .2em; }
 .lecture-title { font-size: 2rem; font-weight: 900; line-height: 1.5; }
 .lecture-title .accent { color: #F07800 !important; }
-.lecture-imgs { flex: 1; position: relative; height: 380px; }
+.lecture-imgs { flex: 1; position: relative; height: 420px; }
 .lecture-img-card {
   position: absolute;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.2);
   object-fit: cover;
   border: 2px solid rgba(255,255,255,.8);
 }
@@ -471,23 +471,23 @@
 
 <!-- 10c AIで「安定」は消えた -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">AIが、仕事の「当たり前」を壊している</div><div class="s-main" style="flex-direction:row;gap:32px;">
+<div class="s-body"><div class="s-title">AIが、仕事の「当たり前」を壊している</div><div class="s-main" style="flex-direction:row;gap:32px;align-items:stretch;">
 <div style="flex:1;display:flex;flex-direction:column;gap:20px;justify-content:center;">
-<div style="background:#F8F8F8;border:1.5px solid #E0E0E0;border-radius:14px;padding:24px;">
-<p style="font-size:.75rem;font-family:var(--font-mono);color:#F07800 !important;font-weight:700;margin-bottom:12px;">1年前と今の違い</p>
-<div style="display:flex;flex-direction:column;gap:10px;">
-<div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.6rem;">📝</span><div><p style="font-size:.85rem;font-weight:700;">資料作成</p><p style="font-size:.7rem;color:#1A1A1A !important;">1日かかっていた → AIで30分</p></div></div>
-<div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.6rem;">💻</span><div><p style="font-size:.85rem;font-weight:700;">コーディング</p><p style="font-size:.7rem;color:#1A1A1A !important;">エンジニア数人月 → AIで数日</p></div></div>
-<div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.6rem;">📊</span><div><p style="font-size:.85rem;font-weight:700;">データ分析</p><p style="font-size:.7rem;color:#1A1A1A !important;">専門チームに依頼 → 一人で完結</p></div></div>
+<div style="background:#F8F8F8;border:1.5px solid #E0E0E0;border-radius:14px;padding:32px 28px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+<p style="font-size:.8rem;font-family:var(--font-mono);color:#F07800 !important;font-weight:700;margin-bottom:20px;">1年前と今の違い</p>
+<div style="display:flex;flex-direction:column;gap:20px;">
+<div style="display:flex;align-items:center;gap:16px;"><span style="font-size:2rem;">📝</span><div><p style="font-size:1rem;font-weight:700;">資料作成</p><p style="font-size:.85rem;color:#1A1A1A !important;margin-top:2px;">1日かかっていた → AIで30分</p></div></div>
+<div style="display:flex;align-items:center;gap:16px;"><span style="font-size:2rem;">💻</span><div><p style="font-size:1rem;font-weight:700;">コーディング</p><p style="font-size:.85rem;color:#1A1A1A !important;margin-top:2px;">エンジニア数人月 → AIで数日</p></div></div>
+<div style="display:flex;align-items:center;gap:16px;"><span style="font-size:2rem;">📊</span><div><p style="font-size:1rem;font-weight:700;">データ分析</p><p style="font-size:.85rem;color:#1A1A1A !important;margin-top:2px;">専門チームに依頼 → 一人で完結</p></div></div>
 </div>
 </div>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center;">
-<div style="background:rgba(240,120,0,.06);border:1.5px solid rgba(240,120,0,.3);border-radius:14px;padding:24px;text-align:center;">
-<p style="font-size:1.8rem;font-weight:900;color:#F07800 !important;line-height:1.4;">「安定した仕事」は<br>もう存在しない</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;justify-content:center;">
+<div style="background:rgba(240,120,0,.06);border:1.5px solid rgba(240,120,0,.3);border-radius:14px;padding:32px 28px;text-align:center;flex-shrink:0;">
+<p style="font-size:2rem;font-weight:900;color:#F07800 !important;line-height:1.4;">「安定した仕事」は<br>もう存在しない</p>
 </div>
-<p style="font-size:1rem;line-height:1.7;">たった1年で、仕事のやり方が根本から変わった。<br>この変化は止まらない。</p>
-<p style="font-size:1rem;line-height:1.7;font-weight:700;">だからこそ、<b style="color:#F07800">変化に適応し続けられる力</b>＝<br>市場価値を高めることが重要。</p>
+<p style="font-size:1.05rem;line-height:1.8;">たった1年で、仕事のやり方が根本から変わった。<br>この変化は止まらない。</p>
+<p style="font-size:1.05rem;line-height:1.8;font-weight:700;">だからこそ、<b style="color:#F07800">変化に適応し続けられる力</b>＝<br>市場価値を高めることが重要。</p>
 </div>
 </div></div>
 </section>
@@ -517,22 +517,22 @@
 
 <!-- 13 高めにくい選択 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">市場価値を高め<span style="color:#F07800">にくい</span>選択</div><div class="s-main">
-<div class="mv-eq" style="gap:12px;">
-<div class="mv-box res" style="padding:12px 18px;min-width:auto;"><h3 style="font-size:1.2rem;">市場価値</h3></div>
-<span class="mv-op" style="font-size:1.6rem;">=</span>
-<div class="mv-box dem" style="padding:12px 18px;min-width:auto;"><h3 style="font-size:1rem;">需要の大きさ</h3></div>
-<span class="mv-op" style="font-size:1.6rem;">×</span>
-<div class="mv-box sup" style="padding:12px 18px;min-width:auto;"><h3 style="font-size:1rem;">供給の少なさ</h3></div>
+<div class="s-body"><div class="s-title">市場価値を高め<span style="color:#F07800">にくい</span>選択</div><div class="s-main" style="justify-content:center;">
+<div class="mv-eq" style="gap:12px;flex-shrink:0;">
+<div class="mv-box res" style="padding:16px 24px;min-width:auto;"><h3 style="font-size:1.3rem;">市場価値</h3></div>
+<span class="mv-op" style="font-size:1.8rem;">=</span>
+<div class="mv-box dem" style="padding:16px 24px;min-width:auto;"><h3 style="font-size:1.1rem;">需要の大きさ</h3></div>
+<span class="mv-op" style="font-size:1.8rem;">×</span>
+<div class="mv-box sup" style="padding:16px 24px;min-width:auto;"><h3 style="font-size:1.1rem;">供給の少なさ</h3></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
-<div style="background:rgba(37,99,235,.05);border:2px solid rgba(37,99,235,.25);border-radius:14px;padding:20px;">
-<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#2563EB !important;letter-spacing:.1em;">需要の大きさ（汎用性）の観点</p>
-<h3 style="font-size:1.1rem;font-weight:700;line-height:1.5;margin-top:8px;">自分の会社・部署の中だけで通用するスキルは、市場価値を高めにくいです。</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;flex:1;">
+<div style="background:rgba(37,99,235,.05);border:2px solid rgba(37,99,235,.25);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;justify-content:center;">
+<p style="font-size:.8rem;font-family:var(--font-mono);font-weight:700;color:#2563EB !important;letter-spacing:.1em;">需要の大きさ（汎用性）の観点</p>
+<h3 style="font-size:1.3rem;font-weight:700;line-height:1.6;margin-top:12px;">自分の会社・部署の中だけで通用するスキルは、市場価値を高めにくいです。</h3>
 </div>
-<div style="background:rgba(220,38,38,.05);border:2px solid rgba(220,38,38,.25);border-radius:14px;padding:20px;">
-<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#DC2626 !important;letter-spacing:.1em;">供給の少なさ（希少性）の観点</p>
-<h3 style="font-size:1.1rem;font-weight:700;line-height:1.5;margin-top:8px;">誰もが当たり前に選ぶ道は、市場価値を高めにくいです。</h3>
+<div style="background:rgba(220,38,38,.05);border:2px solid rgba(220,38,38,.25);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;justify-content:center;">
+<p style="font-size:.8rem;font-family:var(--font-mono);font-weight:700;color:#DC2626 !important;letter-spacing:.1em;">供給の少なさ（希少性）の観点</p>
+<h3 style="font-size:1.3rem;font-weight:700;line-height:1.6;margin-top:12px;">誰もが当たり前に選ぶ道は、市場価値を高めにくいです。</h3>
 </div>
 </div>
 </div></div>
@@ -692,7 +692,7 @@
 
 <!-- 21b なぜ「人」なのか -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">日本の強みは、<span class="accent">「人」</span>だ。</div><div class="s-main">
+<div class="s-body"><div class="s-title">日本の強みは、<span class="accent">「人」</span>だ。</div><div class="s-main" style="justify-content:center;">
 <div style="max-width:780px;font-size:1.1rem;line-height:2;">
 <p>世界には、ものすごく広大な土地があり、豊富な資源があり、<br>膨大な人口を抱える国がある。</p>
 <p style="margin-top:16px;">しかし日本は、国土は狭く、資源も十分ではない。<br>それでもこれほどの大国になれたのは、<b style="color:#F07800;">「人」が強い</b>からだ。</p>
@@ -704,7 +704,7 @@
 
 <!-- 21c 教育こそが国家の成長エンジン + 私たちの存在意義 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">教育こそが国家の成長エンジンである</div><div class="s-main">
+<div class="s-body"><div class="s-title">教育こそが国家の成長エンジンである</div><div class="s-main" style="justify-content:center;">
 <div style="max-width:780px;font-size:1.1rem;line-height:2;">
 <p>教育こそが<b style="color:#F07800;">国家の競争力</b>であり、<b style="color:#F07800;">企業の成長エンジン</b>であり、<b style="color:#F07800;">個人の選択肢を決める土台</b>になる。</p>
 <p style="margin-top:16px;">教育とは、国家の人的資本であり、産業の新陳代謝であり、一人ひとりが自分の人生を自分で選べるようになる力だ。</p>
@@ -782,14 +782,14 @@
   <div class="if-step-new">
     <h4>要件定義</h4>
     <div class="img-fan">
-      <img class="fan-img" src="../shared/images/AIコーチング_要件定義所_サンプル.png" alt="" style="left:10px;top:4px;transform:rotate(-2deg);width:90px;">
+      <img class="fan-img" src="../shared/images/AIコーチング_要件定義所_サンプル.png" alt="" style="left:10px;top:4px;transform:rotate(-2deg);">
     </div>
   </div>
   <!-- コーディング -->
   <div class="if-step-new">
     <h4>コーディング</h4>
     <div class="img-fan">
-      <img class="fan-img" src="../shared/images/AIコーチング_コーディング_サンプル.png" alt="" style="left:5px;top:2px;transform:rotate(2deg);width:90px;">
+      <img class="fan-img" src="../shared/images/AIコーチング_コーディング_サンプル.png" alt="" style="left:5px;top:2px;transform:rotate(2deg);">
     </div>
   </div>
   <!-- LP制作 -->
@@ -822,14 +822,12 @@
     <p class="lecture-title">代表・岡田祥吾による<br><span class="accent">「就活の勝ち方」<br>特別講座</span></p>
   </div>
   <div class="lecture-imgs">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像01.png" alt="" style="width:200px;height:130px;right:40px;top:20px;transform:rotate(4deg);z-index:1;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像02.png" alt="" style="width:190px;height:125px;right:60px;top:160px;transform:rotate(-3deg);z-index:2;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像03.png" alt="" style="width:185px;height:120px;right:230px;top:10px;transform:rotate(-5deg);z-index:1;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像04.png" alt="" style="width:195px;height:128px;right:200px;top:165px;transform:rotate(2deg);z-index:3;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像05.png" alt="" style="width:175px;height:115px;right:390px;top:80px;transform:rotate(-2deg);z-index:2;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像06.png" alt="" style="width:170px;height:112px;right:10px;top:300px;transform:rotate(6deg);z-index:1;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像07.png" alt="" style="width:180px;height:118px;right:340px;top:260px;transform:rotate(-4deg);z-index:2;">
-    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像08.png" alt="" style="width:165px;height:108px;right:170px;top:300px;transform:rotate(3deg);z-index:1;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像01.png" alt="" style="width:340px;height:220px;right:20px;top:10px;transform:rotate(2deg);z-index:10;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像02.png" alt="" style="width:260px;height:170px;right:300px;top:30px;transform:rotate(-4deg);z-index:4;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像03.png" alt="" style="width:240px;height:155px;right:100px;top:200px;transform:rotate(3deg);z-index:3;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像04.png" alt="" style="width:230px;height:150px;right:350px;top:220px;transform:rotate(-2deg);z-index:2;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像05.png" alt="" style="width:220px;height:140px;right:20px;top:280px;transform:rotate(-3deg);z-index:1;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像06.png" alt="" style="width:210px;height:135px;right:260px;top:320px;transform:rotate(4deg);z-index:1;">
   </div>
 </div>
 </div>
@@ -837,11 +835,11 @@
 
 <!-- 28 こんな人に -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">こんな人に来てほしい</div><div class="s-main">
-<div class="ms">
-<div class="ti"><span class="t-n">1</span><h3>コンサル・大企業志望で、今後の就活インターンで有利になりたい人</h3></div>
-<div class="ti"><span class="t-n">2</span><h3>まだ就活の軸が固まり切っていない人</h3></div>
-<div class="ti"><span class="t-n">3</span><h3>AI時代の働き方を体感したい人</h3></div>
+<div class="s-body"><div class="s-title">こんな人に来てほしい</div><div class="s-main" style="justify-content:center;">
+<div class="ms" style="gap:16px;">
+<div class="ti" style="padding:24px 28px;"><span class="t-n" style="font-size:1.8rem;">1</span><h3 style="font-size:1.25rem;line-height:1.5;">コンサル・大企業志望で、今後の就活インターンで有利になりたい人</h3></div>
+<div class="ti" style="padding:24px 28px;"><span class="t-n" style="font-size:1.8rem;">2</span><h3 style="font-size:1.25rem;line-height:1.5;">まだ就活の軸が固まり切っていない人</h3></div>
+<div class="ti" style="padding:24px 28px;"><span class="t-n" style="font-size:1.8rem;">3</span><h3 style="font-size:1.25rem;line-height:1.5;">AI時代の働き方を体感したい人</h3></div>
 </div>
 </div></div>
 </section>
