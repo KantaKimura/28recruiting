@@ -600,8 +600,8 @@
       background: #E8E8E8;
       color: #666;
     }
-    .tl-bar-green {
-      background: linear-gradient(135deg, #2E9E5A, #3DBB6E);
+    .tl-bar-red {
+      background: linear-gradient(135deg, #D32F2F, #E55353);
       color: #FFF;
     }
     .tl-divider {
@@ -621,13 +621,13 @@
       display: flex;
       flex-direction: column;
       flex: 1;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      gap: 1.4rem;
-      padding: 0 1rem;
+      gap: 1rem;
+      padding: .8rem 1rem 0;
     }
     .sp-heading {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 900;
       color: #1A1A1A;
       text-align: center;
@@ -639,46 +639,45 @@
     .sp-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: .8rem;
+      gap: 1rem;
       width: 100%;
-      max-width: 700px;
     }
     .sp-card {
       background: rgba(240,120,0,.03);
       border: 1.5px solid rgba(0,0,0,.06);
-      border-radius: 12px;
-      padding: 1rem .8rem .7rem;
+      border-radius: 14px;
+      padding: 1.2rem 1rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: .35rem;
+      gap: .5rem;
     }
     .sp-photo {
-      width: 64px;
-      height: 64px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(240,120,0,.15);
+      border: 3px solid rgba(240,120,0,.15);
     }
     .sp-name {
-      font-size: .9rem;
+      font-size: 1.3rem;
       font-weight: 900;
       color: #1A1A1A;
     }
     .sp-domain {
-      font-size: .62rem;
+      font-size: .85rem;
       font-weight: 700;
       color: var(--color-accent);
       line-height: 1.4;
     }
     .sp-logo {
-      height: 16px;
+      height: 22px;
       width: auto;
-      max-width: 72px;
+      max-width: 100px;
       object-fit: contain;
       opacity: .35;
-      margin-top: .15rem;
+      margin-top: .2rem;
     }
   </style>
 </head>
@@ -1223,7 +1222,7 @@
             <div class="tl-track">
               <div class="tl-bar tl-bar-orange" style="left:0%;width:38.5%;">2 Days Internship</div>
               <div class="tl-bar tl-bar-orange" style="left:38.5%;width:15.4%;">早期選考</div>
-              <div class="tl-bar tl-bar-green" style="left:53.8%;width:7.7%;">内定</div>
+              <div class="tl-bar tl-bar-red" style="left:53.8%;width:7.7%;">内定</div>
             </div>
           </div>
         </div>
@@ -1257,11 +1256,11 @@
             <div class="tl-track">
               <div class="tl-bar tl-bar-orange" style="left:0%;width:38.5%;">2 Days Internship</div>
               <div class="tl-bar tl-bar-orange" style="left:38.5%;width:15.4%;">早期選考</div>
-              <div class="tl-bar tl-bar-green" style="left:53.8%;width:7.7%;">内定</div>
+              <div class="tl-bar tl-bar-red" style="left:53.8%;width:7.7%;">内定</div>
             </div>
           </div>
         </div>
-        <p class="tl-footer">超早期から就職活動を始め、当インターンにご参加いただいた<br>皆さん限定の、特別選考ルートです。</p>
+        <p class="tl-footer">早期から就職活動を始め、当インターンにご参加いただいた<br>皆さん限定の、特別選考ルートです。</p>
       </div>
     </div>
   </section>
