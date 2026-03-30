@@ -528,33 +528,26 @@
       flex-direction: column;
       flex: 1;
       justify-content: center;
-      gap: 1rem;
+      gap: .8rem;
       padding: 0 .5rem;
     }
-    .tl-subtitle {
-      font-size: var(--text-sm);
-      font-family: var(--font-mono);
-      letter-spacing: .1em;
-      color: #999;
-    }
-    .tl-section {
+    .tl-row {
       display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
+      align-items: center;
+      gap: 1rem;
     }
-    .tl-section-placeholder {
-      min-height: 90px;
+    .tl-row.is-hidden {
+      visibility: hidden;
     }
     .tl-label {
       flex-shrink: 0;
-      width: 130px;
-      font-size: .68rem;
+      width: 140px;
+      font-size: .78rem;
       font-weight: 700;
       line-height: 1.5;
-      padding: .5rem .8rem;
+      padding: .6rem .8rem;
       border-radius: 8px;
       text-align: center;
-      margin-top: 1rem;
     }
     .tl-label-normal {
       background: #F0F0F0;
@@ -566,7 +559,7 @@
     }
     .tl-label-special strong {
       display: block;
-      font-size: .75rem;
+      font-size: .85rem;
     }
     .tl-axis {
       flex: 1;
@@ -575,27 +568,27 @@
     .tl-months {
       display: flex;
       justify-content: space-between;
-      font-size: .55rem;
+      font-size: .65rem;
       font-family: var(--font-mono);
       color: #999;
-      padding-bottom: .3rem;
-      border-bottom: 1px solid rgba(0,0,0,.08);
+      padding-bottom: .4rem;
+      border-bottom: 1.5px solid rgba(0,0,0,.08);
     }
     .tl-track {
       position: relative;
-      height: 32px;
-      margin-top: .4rem;
+      height: 48px;
+      margin-top: .5rem;
     }
     .tl-bar {
       position: absolute;
       top: 0;
-      height: 32px;
-      border-radius: 6px;
+      height: 48px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .6rem;
-      font-weight: 700;
+      font-size: .8rem;
+      font-weight: 900;
       letter-spacing: .02em;
       white-space: nowrap;
     }
@@ -612,12 +605,12 @@
       color: #FFF;
     }
     .tl-divider {
-      border-top: 1.5px dashed rgba(240,120,0,.25);
-      margin: .2rem 0;
+      border-top: 1.5px dashed rgba(240,120,0,.3);
+      margin: .2rem 0 .2rem 152px;
     }
     .tl-footer {
       text-align: center;
-      font-size: var(--text-base);
+      font-size: var(--text-lg);
       font-weight: 700;
       color: var(--color-accent);
       margin-top: .3rem;
@@ -1209,23 +1202,32 @@
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
       <div class="tl-wrapper">
-        <h2 style="font-size:1.2rem;margin-bottom:.3rem;">選考<span class="accent">スケジュール</span></h2>
+        <h2 style="font-size:1.3rem;margin-bottom:.2rem;">選考<span class="accent">スケジュール</span></h2>
         <!-- 通常フロー -->
-        <div class="tl-section">
+        <div class="tl-row">
           <div class="tl-label tl-label-normal">通常の選考フロー</div>
           <div class="tl-axis">
-            <div class="tl-months">
-              <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
-            </div>
+            <div class="tl-months"><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span></div>
             <div class="tl-track">
               <div class="tl-bar tl-bar-gray" style="left:0%;width:30.8%;">2 Days Internship</div>
-              <div class="tl-bar tl-bar-gray" style="left:76.9%;width:7.7%;font-size:.55rem;">ES</div>
-              <div class="tl-bar tl-bar-gray" style="left:84.6%;width:15.4%;">面接（×5回）</div>
+              <div class="tl-bar tl-bar-gray" style="left:76.9%;width:7.7%;">ES</div>
+              <div class="tl-bar tl-bar-gray" style="left:84.6%;width:15.4%;">面接（×5）</div>
             </div>
           </div>
         </div>
-        <!-- 下段スペース -->
-        <div class="tl-section tl-section-placeholder"></div>
+        <div class="tl-divider" style="visibility:hidden;"></div>
+        <!-- 下段: 同じ構造だが非表示 -->
+        <div class="tl-row is-hidden">
+          <div class="tl-label tl-label-special">インターン参加者限定<br><strong>特別選考フロー</strong></div>
+          <div class="tl-axis">
+            <div class="tl-months"><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span></div>
+            <div class="tl-track">
+              <div class="tl-bar tl-bar-orange" style="left:0%;width:38.5%;">2 Days Internship</div>
+              <div class="tl-bar tl-bar-orange" style="left:38.5%;width:15.4%;">特別早期選考</div>
+              <div class="tl-bar tl-bar-green" style="left:53.8%;width:7.7%;">内定</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1235,30 +1237,25 @@
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
       <div class="tl-wrapper">
-        <h2 style="font-size:1.2rem;margin-bottom:.3rem;">選考<span class="accent">スケジュール</span></h2>
-        <!-- 通常フロー（同一配置） -->
-        <div class="tl-section">
+        <h2 style="font-size:1.3rem;margin-bottom:.2rem;">選考<span class="accent">スケジュール</span></h2>
+        <!-- 通常フロー（完全同一） -->
+        <div class="tl-row">
           <div class="tl-label tl-label-normal">通常の選考フロー</div>
           <div class="tl-axis">
-            <div class="tl-months">
-              <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
-            </div>
+            <div class="tl-months"><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span></div>
             <div class="tl-track">
               <div class="tl-bar tl-bar-gray" style="left:0%;width:30.8%;">2 Days Internship</div>
-              <div class="tl-bar tl-bar-gray" style="left:76.9%;width:7.7%;font-size:.55rem;">ES</div>
-              <div class="tl-bar tl-bar-gray" style="left:84.6%;width:15.4%;">面接（×5回）</div>
+              <div class="tl-bar tl-bar-gray" style="left:76.9%;width:7.7%;">ES</div>
+              <div class="tl-bar tl-bar-gray" style="left:84.6%;width:15.4%;">面接（×5）</div>
             </div>
           </div>
         </div>
-        <!-- 区切り線 -->
         <div class="tl-divider"></div>
-        <!-- 特別フロー: 2day IS〜7月、特別選考8〜9月、内定9月〜 -->
-        <div class="tl-section">
+        <!-- 特別フロー: 表示 -->
+        <div class="tl-row">
           <div class="tl-label tl-label-special">インターン参加者限定<br><strong>特別選考フロー</strong></div>
           <div class="tl-axis">
-            <div class="tl-months">
-              <span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span>
-            </div>
+            <div class="tl-months"><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span></div>
             <div class="tl-track">
               <div class="tl-bar tl-bar-orange" style="left:0%;width:38.5%;">2 Days Internship</div>
               <div class="tl-bar tl-bar-orange" style="left:38.5%;width:15.4%;">特別早期選考</div>
