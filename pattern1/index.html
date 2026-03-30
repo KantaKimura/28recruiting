@@ -6,9 +6,10 @@
 <title>OUTSTANDING — PROGRIT</title>
 <link rel="stylesheet" href="../engine/slide.css">
 <link rel="stylesheet" href="../theme/progrit.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 /* ============================================================
-   Outstanding P1 v6 — ゼロベース再構築
+   Outstanding P1 v7 — 修正版
    ============================================================ */
 
 /* --- テーマ変数上書き（白背景用） --- */
@@ -92,8 +93,9 @@
 }
 .imp-num .c { font-size: 4.5rem; color: #1A1A1A !important; }
 .imp-num .u { font-size: 3rem; color: #F07800 !important; margin-left: 4px; }
+/* imp-msg: 全スライド統一 3rem */
 .imp-msg {
-  font-size: 2.6rem;
+  font-size: 3rem;
   font-weight: 900;
   line-height: 1.45;
   max-width: 850px;
@@ -103,6 +105,31 @@
   color: #1A1A1A !important;
   line-height: 1.6;
   max-width: 700px;
+}
+
+/* --- 100k固定センター --- */
+.slide-100k {
+  position: relative !important;
+  background: #FFF !important;
+  padding: 0 !important;
+}
+.slide-100k .imp-num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slide-100k .sub-area {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 80%;
+  text-align: center;
 }
 
 /* --- オレンジ背景 --- */
@@ -120,8 +147,9 @@
 .ora-msg { font-size: 2.8rem; font-weight: 900; line-height: 1.4; max-width: 800px; }
 
 /* --- 自己紹介 --- */
-.intro-wrap { display: grid; grid-template-columns: 280px 1fr; gap: 40px; flex: 1; align-items: center; }
-.intro-photo { width: 280px; height: 350px; border-radius: 14px; object-fit: cover; border: 3px solid rgba(240,120,0,.3); }
+.intro-wrap { display: grid; grid-template-columns: 260px 1fr; gap: 56px; flex: 1; align-items: center; }
+.intro-photo { width: 260px; height: 330px; border-radius: 14px; object-fit: cover; border: 3px solid rgba(240,120,0,.3); }
+.intro-info { display: flex; flex-direction: column; justify-content: center; padding-left: 8px; }
 .intro-sp { font-size: .7rem; font-family: var(--font-mono); color: #F07800 !important; letter-spacing: .2em; }
 .intro-nm { font-size: 2.8rem; font-weight: 900; margin-top: 4px; }
 .intro-en { font-size: .8rem; font-family: var(--font-mono); color: #1A1A1A !important; }
@@ -133,92 +161,138 @@
 .tl-i::before { content: ''; position: absolute; left: -20px; top: 6px; width: 7px; height: 7px; border-radius: 50%; background: #F07800; }
 .tl-y { font-family: var(--font-mono); color: #F07800 !important; font-weight: 700; min-width: 36px; }
 
-/* --- フェーズバー --- */
-.phase-bar { display: flex; width: 100%; height: 64px; border-radius: 10px; overflow: hidden; border: 1.5px solid #DDD; }
-.pb-seg { display: flex; align-items: center; justify-content: center; gap: 8px; }
-.pb-seg.p1 { flex: 1; background: rgba(240,120,0,.12); border-right: 2.5px solid #F07800; }
-.pb-seg.p2 { flex: 3; background: #F5F5F5; }
-.pb-lbl { font-size: .65rem; font-family: var(--font-mono); font-weight: 700; letter-spacing: .08em; }
-.pb-seg.p1 .pb-lbl { color: #F07800 !important; }
-.pb-seg.p2 .pb-lbl { color: #1A1A1A !important; }
-.pb-seg h3 { font-size: .95rem; font-weight: 700; }
-.pb-total { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
-.pb-arrow { flex: 1; height: 2px; background: #F07800; position: relative; }
-.pb-arrow::after { content: ''; position: absolute; right: -6px; top: -4px; border-left: 8px solid #F07800; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
-.pb-arrow.left { transform: scaleX(-1); }
-.pb-total span { font-size: .8rem; font-family: var(--font-mono); color: #F07800 !important; font-weight: 700; white-space: nowrap; }
-
 /* --- 市場価値ビジュアル --- */
-.mv-eq { display: flex; align-items: center; justify-content: center; gap: 16px; }
-.mv-box { border-radius: 14px; padding: 20px 28px; text-align: center; min-width: 160px; }
+.mv-eq { display: flex; align-items: center; justify-content: center; gap: 24px; width: 100%; }
+.mv-box { border-radius: 16px; padding: 32px 40px; text-align: center; flex: 1; min-width: 0; }
 .mv-box.res { background: rgba(240,120,0,.1); border: 2.5px solid rgba(240,120,0,.5); }
 .mv-box.dem { background: rgba(37,99,235,.06); border: 2.5px solid rgba(37,99,235,.35); }
 .mv-box.sup { background: rgba(220,38,38,.06); border: 2.5px solid rgba(220,38,38,.35); }
-.mv-box h3 { font-size: 1.6rem; font-weight: 900; }
+.mv-box h3 { font-size: 2rem; font-weight: 900; }
 .mv-box.res h3 { color: #F07800 !important; }
 .mv-box.dem h3 { color: #2563EB !important; }
 .mv-box.sup h3 { color: #DC2626 !important; }
-.mv-box p { font-size: .8rem; color: #1A1A1A !important; margin-top: 4px; }
-.mv-op { font-size: 2.2rem; font-weight: 900; color: #F07800 !important; }
+.mv-box p { font-size: 1rem; color: #1A1A1A !important; margin-top: 8px; }
+.mv-op { font-size: 3rem; font-weight: 900; color: #F07800 !important; flex-shrink: 0; }
 
 /* --- 2つの基準 --- */
-.cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.cr-card { padding: 28px 24px; border-radius: 14px; border-top: 3px solid #F07800; background: #F8F8F8; border-left: 1px solid #E8E8E8; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; display: flex; flex-direction: column; gap: 8px; min-height: 140px; }
-.cr-num { font-size: 1.8rem; font-weight: 900; font-family: var(--font-mono); color: #F07800 !important; opacity: 1; }
-.cr-card h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.45; }
+.cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+.cr-card { padding: 48px 40px; border-radius: 16px; border-top: 4px solid #F07800; background: #F8F8F8; border-left: 1px solid #E8E8E8; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; display: flex; flex-direction: column; gap: 16px; }
+.cr-num { font-size: 2.8rem; font-weight: 900; font-family: var(--font-mono); color: #F07800 !important; }
+.cr-card h3 { font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
 
-/* --- 成長比較 --- */
-.gc { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; }
-.gc-col { padding: 24px; border-radius: 14px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+/* --- 成長比較（基準①）--- */
+.gc { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; flex: 1; }
+.gc-col { padding: 28px; border-radius: 14px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
 .gc-col.w { background: #F8F8F8; border: 1.5px solid #E0E0E0; }
 .gc-col.s { background: rgba(240,120,0,.06); border: 1.5px solid rgba(240,120,0,.3); }
 .gc-tag { font-size: .7rem; font-family: var(--font-mono); letter-spacing: .08em; font-weight: 700; }
 .gc-col.w .gc-tag { color: #1A1A1A !important; }
 .gc-col.s .gc-tag { color: #F07800 !important; }
-.gc-col h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
-.gc-col p { font-size: .85rem; color: #1A1A1A !important; line-height: 1.5; }
+.gc-col h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.5; }
+.gc-col p { font-size: .9rem; color: #1A1A1A !important; line-height: 1.6; }
 .gc-vs { display: flex; align-items: center; justify-content: center; color: #1A1A1A !important; font-weight: 700; }
+.gc-img { width: 100%; height: 130px; object-fit: cover; border-radius: 10px; margin-bottom: 8px; }
 
-/* --- フローチャート --- */
-.fc-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.fc-row { display: flex; align-items: center; gap: 4px; width: 100%; justify-content: center; }
-.fc-step { padding: 10px 16px; border-radius: 8px; font-size: .95rem; font-weight: 700; text-align: center; background: #F8F8F8; border: 1.5px solid #E0E0E0; flex: 1; max-width: 150px; }
-.fc-step.top { background: rgba(240,120,0,.1); border-color: rgba(240,120,0,.4); color: #F07800 !important; }
-.fc-arr { color: #F07800 !important; font-weight: 900; font-size: 1.2rem; flex-shrink: 0; }
-.fc-loop { font-size: .75rem; font-family: var(--font-mono); color: #F07800 !important; }
-.sc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 8px; }
-.sc-card { padding: 16px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #FAFAFA; text-align: center; }
-.sc-card.ok { border-color: rgba(240,120,0,.4); background: rgba(240,120,0,.05); }
-.sc-tag { font-size: .65rem; font-family: var(--font-mono); font-weight: 700; letter-spacing: .08em; }
-.sc-card:not(.ok) .sc-tag { color: #1A1A1A !important; }
-.sc-card.ok .sc-tag { color: #F07800 !important; }
-.sc-card h3 { font-size: 1rem; font-weight: 700; margin-top: 4px; }
-.sc-card p { font-size: .8rem; color: #1A1A1A !important; line-height: 1.4; margin-top: 4px; }
+/* --- 基準② 4枚構成 --- */
+.criteria-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.criteria-img-wrap {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+}
+.criteria-img-wrap img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.criteria-labels {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.criteria-label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #FFF !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,.6);
+}
+/* ゾーンハイライトオーバーレイ */
+.zone-overlay {
+  position: absolute;
+  top: 0; bottom: 0;
+  border-radius: 8px;
+  pointer-events: none;
+}
+.zone-overlay.left { left: 0; width: 33.3%; }
+.zone-overlay.center { left: 33.3%; width: 33.4%; }
+.zone-overlay.right { left: 66.7%; width: 33.3%; }
+.zone-overlay.gray { background: rgba(0,0,0,.45); }
+.zone-overlay.highlight-orange { border: 3px solid #F07800; background: rgba(240,120,0,.1); }
+.zone-overlay.highlight-all { border: 3px solid #F07800; background: rgba(240,120,0,.08); }
+.criteria-text-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+}
+.criteria-text-block {
+  flex: 1;
+  background: #F8F8F8;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.criteria-text-block.hl { border-color: rgba(240,120,0,.5); background: rgba(240,120,0,.06); }
+.criteria-text-block p { font-size: .85rem; line-height: 1.55; }
+.criteria-text-block strong { color: #F07800 !important; }
 
 /* --- 10年 4項目 --- */
-.y10-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.y10-item { display: flex; align-items: baseline; gap: 12px; }
-.y10-num { font-family: var(--font-mono); font-weight: 900; color: #F07800 !important; font-size: 1.6rem; flex-shrink: 0; }
-.y10-item span { font-size: 1.2rem; font-weight: 700; line-height: 1.4; }
+.y10-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+.y10-item { display: flex; align-items: flex-start; gap: 20px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 14px; padding: 32px 28px; }
+.y10-num { font-family: var(--font-mono); font-weight: 900; color: #F07800 !important; font-size: 2.8rem; flex-shrink: 0; line-height: 1; }
+.y10-item span { font-size: 1.4rem; font-weight: 700; line-height: 1.6; }
 
 /* --- 特徴2カラム --- */
 .ft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; align-items: stretch; }
 .ft-col { display: flex; flex-direction: column; gap: 12px; }
-.ft-col h3 { font-size: 1.2rem; font-weight: 900; flex-shrink: 0; }
+.ft-col h3 { font-size: 1.3rem; font-weight: 900; flex-shrink: 0; color: #F07800 !important; }
 
-/* 棒グラフコンポーネント */
-.bar-c { display: flex; align-items: flex-end; gap: 3px; flex: 1; width: 100%; }
-.bar-w { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; height: 100%; justify-content: flex-end; }
-.bar-v { font-size: .5rem; font-family: var(--font-mono); font-weight: 700; white-space: nowrap; }
-.bar-b { width: 100%; border-radius: 3px 3px 0 0; background: #F5A623; min-height: 2px; }
-.bar-b.hl { background: #E08800; }
-.bar-l { font-size: .45rem; font-family: var(--font-mono); color: #1A1A1A !important; text-align: center; line-height: 1.1; margin-top: 2px; }
+/* Chart.js ラッパー */
+.chart-wrap { flex: 1; position: relative; min-height: 0; }
+.growth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(240,120,0,.1);
+  border: 1.5px solid rgba(240,120,0,.4);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #F07800 !important;
+  align-self: flex-start;
+}
+.growth-badge .arrow { font-size: 1.3rem; }
 
 /* 人物カード */
-.pc { display: flex; gap: 12px; align-items: center; padding: 12px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 3px solid #F07800; border-radius: 10px; }
-.pc img { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
-.pc h4 { font-size: .85rem; font-weight: 700; line-height: 1.3; }
-.pc p { font-size: .75rem; color: #1A1A1A !important; margin-top: 2px; }
+.pc { display: flex; gap: 16px; align-items: center; padding: 16px 18px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 3px solid #F07800; border-radius: 10px; flex: 1; }
+.pc img { width: 80px; height: 80px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.pc h4 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+.pc p { font-size: .85rem; color: #1A1A1A !important; margin-top: 4px; }
 
 /* --- VS比較 --- */
 .vs { display: grid; grid-template-columns: 1fr 48px 1fr; align-items: stretch; flex: 1; }
@@ -229,13 +303,71 @@
 .vs-t { font-size: .7rem; font-family: var(--font-mono); color: #1A1A1A !important; letter-spacing: .1em; }
 .vs-t.o { color: #F07800 !important; }
 
-/* --- インターンフロー --- */
-.if-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-.if-step { padding: 12px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-radius: 10px; text-align: center; }
-.if-step.end { background: rgba(240,120,0,.05); border-color: rgba(240,120,0,.4); }
-.if-step h4 { font-size: .9rem; font-weight: 700; }
-.if-step.end h4 { color: #F07800 !important; }
-.if-ph { width: 100%; height: 60px; background: #F0F0F0; border: 1.5px dashed #CCC; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .7rem; color: #1A1A1A !important; margin-top: 6px; }
+/* --- 2日間でやること --- */
+.if-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+.if-step-new {
+  padding: 16px;
+  background: #F8F8F8;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.if-step-new.end {
+  background: rgba(240,120,0,.05);
+  border-color: rgba(240,120,0,.4);
+}
+.if-step-new h4 { font-size: .95rem; font-weight: 700; flex-shrink: 0; }
+.if-step-new.end h4 { color: #F07800 !important; }
+/* 下段2枚を中央2列に配置 */
+.if-step-new:nth-child(4) { grid-column: 1 / 2; grid-row: 2; }
+.if-step-new:nth-child(5) { grid-column: 2 / 3; grid-row: 2; }
+
+/* 画像ファンエリア */
+.img-fan {
+  flex: 1;
+  position: relative;
+  min-height: 60px;
+}
+.fan-img {
+  position: absolute;
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1.5px solid #DDD;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+/* --- 特別講座 --- */
+.lecture-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 40px;
+}
+.lecture-text { flex: 0 0 auto; z-index: 2; display: flex; flex-direction: column; gap: 16px; }
+.lecture-eyebrow { font-size: .75rem; font-family: var(--font-mono); color: #F07800 !important; letter-spacing: .2em; }
+.lecture-title { font-size: 2rem; font-weight: 900; line-height: 1.5; }
+.lecture-title .accent { color: #F07800 !important; }
+.lecture-imgs { flex: 1; position: relative; height: 380px; }
+.lecture-img-card {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.8);
+}
 
 /* --- メリット/ターゲット縦積み --- */
 .ms { display: flex; flex-direction: column; gap: 10px; flex: 1; justify-content: center; }
@@ -271,7 +403,7 @@
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-main"><div class="intro-wrap">
 <img class="intro-photo" src="../shared/images/代表取締役社長_岡田_ボクシング.png" alt="">
-<div>
+<div class="intro-info">
 <p class="intro-sp">SPEAKER</p><div class="intro-nm">岡田 祥吾</div><div class="intro-en">Shogo Okada</div>
 <div class="intro-rl">株式会社プログリット <b>代表取締役社長</b></div>
 <p class="intro-hb">趣味: <b>キックボクシング</b>、釣り、ゴルフ</p>
@@ -287,120 +419,71 @@
 <!-- 03 今日の話 -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <p style="font-size:1.2rem;color:#1A1A1A !important;">今日は会社説明はほとんどしません。</p>
-<p class="imp-msg" style="font-size:3.2rem;"><span class="accent">「就活の勝ち方」</span>の話をします。</p>
+<p class="imp-msg"><span class="accent">「就活の勝ち方」</span>の話をします。</p>
 </section>
 
 <!-- 04a クイズ -->
-<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<section class="slide slide-100k"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></div>
+<div class="sub-area">
 <p class="imp-sub">これ、何の時間だと思いますか？</p>
+</div>
 </section>
 
 <!-- 04b 答え -->
-<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<section class="slide slide-100k"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></div>
+<div class="sub-area">
 <p class="imp-sub">皆さんが<b>生涯で仕事に使う時間</b>です。</p>
 <p style="font-size:.9rem;font-family:var(--font-mono);color:#1A1A1A !important;">10時間 × 5日 × 4週 × 12か月 × 43年</p>
 <p style="font-size:.9rem;color:#1A1A1A !important;">小学校から大学までの授業時間の<b style="color:#F07800">約7倍</b></p>
+</div>
 </section>
 
 <!-- 04c どう過ごすか -->
-<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<section class="slide slide-100k"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="imp-num">100<span class="c">,</span>000<span class="u">時間</span></div>
+<div class="sub-area">
 <p class="imp-msg" style="font-size:2.2rem;">それでは、この時間を<br><span class="accent">どう過ごすか？</span></p>
-</section>
-
-<!-- 04d 本気 -->
-<section class="slide slide-orange"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="ora-msg">仕事に本気になれる<br>人生にしなければならない。</p>
+</div>
 </section>
 
 <!-- 04e 就活の定義 -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.6rem;">就職活動とは、<br><span class="accent">10万時間をどのように<br>使うかを決めること。</span></p>
+<p class="imp-msg">就職活動とは、<br><span class="accent">10万時間をどのように<br>使うかを決めること。</span></p>
 </section>
 
-<!-- 05 フェーズバー -->
-<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">10万時間の使い方</div><div class="s-main">
-<div class="phase-bar">
-<div class="pb-seg p1"><span class="pb-lbl">PHASE 1</span><h3>市場価値を高める</h3></div>
-<div class="pb-seg p2"><span class="pb-lbl">PHASE 2</span><h3>高めた価値で社会に影響を与える</h3></div>
-</div>
-<div class="pb-total"><div class="pb-arrow left"></div><span>100,000時間</span><div class="pb-arrow"></div></div>
-</div></div>
-</section>
-
-<!-- 06 フェーズ1の重要性 -->
-<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.4rem;">フェーズ1で市場価値を<br>どれだけ高めたかで、<br><span class="accent">この10万時間を<br>いかに有効的に使えるかが決まる。</span></p>
-</section>
 
 <!-- 07 何を基準に -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.8rem;">10万時間をすごす意思決定。<br><span class="accent">では、何を基準に<br>選べばいいのか？</span></p>
+<p class="imp-msg">10万時間をすごす意思決定。<br><span class="accent">では、何を基準に<br>選べばいいのか？</span></p>
 </section>
 
 <!-- 08 市場価値を上げる -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:3rem;"><span class="accent">「自分の市場価値を上げる」</span></p>
+<p class="imp-msg"><span class="accent">「自分の市場価値を上げる」</span></p>
 <p class="imp-sub">市場価値とは、あなたのスキル・経験・知識に対して<br>企業が「払ってもいい」と思える<b>対価の大きさ</b>のことです。</p>
 </section>
 
-<!-- 09 なぜ市場価値を高める必要があるのか -->
-<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.6rem;">なぜ、<span class="accent">市場価値を高める</span><br>必要があるのか？</p>
-</section>
-
-<!-- 10a 転職者数 -->
+<!-- 10c AIで「安定」は消えた -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">① 転職はもう「当たり前」になっている</div><div class="s-main" style="flex-direction:row;gap:32px;">
-<div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-<div style="display:flex;align-items:flex-end;gap:10px;height:180px;">
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;"><span style="font-size:.75rem;font-weight:700;">250万</span><div style="width:100%;height:71%;background:#E0E0E0;border-radius:5px 5px 0 0;"></div><span style="font-size:.65rem;color:#1A1A1A !important;">1990年代</span></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;"><span style="font-size:.75rem;font-weight:700;">346万</span><div style="width:100%;height:99%;background:#F5A623;border-radius:5px 5px 0 0;"></div><span style="font-size:.65rem;color:#1A1A1A !important;">2007年</span></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;"><span style="font-size:.75rem;font-weight:700;">351万</span><div style="width:100%;height:100%;background:#F5A623;border-radius:5px 5px 0 0;"></div><span style="font-size:.65rem;color:#1A1A1A !important;">2019年</span></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;"><span style="font-size:.75rem;font-weight:900;color:#F07800 !important;">331万</span><div style="width:100%;height:94%;background:#E08800;border-radius:5px 5px 0 0;"></div><span style="font-size:.65rem;color:#1A1A1A !important;">2024年</span></div>
+<div class="s-body"><div class="s-title">AIが、仕事の「当たり前」を壊している</div><div class="s-main" style="flex-direction:row;gap:32px;">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;justify-content:center;">
+<div style="background:#F8F8F8;border:1.5px solid #E0E0E0;border-radius:14px;padding:24px;">
+<p style="font-size:.75rem;font-family:var(--font-mono);color:#F07800 !important;font-weight:700;margin-bottom:12px;">1年前と今の違い</p>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.6rem;">📝</span><div><p style="font-size:.85rem;font-weight:700;">資料作成</p><p style="font-size:.7rem;color:#1A1A1A !important;">1日かかっていた → AIで30分</p></div></div>
+<div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.6rem;">💻</span><div><p style="font-size:.85rem;font-weight:700;">コーディング</p><p style="font-size:.7rem;color:#1A1A1A !important;">エンジニア数人月 → AIで数日</p></div></div>
+<div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.6rem;">📊</span><div><p style="font-size:.85rem;font-weight:700;">データ分析</p><p style="font-size:.7rem;color:#1A1A1A !important;">専門チームに依頼 → 一人で完結</p></div></div>
 </div>
-<p style="font-size:.6rem;color:#1A1A1A !important;text-align:right;margin-top:4px;">出典: 総務省「労働力調査」</p>
-</div>
-<div style="flex:1;font-size:1.1rem;line-height:1.8;display:flex;flex-direction:column;justify-content:center;">
-<p>日本の転職者数は、毎年<b>300万人以上</b>。</p>
-<p style="margin-top:12px;">「一つの会社で定年まで」という前提は、もう成り立っていません。</p>
-</div>
-</div></div>
-</section>
-
-<!-- 10b 終身雇用 -->
-<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">② 終身雇用は、もう守れない</div><div class="s-main">
-<div style="background:#F8F8F8;border:1.5px solid #E0E0E0;border-left:4px solid #F07800;border-radius:12px;padding:24px 32px;">
-<p style="font-size:1.4rem;font-weight:700;line-height:1.7;">「なかなか<span class="accent">終身雇用を守っていくのは</span><br><span class="accent">難しい局面</span>に入ってきた」</p>
-<p style="font-size:.9rem;color:#1A1A1A !important;margin-top:12px;">— 豊田章男（トヨタ自動車 社長 / 2019年5月）</p>
-</div>
-<p style="font-size:1.1rem;line-height:1.8;margin-top:16px;"><b>自分の力で、自分のキャリアを切り拓く必要があります。</b></p>
-</div></div>
-</section>
-
-<!-- 10c AI加速 -->
-<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">③ AIが、変化をさらに加速させている</div><div class="s-main" style="flex-direction:row;gap:24px;">
-<div style="flex:1;background:#F8F8F8;border:1.5px solid #E0E0E0;border-radius:14px;padding:20px;display:flex;flex-direction:column;justify-content:center;">
-<p style="font-size:.75rem;font-family:var(--font-mono);color:#F07800 !important;font-weight:700;">1億ユーザー到達までの期間</p>
-<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
-<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.85rem;min-width:6rem;text-align:right;">Netflix</span><div style="height:20px;flex:1;background:#E8E8E8;border-radius:4px;max-width:70%;position:relative;"><span style="position:absolute;right:6px;top:2px;font-size:.6rem;font-weight:700;">3.5年</span></div></div>
-<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.85rem;min-width:6rem;text-align:right;">Instagram</span><div style="height:20px;flex:1;background:#E8E8E8;border-radius:4px;max-width:50%;position:relative;"><span style="position:absolute;right:6px;top:2px;font-size:.6rem;font-weight:700;">2.5年</span></div></div>
-<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.85rem;min-width:6rem;text-align:right;">TikTok</span><div style="height:20px;flex:1;background:#E8E8E8;border-radius:4px;max-width:18%;position:relative;"><span style="position:absolute;right:6px;top:2px;font-size:.6rem;font-weight:700;">9ヶ月</span></div></div>
-<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.85rem;min-width:6rem;text-align:right;font-weight:900;">ChatGPT</span><div style="height:24px;flex:1;background:#F07800;border-radius:4px;max-width:8%;min-width:60px;position:relative;"><span style="position:absolute;right:6px;top:3px;font-size:.6rem;font-weight:900;color:#FFF !important;">2ヶ月</span></div></div>
 </div>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center;">
-<div style="background:rgba(240,120,0,.06);border:1.5px solid rgba(240,120,0,.3);border-radius:14px;padding:20px;text-align:center;">
-<p style="font-size:.75rem;font-family:var(--font-mono);color:#F07800 !important;font-weight:700;">WEF 予測（2030年まで）</p>
-<p style="font-size:2.4rem;font-weight:900;color:#F07800 !important;margin-top:4px;">22%</p>
-<p style="font-size:.9rem;font-weight:700;">の仕事が役割変化する</p>
+<div style="background:rgba(240,120,0,.06);border:1.5px solid rgba(240,120,0,.3);border-radius:14px;padding:24px;text-align:center;">
+<p style="font-size:1.8rem;font-weight:900;color:#F07800 !important;line-height:1.4;">「安定した仕事」は<br>もう存在しない</p>
 </div>
-<p style="font-size:.9rem;line-height:1.6;">「今の延長線上」で考えるキャリアは、<b>数年後に通用しなくなるかもしれません。</b></p>
+<p style="font-size:1rem;line-height:1.7;">たった1年で、仕事のやり方が根本から変わった。<br>この変化は止まらない。</p>
+<p style="font-size:1rem;line-height:1.7;font-weight:700;">だからこそ、<b style="color:#F07800">変化に適応し続けられる力</b>＝<br>市場価値を高めることが重要。</p>
 </div>
 </div></div>
 </section>
@@ -412,12 +495,12 @@
 
 <!-- 11 市場価値をどう高めるか -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:3rem;"><span class="accent">市場価値を<br>どう高めるか？</span></p>
+<p class="imp-msg"><span class="accent">市場価値を<br>どう高めるか？</span></p>
 </section>
 
 <!-- 12 式 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">市場価値の構造</div><div class="s-main" style="align-items:center;">
+<div class="s-body"><div class="s-title">市場価値の構造</div><div class="s-main" style="align-items:center;justify-content:center;">
 <div class="mv-eq">
 <div class="mv-box res"><h3>市場価値</h3></div>
 <span class="mv-op">=</span>
@@ -425,7 +508,6 @@
 <span class="mv-op">×</span>
 <div class="mv-box sup"><h3>供給の少なさ</h3><p>希少性</p></div>
 </div>
-<p style="text-align:center;font-size:1.1rem;font-weight:700;margin-top:16px;">掛け算なので、<span class="accent">片方がゼロだと市場価値もゼロ</span>になります。</p>
 </div></div>
 </section>
 
@@ -454,7 +536,7 @@
 
 <!-- 14 問い -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.6rem;">では、どのような選択をすると<br><span class="accent">市場価値が高まるのか？</span></p>
+<p class="imp-msg">では、どのような選択をすると<br><span class="accent">市場価値が高まるのか？</span></p>
 </section>
 
 <!-- 15 2つの基準 -->
@@ -470,31 +552,109 @@
 <!-- 16 基準① -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">基準① 業界平均を凌駕するスピードで、自力成長している会社を選べ</div><div class="s-main">
-<div class="gc">
-<div class="gc-col w"><span class="gc-tag">市場の波に乗っているだけ</span><h3>業界全体が伸びているから成長している</h3><p>業界のトレンドが変わった時に成長する力がありません。今は良くても1年後どうなっているか分かりません。</p></div>
+<div class="gc" style="flex:1;">
+<div class="gc-col w">
+<img class="gc-img" src="../shared/images/slide16_wave_riders.png" alt="市場の波に乗っているだけ">
+<span class="gc-tag">市場の波に乗っているだけ</span>
+<h3>業界全体が伸びているから成長している</h3>
+<p>業界のトレンドが変わった時に成長する力がありません。今は良くても1年後どうなっているか分かりません。</p>
+</div>
 <div class="gc-vs">VS</div>
-<div class="gc-col s"><span class="gc-tag">自分たちの力で成長している</span><h3>競合が横ばいの中で、独自の力で伸びている</h3><p>他社にはない知見が蓄積され、どこでも通用する力が身につきます。</p></div>
+<div class="gc-col s">
+<img class="gc-img" src="../shared/images/slide16_speed_boat.png" alt="自力成長">
+<span class="gc-tag">自分たちの力で成長している</span>
+<h3>競合が横ばいの中で、独自の力で伸びている</h3>
+<p>他社にはない知見が蓄積され、どこでも通用する力が身につきます。</p>
+</div>
 </div>
 </div></div>
 </section>
 
-<!-- 17 基準② -->
+<!-- 17-a 基準②全体像 -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main">
-<div class="fc-wrap">
-<div class="fc-row">
-<div class="fc-step top">目標</div>
-<span class="fc-arr">→</span><div class="fc-step">戦略</div>
-<span class="fc-arr">→</span><div class="fc-step">施策</div>
-<span class="fc-arr">→</span><div class="fc-step">実行</div>
-<span class="fc-arr">→</span><div class="fc-step">振り返り</div>
+<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
+<div class="criteria-wrap">
+<div class="criteria-img-wrap">
+<img src="../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
+<div class="criteria-labels">
+<div class="criteria-label">戦略</div>
+<div class="criteria-label">実行</div>
+<div class="criteria-label">検証</div>
 </div>
-<p class="fc-loop">← 振り返り → 戦略へフィードバック →</p>
 </div>
-<div class="sc-grid">
-<div class="sc-card"><span class="sc-tag">上流のみ</span><h3>戦略だけ</h3><p>失敗しても「実行が悪かった」と言えてしまい、学びが浅くなります</p></div>
-<div class="sc-card"><span class="sc-tag">下流のみ</span><h3>実行だけ</h3><p>失敗しても「戦略が悪かった」と言い訳でき、成長につながりにくいです</p></div>
-<div class="sc-card ok"><span class="sc-tag">全部やる</span><h3 style="color:#F07800 !important;">上流〜下流</h3><p><b>全ての結果が自分に返る。成長スピードが圧倒的に速くなります</b></p></div>
+<p style="font-size:1rem;color:#1A1A1A;text-align:center;line-height:1.8;">戦略だけ・実行だけでは成長できない。<br>全てに責任を持つことで、成長スピードが圧倒的に速くなる。</p>
+</div>
+</div></div>
+</section>
+
+<!-- 17-b 基準②戦略だけ -->
+<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
+<div class="criteria-wrap">
+<div class="criteria-img-wrap" style="position:relative;">
+<img src="../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
+<div class="zone-overlay center gray"></div>
+<div class="zone-overlay right gray"></div>
+<div class="zone-overlay left highlight-orange"></div>
+<div class="criteria-labels">
+<div class="criteria-label">戦略</div>
+<div class="criteria-label" style="opacity:.4;">実行</div>
+<div class="criteria-label" style="opacity:.4;">検証</div>
+</div>
+</div>
+<div class="criteria-text-row">
+<div class="criteria-text-block hl" style="flex:2;">
+<p><strong>上流のみ — 戦略だけ</strong><br>失敗しても「実行が悪かった」と言えてしまい、学びが浅くなります</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+
+<!-- 17-c 基準②実行だけ -->
+<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
+<div class="criteria-wrap">
+<div class="criteria-img-wrap" style="position:relative;">
+<img src="../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
+<div class="zone-overlay left gray"></div>
+<div class="zone-overlay right gray"></div>
+<div class="zone-overlay center highlight-orange"></div>
+<div class="criteria-labels">
+<div class="criteria-label" style="opacity:.4;">戦略</div>
+<div class="criteria-label">実行</div>
+<div class="criteria-label" style="opacity:.4;">検証</div>
+</div>
+</div>
+<div class="criteria-text-row">
+<div class="criteria-text-block hl" style="flex:2;">
+<p><strong>下流のみ — 実行だけ</strong><br>失敗しても「戦略が悪かった」と言い訳でき、成長につながりにくいです</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+
+<!-- 17-d 基準②全部やる -->
+<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
+<div class="criteria-wrap">
+<div class="criteria-img-wrap" style="position:relative;">
+<img src="../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
+<div class="zone-overlay left highlight-all" style="border:3px solid #F07800;background:rgba(240,120,0,.08);"></div>
+<div class="zone-overlay center highlight-all" style="border:3px solid #F07800;background:rgba(240,120,0,.08);"></div>
+<div class="zone-overlay right highlight-all" style="border:3px solid #F07800;background:rgba(240,120,0,.08);"></div>
+<div class="criteria-labels">
+<div class="criteria-label">戦略</div>
+<div class="criteria-label">実行</div>
+<div class="criteria-label">検証</div>
+</div>
+</div>
+<div class="criteria-text-row">
+<div class="criteria-text-block hl" style="flex:2;">
+<p><strong>全部やる — 戦略・実行・検証</strong><br>全ての結果が自分に返る。成長スピードが圧倒的に速くなります</p>
+</div>
+</div>
 </div>
 </div></div>
 </section>
@@ -513,13 +673,13 @@
 
 <!-- 19 英語だけじゃない -->
 <section class="slide slide-orange"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="ora-msg" style="font-size:2.6rem;">でも、僕たちは<br>"英語の会社" で終わるつもりはありません。<br>ここから、プログリットは大きく変わります。</p>
+<p class="ora-msg" style="font-size:2.6rem;">でも、プログリットは"英語の会社"で終わりません。<br>ここから、プログリットは大きく変わります。</p>
 </section>
 
 <!-- 20 ミッション -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <p style="font-size:.75rem;font-family:var(--font-mono);color:#F07800 !important;letter-spacing:.3em;">MISSION</p>
-<p class="imp-msg" style="font-size:3rem;">世界で自由に活躍できる人を増やす</p>
+<p class="imp-msg">世界で自由に活躍できる人を増やす</p>
 </section>
 
 <!-- 21a 日本の強みは人だ -->
@@ -527,13 +687,24 @@
 <p class="imp-msg" style="font-size:3.5rem;">日本の強みは、<span class="accent">「人」</span>だ。</p>
 </section>
 
-<!-- 21b 教育こそが国家の競争力 -->
+<!-- 21b なぜ「人」なのか -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">教育こそが国家の競争力である</div><div class="s-main">
-<div style="max-width:750px;font-size:1.15rem;line-height:2;">
-<p>教育は学校で完結するものではなく、<b>すべてのインフラ</b>です。</p>
-<p style="margin-top:16px;">真面目に取り組む姿勢、完璧を目指す美意識、<br>他者へのリスペクト、コミュニケーションの丁寧さ。</p>
-<p style="margin-top:16px;"><b>教育の質を底上げすることが、国力を高めるレバーになります。</b></p>
+<div class="s-body"><div class="s-title">日本の強みは、<span class="accent">「人」</span>だ。</div><div class="s-main">
+<div style="max-width:780px;font-size:1.1rem;line-height:2;">
+<p>世界には、ものすごく広大な土地があり、豊富な資源があり、<br>膨大な人口を抱える国がある。</p>
+<p style="margin-top:16px;">しかし日本は、国土は狭く、資源も十分ではない。<br>それでもこれほどの大国になれたのは、<b style="color:#F07800;">「人」が強い</b>からだ。</p>
+<p style="margin-top:16px;">真面目に取り組む姿勢、自制心、完璧を目指す美意識、<br>他者へのリスペクト、コミュニケーションの丁寧さ。</p>
+<p style="margin-top:16px;">人の可能性は無限大であり、この可能性を最大化することこそが、<br><b>日本の力を最大化する最高のレバー</b>だと考えている。</p>
+</div>
+</div></div>
+</section>
+
+<!-- 21c 教育こそが最大のレバー -->
+<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="s-body"><div class="s-title">教育こそが、最大のレバーである</div><div class="s-main">
+<div style="max-width:780px;font-size:1.1rem;line-height:2;">
+<p>教育こそが<b style="color:#F07800;">国家の競争力</b>であり、<br><b style="color:#F07800;">企業の成長エンジン</b>であり、<br><b style="color:#F07800;">個人の選択肢を決める土台</b>になる。</p>
+<p style="margin-top:24px;">教育とは、国家の人的資本であり、産業の新陳代謝であり、<br>一人ひとりが自分の人生を自分で選べるようになる力だ。</p>
 </div>
 </div></div>
 </section>
@@ -550,7 +721,7 @@
 
 <!-- 22 最大の特徴（問い） -->
 <section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p class="imp-msg" style="font-size:2.8rem;">プログリットの<br><span class="accent">最大の特徴</span></p>
+<p class="imp-msg">プログリットの<br><span class="accent">最大の特徴</span></p>
 </section>
 
 <!-- 23 特徴2カラム -->
@@ -559,23 +730,15 @@
 <div class="ft-grid">
 <div class="ft-col">
 <h3>成長スピード</h3>
-<div class="bar-c" style="height:180px;">
-<div class="bar-w"><div class="bar-v">106</div><div class="bar-b" style="height:1.5%;"></div><div class="bar-l">17/8</div></div>
-<div class="bar-w"><div class="bar-v">693</div><div class="bar-b" style="height:9.8%;"></div><div class="bar-l">18/8</div></div>
-<div class="bar-w"><div class="bar-v">1,711</div><div class="bar-b" style="height:24.1%;"></div><div class="bar-l">19/8</div></div>
-<div class="bar-w"><div class="bar-v">2,183</div><div class="bar-b" style="height:30.7%;"></div><div class="bar-l">20/8</div></div>
-<div class="bar-w"><div class="bar-v">1,981</div><div class="bar-b" style="height:27.9%;"></div><div class="bar-l">21/8</div></div>
-<div class="bar-w"><div class="bar-v">2,253</div><div class="bar-b" style="height:31.7%;"></div><div class="bar-l">22/8</div></div>
-<div class="bar-w"><div class="bar-v">3,024</div><div class="bar-b" style="height:42.6%;"></div><div class="bar-l">23/8</div></div>
-<div class="bar-w"><div class="bar-v">4,453</div><div class="bar-b" style="height:62.7%;"></div><div class="bar-l">24/8</div></div>
-<div class="bar-w"><div class="bar-v">5,748</div><div class="bar-b" style="height:80.9%;"></div><div class="bar-l">25/8</div></div>
-<div class="bar-w"><div class="bar-v" style="color:#F07800 !important;font-weight:900;">7,100</div><div class="bar-b hl" style="height:100%;"></div><div class="bar-l">26/8<br>予想</div></div>
+<div class="growth-badge"><span class="arrow">↑</span> 年次成長率 +33.3%</div>
+<div class="chart-wrap">
+<canvas id="growthChart"></canvas>
 </div>
 <p style="font-size:.55rem;color:#1A1A1A !important;text-align:right;">単位: 百万円</p>
 </div>
 <div class="ft-col">
-<h3><span class="accent">抜擢文化</span></h3>
-<div style="display:flex;flex-direction:column;gap:10px;flex:1;justify-content:center;">
+<h3>抜擢文化</h3>
+<div style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center;">
 <div class="pc">
 <img src="../shared/images/スピフル事業責任者_越野_画像.png" alt="">
 <div><h4>新卒3年目で新規事業責任者</h4><p>スピフル事業部 / ゼロから売上5〜6億円規模まで成長中</p></div>
@@ -592,8 +755,9 @@
 
 <!-- 24 2DAYS -->
 <section class="slide slide-orange"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p style="font-size:.8rem;font-family:var(--font-mono);letter-spacing:.3em;opacity:1;">SPECIAL INVITATION</p>
-<p class="ora-msg">最先端のAIを徹底的に活用する<br>2DAYS INTERNSHIP</p>
+<p style="font-size:1.2rem;font-family:var(--font-mono);letter-spacing:.3em;opacity:1;font-weight:700;">SPECIAL INVITATION</p>
+<p style="font-size:1.6rem;font-weight:700;letter-spacing:.05em;margin-top:4px;">最先端のAIを徹底的に活用する</p>
+<p style="font-size:5rem;font-weight:900;line-height:1.1;letter-spacing:-.02em;">2DAYS<br>INTERNSHIP</p>
 </section>
 
 <!-- 25 VS -->
@@ -610,20 +774,70 @@
 <!-- 26 2日間でやること -->
 <section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">2日間でここまでやる</div><div class="s-main">
-<div class="if-row">
-<div class="if-step"><h4>企画</h4><div class="if-ph">成果物イメージ</div></div>
-<div class="if-step"><h4>要件定義</h4><div class="if-ph">成果物イメージ</div></div>
-<div class="if-step"><h4>コーディング</h4><div class="if-ph">成果物イメージ</div></div>
-<div class="if-step"><h4>LP制作</h4><div class="if-ph">成果物イメージ</div></div>
-<div class="if-step end"><h4>プロダクト完成</h4><div class="if-ph">成果物イメージ</div></div>
+<div class="if-grid-new">
+  <!-- 企画 -->
+  <div class="if-step-new">
+    <h4>企画</h4>
+    <div class="img-fan">
+      <img class="fan-img" src="../shared/images/AIコーチング_企画01_サンプル.png" alt="" style="left:0;top:0;transform:rotate(-4deg);">
+      <img class="fan-img" src="../shared/images/AIコーチング_企画02_サンプル.png" alt="" style="left:30px;top:8px;transform:rotate(3deg);">
+    </div>
+  </div>
+  <!-- 要件定義 -->
+  <div class="if-step-new">
+    <h4>要件定義</h4>
+    <div class="img-fan">
+      <img class="fan-img" src="../shared/images/AIコーチング_要件定義所_サンプル.png" alt="" style="left:10px;top:4px;transform:rotate(-2deg);width:90px;">
+    </div>
+  </div>
+  <!-- コーディング -->
+  <div class="if-step-new">
+    <h4>コーディング</h4>
+    <div class="img-fan">
+      <img class="fan-img" src="../shared/images/AIコーチング_コーディング_サンプル.png" alt="" style="left:5px;top:2px;transform:rotate(2deg);width:90px;">
+    </div>
+  </div>
+  <!-- LP制作 -->
+  <div class="if-step-new">
+    <h4>LP制作</h4>
+    <div class="img-fan">
+      <img class="fan-img" src="../shared/images/AIコーチング_LP01_サンプル.png" alt="" style="left:0;top:0;transform:rotate(-6deg);">
+      <img class="fan-img" src="../shared/images/AIコーチング_LP02_サンプル.png" alt="" style="left:24px;top:5px;transform:rotate(0deg);">
+      <img class="fan-img" src="../shared/images/AIコーチング_LP03_サンプル.png" alt="" style="left:48px;top:10px;transform:rotate(5deg);">
+    </div>
+  </div>
+  <!-- プロダクト完成 -->
+  <div class="if-step-new end">
+    <h4>プロダクト完成</h4>
+    <div class="img-fan">
+      <img class="fan-img" src="../shared/images/AIコーチング_プロトタイプ01_サンプル.png" alt="" style="left:0;top:0;transform:rotate(-3deg);">
+      <img class="fan-img" src="../shared/images/AIコーチング_プロトタイプ02_サンプル.png" alt="" style="left:36px;top:6px;transform:rotate(4deg);">
+    </div>
+  </div>
 </div>
 </div></div>
 </section>
 
 <!-- 27 特別講座 -->
-<section class="slide slide-impact"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
-<p style="font-size:.75rem;font-family:var(--font-mono);color:#F07800 !important;letter-spacing:.2em;">SPECIAL LECTURE</p>
-<p class="imp-msg" style="font-size:2.4rem;">代表・岡田祥吾による<br><span class="accent">「就活の勝ち方」特別講座</span></p>
+<section class="slide slide-content"><img class="slide-logo" src="../shared/logo/Progrit_logo.png" alt="">
+<div class="s-body" style="padding:40px 48px;">
+<div class="lecture-wrap">
+  <div class="lecture-text">
+    <p class="lecture-eyebrow">SPECIAL LECTURE</p>
+    <p class="lecture-title">代表・岡田祥吾による<br><span class="accent">「就活の勝ち方」<br>特別講座</span></p>
+  </div>
+  <div class="lecture-imgs">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像01.png" alt="" style="width:200px;height:130px;right:40px;top:20px;transform:rotate(4deg);z-index:1;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像02.png" alt="" style="width:190px;height:125px;right:60px;top:160px;transform:rotate(-3deg);z-index:2;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像03.png" alt="" style="width:185px;height:120px;right:230px;top:10px;transform:rotate(-5deg);z-index:1;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像04.png" alt="" style="width:195px;height:128px;right:200px;top:165px;transform:rotate(2deg);z-index:3;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像05.png" alt="" style="width:175px;height:115px;right:390px;top:80px;transform:rotate(-2deg);z-index:2;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像06.png" alt="" style="width:170px;height:112px;right:10px;top:300px;transform:rotate(6deg);z-index:1;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像07.png" alt="" style="width:180px;height:118px;right:340px;top:260px;transform:rotate(-4deg);z-index:2;">
+    <img class="lecture-img-card" src="../shared/images/就活講座_サンプル画像08.png" alt="" style="width:165px;height:108px;right:170px;top:300px;transform:rotate(3deg);z-index:1;">
+  </div>
+</div>
+</div>
 </section>
 
 <!-- 28 こんな人に -->
@@ -650,7 +864,7 @@
 
 </div>
 <div class="slide-ui">
-<div class="slide-counter">01 / 29</div>
+<div class="slide-counter">01 / 30</div>
 <div class="slide-nav">
 <button id="btn-prev">← Prev</button>
 <button id="btn-next">Next →</button>
@@ -659,5 +873,51 @@
 </div>
 </div>
 <script src="../engine/slide.js"></script>
+<script>
+// --- 23 特徴2カラム: Chart.js 棒グラフ ---
+(function() {
+  var ctx = document.getElementById('growthChart');
+  if (!ctx) return;
+  var labels = ['17/8','18/8','19/8','20/8','21/8','22/8','23/8','24/8','25/8','26/8\n予想'];
+  var data   = [106, 693, 1711, 2183, 1981, 2253, 3024, 4453, 5748, 7100];
+  var colors = data.map(function(_, i) {
+    return i === data.length - 1 ? '#E08800' : 'rgba(240,120,0,0.65)';
+  });
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: colors,
+        borderRadius: 4,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) { return ctx.parsed.y.toLocaleString() + ' 百万円'; }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { font: { size: 9 }, color: '#1A1A1A' },
+          grid: { display: false }
+        },
+        y: {
+          ticks: { font: { size: 9 }, color: '#1A1A1A' },
+          grid: { color: 'rgba(0,0,0,.06)' }
+        }
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>
