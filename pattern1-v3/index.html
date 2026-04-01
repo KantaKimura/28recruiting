@@ -43,12 +43,12 @@
 
 /* 見出し: 全ページ共通固定位置 top:48px */
 .s-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 900;
   line-height: 1.3;
-  border-left: 4px solid #F07800;
-  padding-left: 16px;
-  margin: 0 0 24px 0;
+  border-left: 5px solid #F07800;
+  padding-left: 18px;
+  margin: 0 0 20px 0;
   flex-shrink: 0;
 }
 
@@ -155,18 +155,18 @@
 .mv-box.res { background: rgba(240,120,0,.1); border: 2.5px solid rgba(240,120,0,.5); }
 .mv-box.dem { background: rgba(37,99,235,.06); border: 2.5px solid rgba(37,99,235,.35); }
 .mv-box.sup { background: rgba(220,38,38,.06); border: 2.5px solid rgba(220,38,38,.35); }
-.mv-box h3 { font-size: 2rem; font-weight: 900; }
+.mv-box h3 { font-size: 2.6rem; font-weight: 900; }
 .mv-box.res h3 { color: #F07800 !important; }
 .mv-box.dem h3 { color: #2563EB !important; }
 .mv-box.sup h3 { color: #DC2626 !important; }
-.mv-box p { font-size: 1rem; color: #1A1A1A !important; margin-top: 8px; }
+.mv-box p { display: none; }
 .mv-op { font-size: 3rem; font-weight: 900; color: #F07800 !important; flex-shrink: 0; }
 
 /* --- 2つの基準 --- */
 .cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
 .cr-card { padding: 48px 40px; border-radius: 16px; border-top: 4px solid #F07800; background: #F8F8F8; border-left: 1px solid #E8E8E8; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
-.cr-num { font-size: 2.8rem; font-weight: 900; font-family: var(--font-mono); color: #F07800 !important; }
-.cr-card h3 { font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
+.cr-num { font-size: 3.2rem; font-weight: 900; font-family: var(--font-mono); color: #F07800 !important; }
+.cr-card h3 { font-size: 2rem; font-weight: 700; line-height: 1.5; }
 
 /* --- 成長比較 --- */
 .gc { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; flex: 1; }
@@ -176,8 +176,8 @@
 .gc-tag { font-size: .7rem; font-family: var(--font-mono); letter-spacing: .08em; font-weight: 700; }
 .gc-col.w .gc-tag { color: #1A1A1A !important; }
 .gc-col.s .gc-tag { color: #F07800 !important; }
-.gc-col h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.5; }
-.gc-col p { font-size: .9rem; color: #1A1A1A !important; line-height: 1.6; }
+.gc-col h3 { font-size: 2.2rem; font-weight: 700; line-height: 1.5; }
+.gc-col p { font-size: 1rem; color: #1A1A1A !important; line-height: 1.6; }
 .gc-vs { display: flex; align-items: center; justify-content: center; color: #1A1A1A !important; font-weight: 700; }
 
 /* --- フローチャート --- */
@@ -197,15 +197,15 @@
 .sc-card p { font-size: .8rem; color: #1A1A1A !important; line-height: 1.4; margin-top: 4px; }
 
 /* --- 10年 4項目 --- */
-.y10-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
-.y10-item { display: flex; align-items: center; justify-content: center; gap: 20px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 14px; padding: 32px 28px; }
-.y10-num { font-family: var(--font-mono); font-weight: 900; color: #F07800 !important; font-size: 2.8rem; flex-shrink: 0; line-height: 1; }
-.y10-item span { font-size: 1.82rem; font-weight: 700; line-height: 1.6; }
+.y10-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; flex: 1; }
+.y10-item { display: flex; align-items: center; justify-content: center; gap: 24px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 5px solid #F07800; border-radius: 14px; padding: 36px 32px; }
+.y10-num { font-family: var(--font-mono); font-weight: 900; color: #F07800 !important; font-size: 3.2rem; flex-shrink: 0; line-height: 1; }
+.y10-item span { font-size: 2.2rem; font-weight: 700; line-height: 1.5; }
 
 /* --- 特徴2カラム --- */
 .ft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1; align-items: stretch; }
-.ft-col { display: flex; flex-direction: column; gap: 8px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-top: 3px solid #F07800; border-radius: 14px; padding: 20px; overflow: hidden; }
-.ft-col h3 { font-size: 1.2rem; font-weight: 900; flex-shrink: 0; color: #F07800 !important; }
+.ft-col { display: flex; flex-direction: column; gap: 12px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-top: 4px solid #F07800; border-radius: 14px; padding: 24px; overflow: hidden; }
+.ft-col h3 { font-size: 1.8rem; font-weight: 900; flex-shrink: 0; color: #F07800 !important; }
 
 /* 棒グラフコンポーネント */
 .bar-c { display: flex; align-items: flex-end; gap: 3px; flex: 1; width: 100%; }
@@ -216,10 +216,10 @@
 .bar-l { font-size: .45rem; font-family: var(--font-mono); color: #1A1A1A !important; text-align: center; line-height: 1.1; margin-top: 2px; }
 
 /* 人物カード */
-.pc { display: flex; gap: 16px; align-items: center; padding: 20px; background: #FFF; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 12px; flex: 1; }
-.pc img { width: 100px; height: 100px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-.pc h4 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; }
-.pc p { font-size: .85rem; color: #1A1A1A !important; margin-top: 4px; }
+.pc { display: flex; gap: 20px; align-items: center; padding: 24px; background: #FFF; border: 1.5px solid #E0E0E0; border-left: 5px solid #F07800; border-radius: 12px; flex: 1; }
+.pc img { width: 110px; height: 110px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.pc h4 { font-size: 1.6rem; font-weight: 700; line-height: 1.4; }
+.pc p { display: none; }
 
 /* --- VS比較 --- */
 .vs { display: grid; grid-template-columns: 1fr 48px 1fr; align-items: stretch; flex: 1; }
@@ -240,11 +240,11 @@
 
 /* --- メリット/ターゲット縦積み --- */
 .ms { display: flex; flex-direction: column; gap: 10px; flex: 1; justify-content: center; }
-.mi { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 4px solid #F07800; border-radius: 10px; }
-.mi h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; }
-.ti { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-radius: 10px; }
-.ti h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; }
-.t-n { font-family: var(--font-mono); font-weight: 900; color: #1A1A1A !important; font-size: 1.3rem; min-width: 28px; }
+.mi { display: flex; align-items: center; gap: 20px; padding: 24px 28px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-left: 5px solid #F07800; border-radius: 10px; }
+.mi h3 { font-size: 1.8rem; font-weight: 700; line-height: 1.4; }
+.ti { display: flex; align-items: center; gap: 20px; padding: 24px 28px; background: #F8F8F8; border: 1.5px solid #E0E0E0; border-radius: 10px; }
+.ti h3 { font-size: 1.8rem; font-weight: 700; line-height: 1.4; }
+.t-n { font-family: var(--font-mono); font-weight: 900; color: #1A1A1A !important; font-size: 2rem; min-width: 40px; }
 
 /* --- エントリー --- */
 .eg { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -354,13 +354,13 @@
   flex: 1;
 }
 .if-step-new {
-  padding: 16px;
+  padding: 20px;
   background: #F8F8F8;
   border: 1.5px solid #E0E0E0;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   position: relative;
   overflow: hidden;
 }
@@ -368,7 +368,7 @@
   background: rgba(240,120,0,.05);
   border-color: rgba(240,120,0,.4);
 }
-.if-step-new h4 { font-size: .95rem; font-weight: 700; flex-shrink: 0; }
+.if-step-new h4 { font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
 .if-step-new.end h4 { color: #F07800 !important; }
 .if-step-new:nth-child(4) { grid-column: 1 / 2; grid-row: 2; }
 .if-step-new:nth-child(5) { grid-column: 2 / 3; grid-row: 2; }
@@ -377,12 +377,12 @@
 .img-fan {
   flex: 1;
   position: relative;
-  min-height: 120px;
+  min-height: 160px;
 }
 .fan-img {
   position: absolute;
-  width: 160px;
-  height: 110px;
+  width: 200px;
+  height: 140px;
   object-fit: cover;
   border-radius: 4px;
   border: 1.5px solid #DDD;
@@ -417,10 +417,10 @@
 .intro-info { display: flex; flex-direction: column; justify-content: center; }
 
 /* --- 2カード（v3 10a用） --- */
-.stat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.stat-card { background: #F8F8F8; border: 1.5px solid #E0E0E0; border-top: 3px solid #F07800; border-radius: 14px; padding: 32px 28px; text-align: center; }
-.stat-num { font-size: 3.2rem; font-weight: 900; color: #F07800 !important; line-height: 1; }
-.stat-label { font-size: 1.1rem; font-weight: 700; margin-top: 8px; }
+.stat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.stat-card { background: #F8F8F8; border: 1.5px solid #E0E0E0; border-top: 4px solid #F07800; border-radius: 14px; padding: 40px 32px; text-align: center; }
+.stat-num { font-size: 4.5rem; font-weight: 900; color: #F07800 !important; line-height: 1; }
+.stat-label { font-size: 1.8rem; font-weight: 700; margin-top: 12px; }
 .stat-source { font-size: .7rem; color: #1A1A1A !important; margin-top: 4px; font-family: var(--font-mono); }
 </style>
 </head>
@@ -432,8 +432,7 @@
 <div class="s-body"><div class="s-title">インターン中コンテンツ</div><div class="s-main" style="justify-content:center;align-items:center;">
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.35);border-radius:20px;padding:48px 64px;text-align:center;">
 <p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.15em;margin-bottom:16px;">SPECIAL LECTURE</p>
-<p style="font-size:2rem;font-weight:900;color:#1A1A1A;line-height:1.5;">岡田祥吾が教える<br>市場価値の高め方</p>
-<p style="font-size:.9rem;color:#555;margin-top:16px;">株式会社プログリット 代表取締役社長</p>
+<p style="font-size:2.8rem;font-weight:900;color:#1A1A1A;line-height:1.5;">岡田祥吾が教える<br>市場価値の高め方</p>
 </div>
 </div></div>
 </section>
@@ -523,7 +522,6 @@
 <div class="stat-source">2025年平均</div>
 </div>
 </div>
-<p style="text-align:center;font-size:1.1rem;font-weight:700;margin-top:16px;">最初の会社は、「永住先」ではなく<span class="accent">「最初の投資先」</span>として考えるべきです。</p>
 </div></div>
 </section>
 
@@ -606,8 +604,8 @@
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">市場価値を高める会社選びの2つの基準</div><div class="s-main">
 <div class="cr-grid">
-<div class="cr-card"><div class="cr-num">01</div><p style="font-size:.85rem;color:#555;margin-bottom:8px;">需要の大きい（どこでも通用する）スキル・経験を身につけるなら、</p><h3>業界平均を凌駕するスピードで、<br><span class="accent">自力成長している会社を選べ</span></h3></div>
-<div class="cr-card"><div class="cr-num">02</div><p style="font-size:.85rem;color:#555;margin-bottom:8px;">供給の少ない（希少性の高い）スキル・経験を身につけるなら、</p><h3>戦略から実行まで、<br><span class="accent">すべてに責任を持てる会社を選べ</span></h3></div>
+<div class="cr-card"><div class="cr-num">01</div><h3>業界平均を凌駕するスピードで、<br><span class="accent">自力成長している会社を選べ</span></h3></div>
+<div class="cr-card"><div class="cr-num">02</div><h3>戦略から実行まで、<br><span class="accent">すべてに責任を持てる会社を選べ</span></h3></div>
 </div>
 </div></div>
 </section>
@@ -617,11 +615,11 @@
 <div class="s-body"><div class="s-title">基準① 業界平均を凌駕するスピードで、自力成長している会社を選べ</div><div class="s-main">
 <div class="gc" style="flex:1;">
 <div class="gc-col w" style="justify-content:center;">
-<h3 style="font-size:1.7rem;font-weight:800;line-height:1.5;text-align:center;">業界全体が伸びているから<br>成長している会社</h3>
+<h3 style="font-size:2.4rem;font-weight:800;line-height:1.5;text-align:center;">業界全体が伸びているから<br>成長している会社</h3>
 </div>
 <div class="gc-vs">VS</div>
 <div class="gc-col s" style="justify-content:center;">
-<h3 style="font-size:1.7rem;font-weight:800;line-height:1.5;text-align:center;">競合が横ばいの中で、<br>独自の力で伸びている</h3>
+<h3 style="font-size:2.4rem;font-weight:800;line-height:1.5;text-align:center;">競合が横ばいの中で、<br>独自の力で伸びている</h3>
 </div>
 </div>
 </div></div>
@@ -630,98 +628,136 @@
 <!-- 16-b 基準①結論 -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body" style="justify-content:center;align-items:center;text-align:center;">
-<p style="font-size:1.1rem;color:#555;margin-bottom:24px;">この結論、どんな環境に行っても通用する力を身につけるなら、</p>
-<div style="background:rgba(249,115,22,.07);border:3px solid rgba(249,115,22,.4);border-radius:20px;padding:48px 64px;display:inline-block;">
-<h2 style="font-size:2rem;font-weight:900;line-height:1.6;"><span class="accent">競合が横ばいの中で、</span><br><span class="accent">独自の力で伸びている</span></h2>
-<p style="font-size:1.15rem;font-weight:700;margin-top:20px;color:#333;">会社を選ぶ</p>
+<div style="background:rgba(249,115,22,.07);border:3px solid rgba(249,115,22,.4);border-radius:20px;padding:56px 72px;display:inline-block;">
+<h2 style="font-size:2.8rem;font-weight:900;line-height:1.6;"><span class="accent">競合が横ばいの中で、</span><br><span class="accent">独自の力で伸びている</span></h2>
+<p style="font-size:1.6rem;font-weight:700;margin-top:24px;color:#333;">会社を選ぶ</p>
 </div>
 </div>
 </section>
 
-<!-- 17-a 基準②全体像 -->
+<!-- 17 基準②比較フローチャート -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
-<div class="criteria-wrap">
-<div class="criteria-img-wrap">
-<img src="../../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
-<div class="criteria-labels">
-<div class="criteria-label">戦略</div>
-<div class="criteria-label">実行</div>
-<div class="criteria-label">検証</div>
+<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;justify-content:center;">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;width:100%;">
+
+<!-- 戦略だけの人 -->
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+<p style="font-size:1.4rem;font-weight:700;color:#888;margin-bottom:4px;">戦略だけの人</p>
+<svg viewBox="0 0 160 260" style="width:160px;" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="0" width="140" height="60" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="80" y="37" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#1A1A1A">戦略</text>
+  <line x1="80" y1="60" x2="80" y2="84" stroke="#DDD" stroke-width="2"/>
+  <polygon points="72,79 88,79 80,87" fill="#DDD"/>
+  <rect x="10" y="88" width="140" height="60" rx="8" fill="#F5F5F5" stroke="#DDD" stroke-width="2"/>
+  <text x="80" y="125" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#CCC">実行</text>
+  <line x1="80" y1="148" x2="80" y2="172" stroke="#DDD" stroke-width="2"/>
+  <polygon points="72,167 88,167 80,175" fill="#DDD"/>
+  <rect x="10" y="176" width="140" height="60" rx="8" fill="#F5F5F5" stroke="#DDD" stroke-width="2"/>
+  <text x="80" y="213" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#CCC">振り返り</text>
+</svg>
 </div>
+
+<!-- 実行だけの人 -->
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+<p style="font-size:1.4rem;font-weight:700;color:#888;margin-bottom:4px;">実行だけの人</p>
+<svg viewBox="0 0 160 260" style="width:160px;" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="0" width="140" height="60" rx="8" fill="#F5F5F5" stroke="#DDD" stroke-width="2"/>
+  <text x="80" y="37" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#CCC">戦略</text>
+  <line x1="80" y1="60" x2="80" y2="84" stroke="#DDD" stroke-width="2"/>
+  <polygon points="72,79 88,79 80,87" fill="#DDD"/>
+  <rect x="10" y="88" width="140" height="60" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="80" y="125" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#1A1A1A">実行</text>
+  <line x1="80" y1="148" x2="80" y2="172" stroke="#DDD" stroke-width="2"/>
+  <polygon points="72,167 88,167 80,175" fill="#DDD"/>
+  <rect x="10" y="176" width="140" height="60" rx="8" fill="#F5F5F5" stroke="#DDD" stroke-width="2"/>
+  <text x="80" y="213" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#CCC">振り返り</text>
+</svg>
 </div>
+
+<!-- 全部やる人（back arrow付き） -->
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+<p style="font-size:1.4rem;font-weight:900;color:#F07800;margin-bottom:4px;">全部やる人</p>
+<svg viewBox="0 0 200 270" style="width:190px;" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="0" width="150" height="62" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="85" y="38" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#1A1A1A">戦略</text>
+  <line x1="85" y1="62" x2="85" y2="86" stroke="#F07800" stroke-width="2"/>
+  <polygon points="77,81 93,81 85,89" fill="#F07800"/>
+  <rect x="10" y="90" width="150" height="62" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="85" y="128" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#1A1A1A">実行</text>
+  <line x1="85" y1="152" x2="85" y2="176" stroke="#F07800" stroke-width="2"/>
+  <polygon points="77,171 93,171 85,179" fill="#F07800"/>
+  <rect x="10" y="180" width="150" height="62" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="85" y="218" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="20" fill="#1A1A1A">振り返り</text>
+  <!-- back arrow: 右側を通って戦略へ -->
+  <path d="M 160 211 L 182 211 L 182 31 L 160 31" stroke="#F07800" stroke-width="2" fill="none"/>
+  <polygon points="152,25 152,37 160,31" fill="#F07800"/>
+</svg>
+</div>
+
 </div>
 </div></div>
 </section>
 
-<!-- 17-b 基準②戦略だけ -->
+<!-- 17-b 全領域マトリクス -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
-<div class="criteria-wrap">
-<div class="criteria-img-wrap" style="position:relative;">
-<img src="../../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
-<div class="zone-overlay center gray"></div>
-<div class="zone-overlay right gray"></div>
-<div class="zone-overlay left highlight-orange"></div>
-<div class="criteria-labels">
-<div class="criteria-label">戦略</div>
-<div class="criteria-label" style="opacity:.4;">実行</div>
-<div class="criteria-label" style="opacity:.4;">検証</div>
-</div>
-</div>
-<div class="criteria-text-row">
-<div class="criteria-text-block hl" style="flex:2;">
-<p><strong>上流のみ — 戦略だけ</strong><br>失敗しても「実行が悪かった」と言えてしまい、学びが浅くなります</p>
-</div>
-</div>
-</div>
-</div></div>
-</section>
+<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:stretch;">
+<div style="display:flex;gap:16px;flex:1;align-items:stretch;">
 
-<!-- 17-c 基準②実行だけ -->
-<section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
-<div class="criteria-wrap">
-<div class="criteria-img-wrap" style="position:relative;">
-<img src="../../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
-<div class="zone-overlay left gray"></div>
-<div class="zone-overlay right gray"></div>
-<div class="zone-overlay center highlight-orange"></div>
-<div class="criteria-labels">
-<div class="criteria-label" style="opacity:.4;">戦略</div>
-<div class="criteria-label">実行</div>
-<div class="criteria-label" style="opacity:.4;">検証</div>
+<!-- LEFT: フローチャート縦軸 -->
+<div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:center;width:90px;padding-top:52px;">
+<svg viewBox="0 0 90 260" style="width:90px;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="0" width="70" height="52" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="40" y="31" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="18" fill="#1A1A1A">戦略</text>
+  <line x1="40" y1="52" x2="40" y2="74" stroke="#F07800" stroke-width="2"/>
+  <polygon points="33,69 47,69 40,77" fill="#F07800"/>
+  <rect x="5" y="78" width="70" height="52" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="40" y="109" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="18" fill="#1A1A1A">実行</text>
+  <line x1="40" y1="130" x2="40" y2="152" stroke="#F07800" stroke-width="2"/>
+  <polygon points="33,147 47,147 40,155" fill="#F07800"/>
+  <rect x="5" y="156" width="70" height="52" rx="8" fill="rgba(249,115,22,.09)" stroke="#F07800" stroke-width="2"/>
+  <text x="40" y="187" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="800" font-size="18" fill="#1A1A1A">振り返り</text>
+  <path d="M 75 182 L 85 182 L 85 26 L 75 26" stroke="#F07800" stroke-width="2" fill="none"/>
+  <polygon points="67,20 67,32 75,26" fill="#F07800"/>
+</svg>
 </div>
-</div>
-<div class="criteria-text-row">
-<div class="criteria-text-block hl" style="flex:2;">
-<p><strong>下流のみ — 実行だけ</strong><br>失敗しても「戦略が悪かった」と言い訳でき、成長につながりにくいです</p>
-</div>
-</div>
-</div>
-</div></div>
-</section>
 
-<!-- 17-d 基準②全部やる -->
-<section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
-<div class="s-body"><div class="s-title">基準② 戦略から実行まで、すべてに責任を持てる会社を選べ</div><div class="s-main" style="align-items:center;">
-<div class="criteria-wrap">
-<div class="criteria-img-wrap" style="position:relative;">
-<img src="../../shared/images/criteria02_full_stack.png" alt="戦略・実行・検証">
-<div class="zone-overlay left highlight-all" style="border:3px solid #F07800;background:rgba(240,120,0,.08);"></div>
-<div class="zone-overlay center highlight-all" style="border:3px solid #F07800;background:rgba(240,120,0,.08);"></div>
-<div class="zone-overlay right highlight-all" style="border:3px solid #F07800;background:rgba(240,120,0,.08);"></div>
-<div class="criteria-labels">
-<div class="criteria-label">戦略</div>
-<div class="criteria-label">実行</div>
-<div class="criteria-label">検証</div>
+<!-- RIGHT: マトリクス -->
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+  <!-- 大分類ヘッダー -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+    <div style="grid-column:1/3;text-align:center;padding:10px 4px;background:rgba(37,99,235,.06);border:1.5px solid rgba(37,99,235,.25);border-radius:8px;font-size:1.1rem;font-weight:800;color:#2563EB;">価値の創造</div>
+    <div style="grid-column:3/5;text-align:center;padding:10px 4px;background:rgba(249,115,22,.06);border:1.5px solid rgba(249,115,22,.3);border-radius:8px;font-size:1.1rem;font-weight:800;color:#F07800;">届ける</div>
+  </div>
+  <!-- 機能ヘッダー -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+    <div style="text-align:center;padding:10px 4px;background:#F0F0F0;border-radius:8px;font-size:1rem;font-weight:700;color:#333;">プロダクト企画</div>
+    <div style="text-align:center;padding:10px 4px;background:#F0F0F0;border-radius:8px;font-size:1rem;font-weight:700;color:#333;">開発</div>
+    <div style="text-align:center;padding:10px 4px;background:#F0F0F0;border-radius:8px;font-size:1rem;font-weight:700;color:#333;">マーケティング</div>
+    <div style="text-align:center;padding:10px 4px;background:#F0F0F0;border-radius:8px;font-size:1rem;font-weight:700;color:#333;">営業</div>
+  </div>
+  <!-- 行: 戦略 -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;">
+    <div style="border:1.5px solid rgba(37,99,235,.2);border-radius:8px;background:rgba(37,99,235,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(37,99,235,.2);border-radius:8px;background:rgba(37,99,235,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.03);min-height:52px;"></div>
+  </div>
+  <!-- 行: 実行 -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;">
+    <div style="border:1.5px solid rgba(37,99,235,.2);border-radius:8px;background:rgba(37,99,235,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(37,99,235,.2);border-radius:8px;background:rgba(37,99,235,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.03);min-height:52px;"></div>
+  </div>
+  <!-- 行: 振り返り -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;">
+    <div style="border:1.5px solid rgba(37,99,235,.2);border-radius:8px;background:rgba(37,99,235,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(37,99,235,.2);border-radius:8px;background:rgba(37,99,235,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.03);min-height:52px;"></div>
+    <div style="border:1.5px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.03);min-height:52px;"></div>
+  </div>
 </div>
-</div>
-<div class="criteria-text-row">
-<div class="criteria-text-block hl" style="flex:2;">
-<p><strong>全部やる — 戦略・実行・検証</strong><br>全ての結果が自分に返る。成長スピードが圧倒的に速くなります</p>
-</div>
-</div>
+
 </div>
 </div></div>
 </section>
@@ -751,34 +787,29 @@
 <p style="font-size:2.8rem;font-weight:900;color:#1A1A1A;text-align:center;">世界で自由に活躍できる人を増やす</p>
 </div>
 <p style="font-size:1.1rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.15em;text-align:center;">VALUES — FIVE GRIT</p>
-<div style="display:flex;flex-direction:column;gap:10px;">
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:14px 14px;display:flex;flex-direction:column;gap:6px;">
-<p style="font-size:.65rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">01</p>
-<p style="font-size:1.3rem;font-weight:800;line-height:1.3;">Customer<br>Oriented</p>
-<p style="font-size:.8rem;color:#555;line-height:1.5;">顧客起点で物事を考え、<br>行動します</p>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:8px;">
+<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">01</p>
+<p style="font-size:1.8rem;font-weight:800;line-height:1.3;">Customer<br>Oriented</p>
 </div>
-<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:14px 14px;display:flex;flex-direction:column;gap:6px;">
-<p style="font-size:.65rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">02</p>
-<p style="font-size:1.3rem;font-weight:800;line-height:1.3;">Go<br>Higher</p>
-<p style="font-size:.8rem;color:#555;line-height:1.5;">高い目標を掲げる勇気を持ち、その目標に挑戦します</p>
+<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:8px;">
+<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">02</p>
+<p style="font-size:1.8rem;font-weight:800;line-height:1.3;">Go<br>Higher</p>
 </div>
-<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:14px 14px;display:flex;flex-direction:column;gap:6px;">
-<p style="font-size:.65rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">03</p>
-<p style="font-size:1.3rem;font-weight:800;line-height:1.3;">Respect<br>All</p>
-<p style="font-size:.8rem;color:#555;line-height:1.5;">仲間を尊重し、思いやりのあるコミュニケーションをとります</p>
+<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:8px;">
+<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">03</p>
+<p style="font-size:1.8rem;font-weight:800;line-height:1.3;">Respect<br>All</p>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16%;">
-<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:14px 14px;display:flex;flex-direction:column;gap:6px;">
-<p style="font-size:.65rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">04</p>
-<p style="font-size:1.3rem;font-weight:800;line-height:1.3;">Own<br>Issues</p>
-<p style="font-size:.8rem;color:#555;line-height:1.5;">課題に対して当事者意識を持ち、解決に導きます</p>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 16%;">
+<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:8px;">
+<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">04</p>
+<p style="font-size:1.8rem;font-weight:800;line-height:1.3;">Own<br>Issues</p>
 </div>
-<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:14px 14px;display:flex;flex-direction:column;gap:6px;">
-<p style="font-size:.65rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">05</p>
-<p style="font-size:1.3rem;font-weight:800;line-height:1.3;">Appreciate<br>Feedback</p>
-<p style="font-size:.8rem;color:#555;line-height:1.5;">全てのフィードバックに感謝し、より良い価値を創造します</p>
+<div style="background:#F8F8F8;border:1px solid #E5E5E5;border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:8px;">
+<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">05</p>
+<p style="font-size:1.8rem;font-weight:800;line-height:1.3;">Appreciate<br>Feedback</p>
 </div>
 </div>
 </div>
@@ -788,26 +819,20 @@
 <!-- 20-c 給与水準・評価制度 -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">給与水準・評価制度</div><div class="s-main">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;align-items:stretch;">
-<div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:36px 32px;display:flex;flex-direction:column;justify-content:center;">
-<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;margin-bottom:16px;">SALARY</p>
-<p style="font-size:1rem;color:#555;margin-bottom:8px;">月給</p>
-<p style="font-size:3rem;font-weight:900;line-height:1;color:#1A1A1A;"><span class="accent">32.2万円</span><span style="font-size:1.2rem;font-weight:500;color:#555;">〜</span></p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;flex:1;align-items:stretch;">
+<div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+<p style="font-size:1rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;">月給</p>
+<p style="font-size:4.5rem;font-weight:900;line-height:1;color:#1A1A1A;"><span class="accent">32.2万円</span><span style="font-size:1.8rem;font-weight:500;color:#555;">〜</span></p>
 </div>
-<div style="background:#F8F8F8;border:2px solid #E5E5E5;border-radius:16px;padding:36px 32px;display:flex;flex-direction:column;justify-content:center;gap:20px;">
-<p style="font-size:.75rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;">EVALUATION</p>
-<div style="display:flex;flex-direction:column;gap:12px;">
-<div style="background:#fff;border-radius:10px;padding:12px 16px;border:1px solid #E5E5E5;">
-<p style="font-size:.75rem;color:#888;margin-bottom:4px;">評価軸</p>
-<p style="font-size:.95rem;font-weight:700;">ミッション達成度 × FIVE GRIT体現度</p>
+<div style="background:#F8F8F8;border:2px solid #E5E5E5;border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;justify-content:center;gap:24px;">
+<p style="font-size:1rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;">評価軸</p>
+<p style="font-size:1.8rem;font-weight:800;line-height:1.5;">ミッション達成度<br>× FIVE GRIT体現度</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+<div style="background:#fff;border-radius:10px;padding:16px;border:1px solid #E5E5E5;text-align:center;">
+<p style="font-size:1.3rem;font-weight:700;">昇格・昇給</p>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-<div style="background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #E5E5E5;text-align:center;">
-<p style="font-size:.8rem;font-weight:700;">昇格・昇給</p>
-</div>
-<div style="background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #E5E5E5;text-align:center;">
-<p style="font-size:.8rem;font-weight:700;">賞与を付与</p>
-</div>
+<div style="background:#fff;border-radius:10px;padding:16px;border:1px solid #E5E5E5;text-align:center;">
+<p style="font-size:1.3rem;font-weight:700;">賞与を付与</p>
 </div>
 </div>
 </div>
@@ -821,19 +846,19 @@
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;flex:1;align-items:stretch;">
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:14px;padding:28px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:12px;">
 <p style="font-size:.7rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">01</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">既存英語<br>コーチングの成長</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">既存英語<br>コーチングの成長</p>
 </div>
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:14px;padding:28px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:12px;">
 <p style="font-size:.7rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">02</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">サブスク事業<br>の成長</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">サブスク事業<br>の成長</p>
 </div>
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:14px;padding:28px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:12px;">
 <p style="font-size:.7rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">03</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">新規事業<br>への投資</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">新規事業<br>への投資</p>
 </div>
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:14px;padding:28px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:12px;">
 <p style="font-size:.7rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.08em;">04</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">M&A</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">M&A</p>
 </div>
 </div>
 </div></div>
@@ -845,15 +870,15 @@
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1;align-items:stretch;">
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:36px 24px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:16px;">
 <p style="font-size:1.125rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;">01</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">急成長により<br>新しいポストが<br>増え続ける</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">急成長により<br>新しいポストが<br>増え続ける</p>
 </div>
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:36px 24px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:16px;">
 <p style="font-size:1.125rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;">02</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">年次ではなく<br>成果と覚悟に任せる<br>抜擢文化</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">年次ではなく<br>成果と覚悟に任せる<br>抜擢文化</p>
 </div>
 <div style="background:rgba(249,115,22,.06);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:36px 24px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:16px;">
 <p style="font-size:1.125rem;font-family:var(--font-mono);font-weight:700;color:#F07800;letter-spacing:.1em;">03</p>
-<p style="font-size:1.95rem;font-weight:800;line-height:1.4;">フィードバック<br>文化</p>
+<p style="font-size:2.5rem;font-weight:800;line-height:1.4;">フィードバック<br>文化</p>
 </div>
 </div>
 </div></div>
@@ -862,43 +887,42 @@
 <!-- 20-f フィードバック文化 -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">フィードバック文化</div><div class="s-main" style="flex-direction:column;align-items:center;gap:16px;">
-<p style="font-size:1.1rem;font-weight:700;color:#1A1A1A;text-align:center;">経験豊富なスペシャリストからのフィードバック環境</p>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;">
-<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
-<img style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/代表取締役社長_岡田_写真.jpg" alt="Shogo">
-<p style="font-size:1.3rem;font-weight:900;color:#1A1A1A;">Shogo</p>
-<p style="font-size:.85rem;font-weight:700;color:#F07800;">CEO</p>
-<img style="height:22px;width:auto;max-width:100px;" src="../../shared/images/logos/mckinsey.png" alt="McKinsey">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;flex:1;">
+<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;">
+<img style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/代表取締役社長_岡田_写真.jpg" alt="Shogo">
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A;">Shogo</p>
+<p style="font-size:1.1rem;font-weight:700;color:#F07800;">CEO</p>
+<img style="height:26px;width:auto;max-width:120px;" src="../../shared/images/logos/mckinsey.png" alt="McKinsey">
 </div>
-<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
-<img style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/取締役副社長_山碕_写真.jpg" alt="Shunta">
-<p style="font-size:1.3rem;font-weight:900;color:#1A1A1A;">Shunta</p>
-<p style="font-size:.85rem;font-weight:700;color:#F07800;">COO</p>
-<img style="height:22px;width:auto;max-width:100px;" src="../../shared/images/logos/recruit.png" alt="リクルート">
+<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;">
+<img style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/取締役副社長_山碕_写真.jpg" alt="Shunta">
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A;">Shunta</p>
+<p style="font-size:1.1rem;font-weight:700;color:#F07800;">COO</p>
+<img style="height:26px;width:auto;max-width:120px;" src="../../shared/images/logos/recruit.png" alt="リクルート">
 </div>
-<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
-<img style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/取締役CFO_谷内_写真.jpg" alt="Ryota">
-<p style="font-size:1.3rem;font-weight:900;color:#1A1A1A;">Ryota</p>
-<p style="font-size:.85rem;font-weight:700;color:#F07800;">CFO</p>
-<img style="height:22px;width:auto;max-width:100px;" src="../../shared/images/logos/goldman_sachs.png" alt="Goldman Sachs">
+<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;">
+<img style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/取締役CFO_谷内_写真.jpg" alt="Ryota">
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A;">Ryota</p>
+<p style="font-size:1.1rem;font-weight:700;color:#F07800;">CFO</p>
+<img style="height:26px;width:auto;max-width:120px;" src="../../shared/images/logos/goldman_sachs.png" alt="Goldman Sachs">
 </div>
-<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
-<img style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/emy_画像.png" alt="Emy">
-<p style="font-size:1.3rem;font-weight:900;color:#1A1A1A;">Emy</p>
-<p style="font-size:.85rem;font-weight:700;color:#F07800;">CMO</p>
-<img style="height:22px;width:auto;max-width:100px;" src="../../shared/images/logos/loreal.png" alt="L'Oréal">
+<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;">
+<img style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/emy_画像.png" alt="Emy">
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A;">Emy</p>
+<p style="font-size:1.1rem;font-weight:700;color:#F07800;">CMO</p>
+<img style="height:26px;width:auto;max-width:120px;" src="../../shared/images/logos/loreal.png" alt="L'Oréal">
 </div>
-<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
-<img style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/Yoshimasa_法人営業部長_画像.jpeg" alt="Yoshimasa">
-<p style="font-size:1.3rem;font-weight:900;color:#1A1A1A;">Yoshimasa</p>
-<p style="font-size:.85rem;font-weight:700;color:#F07800;">法人営業部長</p>
-<img style="height:22px;width:auto;max-width:100px;" src="../../shared/images/logos/mitsui.png" alt="三井物産">
+<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;">
+<img style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/Yoshimasa_法人営業部長_画像.jpeg" alt="Yoshimasa">
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A;">Yoshimasa</p>
+<p style="font-size:1.1rem;font-weight:700;color:#F07800;">法人営業部長</p>
+<img style="height:26px;width:auto;max-width:120px;" src="../../shared/images/logos/mitsui.png" alt="三井物産">
 </div>
-<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
-<img style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/Hiroto_画像.png" alt="Hiroto">
-<p style="font-size:1.3rem;font-weight:900;color:#1A1A1A;">Hiroto</p>
-<p style="font-size:.85rem;font-weight:700;color:#F07800;">CPO</p>
-<img style="height:22px;width:auto;max-width:100px;" src="../../shared/images/logos/dena.png" alt="DeNA">
+<div style="background:rgba(240,120,0,.03);border:1.5px solid rgba(0,0,0,.06);border-radius:14px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;">
+<img style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid rgba(240,120,0,.15);" src="../../shared/images/Hiroto_画像.png" alt="Hiroto">
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A;">Hiroto</p>
+<p style="font-size:1.1rem;font-weight:700;color:#F07800;">CPO</p>
+<img style="height:26px;width:auto;max-width:120px;" src="../../shared/images/logos/dena.png" alt="DeNA">
 </div>
 </div>
 </div></div>
@@ -978,9 +1002,15 @@
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">他のインターンとの違い</div><div class="s-main">
 <div class="vs">
-<div class="vs-c"><span class="vs-t">一般的なインターン</span><h3 style="font-size:1.3rem;line-height:1.6;color:#1A1A1A !important;">企画して、<br>発表して、<br>終わり。</h3><div><p class="vs-t">成果物</p><p style="font-size:1.3rem;font-weight:900;color:#1A1A1A !important;">パワーポイント</p></div></div>
+<div class="vs-c">
+<h3 style="font-size:2.2rem;line-height:1.6;color:#1A1A1A !important;">企画して、<br>発表して、<br>終わり。</h3>
+<p style="font-size:1.6rem;font-weight:900;color:#1A1A1A !important;margin-top:16px;">成果物: パワーポイント</p>
+</div>
 <div class="vs-m"><span class="vs-b">VS</span></div>
-<div class="vs-c ac"><span class="vs-t o">プログリットのインターン</span><h3 style="font-size:1.3rem;line-height:1.6;">企画して、<br>AIで実装して、<br><span class="accent" style="font-weight:900;">動かす。</span></h3><div><p class="vs-t o">成果物</p><p style="font-size:1.3rem;font-weight:900;color:#F07800 !important;">実装レベルのプロトタイプ</p></div></div>
+<div class="vs-c ac">
+<h3 style="font-size:2.2rem;line-height:1.6;">企画して、<br>AIで実装して、<br><span class="accent" style="font-weight:900;">動かす。</span></h3>
+<p style="font-size:1.6rem;font-weight:900;color:#F07800 !important;margin-top:16px;">成果物: 実装レベルのプロトタイプ</p>
+</div>
 </div>
 </div></div>
 </section>
@@ -1055,10 +1085,10 @@
 <!-- 28 こんな人に -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">こんな人に来てほしい</div><div class="s-main" style="justify-content:center;">
-<div class="ms" style="gap:16px;">
-<div class="ti" style="padding:24px 28px;"><span class="t-n" style="font-size:1.8rem;">1</span><h3 style="font-size:1.25rem;line-height:1.5;">20代のうちに自分の市場価値を飛躍的に高めたい人</h3></div>
-<div class="ti" style="padding:24px 28px;"><span class="t-n" style="font-size:1.8rem;">2</span><h3 style="font-size:1.25rem;line-height:1.5;">コンサル・大企業志望で、今後の就活インターンで有利になりたい人</h3></div>
-<div class="ti" style="padding:24px 28px;"><span class="t-n" style="font-size:1.8rem;">3</span><h3 style="font-size:1.25rem;line-height:1.5;">まだ就活の軸が固まり切っていない人</h3></div>
+<div class="ms" style="gap:20px;">
+<div class="ti" style="padding:32px 36px;"><span class="t-n" style="font-size:2.4rem;">1</span><h3 style="font-size:2rem;line-height:1.5;">20代のうちに自分の市場価値を飛躍的に高めたい人</h3></div>
+<div class="ti" style="padding:32px 36px;"><span class="t-n" style="font-size:2.4rem;">2</span><h3 style="font-size:2rem;line-height:1.5;">コンサル・大企業志望で、今後の就活インターンで有利になりたい人</h3></div>
+<div class="ti" style="padding:32px 36px;"><span class="t-n" style="font-size:2.4rem;">3</span><h3 style="font-size:2rem;line-height:1.5;">まだ就活の軸が固まり切っていない人</h3></div>
 </div>
 </div></div>
 </section>
@@ -1066,29 +1096,28 @@
 <!-- 29 エントリー -->
 <section class="slide slide-content"><img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="">
 <div class="s-body"><div class="s-title">エントリーのご案内</div><div class="s-main" style="flex-direction:column;align-items:center;gap:20px;">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;">
-<div style="background:#F8F8F8;border:1.5px solid #E5E5E5;border-radius:14px;padding:20px 28px;text-align:center;">
-<h3 style="font-size:1.1rem;font-weight:900;margin-bottom:12px;">東京</h3>
-<div style="display:flex;flex-direction:column;gap:8px;">
-<p style="font-size:1rem;font-weight:700;color:#1A1A1A;">5/16(土) - 5/17(日)</p>
-<p style="font-size:1rem;font-weight:700;color:#1A1A1A;">6/6(土) - 6/7(日)</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;width:100%;">
+<div style="background:#F8F8F8;border:1.5px solid #E5E5E5;border-radius:14px;padding:28px 36px;text-align:center;">
+<h3 style="font-size:1.8rem;font-weight:900;margin-bottom:16px;">東京</h3>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<p style="font-size:1.5rem;font-weight:700;color:#1A1A1A;">5/16(土) - 5/17(日)</p>
+<p style="font-size:1.5rem;font-weight:700;color:#1A1A1A;">6/6(土) - 6/7(日)</p>
 </div>
 </div>
-<div style="background:#F8F8F8;border:1.5px solid #E5E5E5;border-radius:14px;padding:20px 28px;text-align:center;">
-<h3 style="font-size:1.1rem;font-weight:900;margin-bottom:12px;">大阪</h3>
-<div style="display:flex;flex-direction:column;gap:8px;">
-<p style="font-size:1rem;font-weight:700;color:#1A1A1A;">5/23(土) - 5/24(日)</p>
-<p style="font-size:1rem;font-weight:700;color:#1A1A1A;">6/20(土) - 6/21(日)</p>
+<div style="background:#F8F8F8;border:1.5px solid #E5E5E5;border-radius:14px;padding:28px 36px;text-align:center;">
+<h3 style="font-size:1.8rem;font-weight:900;margin-bottom:16px;">大阪</h3>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<p style="font-size:1.5rem;font-weight:700;color:#1A1A1A;">5/23(土) - 5/24(日)</p>
+<p style="font-size:1.5rem;font-weight:700;color:#1A1A1A;">6/20(土) - 6/21(日)</p>
 </div>
 </div>
 </div>
-<div style="background:rgba(249,115,22,.05);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:10px;">
-<div style="width:180px;height:180px;background:#E5E5E5;border-radius:8px;display:flex;align-items:center;justify-content:center;">
-<p style="font-size:.8rem;color:#888;text-align:center;">QRコード</p>
+<div style="background:rgba(249,115,22,.05);border:2px solid rgba(249,115,22,.3);border-radius:16px;padding:28px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+<div style="width:200px;height:200px;background:#E5E5E5;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+<p style="font-size:1rem;color:#888;text-align:center;">QRコード</p>
 </div>
-<p style="font-size:.8rem;color:#555;">エントリーはこちら</p>
+<p style="font-size:1.1rem;font-weight:700;color:#555;">エントリーはこちら</p>
 </div>
-<p style="font-size:.8rem;color:#1A1A1A !important;text-align:center;">※ 定員に達し次第、締め切ります / ※ 交通費支給</p>
 </div></div>
 </section>
 
