@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>答えるべき3つの論点 — PROGRIT 2DAYS IS 4/4</title>
+  <link rel="stylesheet" href="../../engine/slide.css">
+  <link rel="stylesheet" href="../../theme/progrit.css">
+  <style>
+    /* =========================================================
+       白背景テーマ オーバーライド
+       ========================================================= */
+    :root {
+      --color-bg: #FFFFFF;
+      --color-fg: #1A1A1A;
+      --color-muted: #1A1A1A;
+      --color-card-bg: rgba(240,120,0,.03);
+      --color-border: rgba(0,0,0,.08);
+      --color-chrome: #F8F8F8;
+      --color-num: rgba(0,0,0,.06);
+    }
+    .slide {
+      background:
+        radial-gradient(ellipse 80% 70% at 85% 20%, rgba(240,120,0,.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(240,120,0,.04) 0%, transparent 50%),
+        #FFFFFF;
+    }
+    .slide p { color: #1A1A1A; }
+    .list li { color: #1A1A1A; }
+    .list li::before { background: var(--color-accent); }
+    .card, .card-top, .card-left, .card-bottom {
+      background: rgba(240,120,0,.03);
+      border-color: rgba(0,0,0,.08);
+    }
+    .copyright { color: rgba(0,0,0,.2); }
+    .slide-logo { filter: none; opacity: .2; }
+
+    /* =========================================================
+       3論点 横長カード（概要スライド）
+       ========================================================= */
+    .ronten-overview {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .ronten-row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.2rem 2.8rem;
+      background: rgba(240,120,0,.04);
+      border: 1px solid rgba(240,120,0,.12);
+      border-left: 5px solid var(--color-accent);
+      border-radius: 14px;
+    }
+    .ronten-row .tag {
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+    .ronten-row h3 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+
+    /* =========================================================
+       論点カード（個別スライド — 大きく）
+       ========================================================= */
+    .ronten-card {
+      background: rgba(240,120,0,.04);
+      border: 1.5px solid rgba(240,120,0,.15);
+      border-radius: 20px;
+      padding: 3.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .ronten-num {
+      font-size: 8rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      opacity: .3;
+      line-height: 1;
+    }
+    .ronten-q {
+      font-size: 4.2rem;
+      font-weight: 900;
+      color: #1A1A1A;
+      line-height: 1.35;
+    }
+    .ronten-hints {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    .ronten-hints p {
+      font-size: 1.6rem;
+      padding-left: 1.4rem;
+      border-left: 4px solid rgba(240,120,0,.3);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ===== 1. 答えるべき3つの論点（概要） ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2>答えるべき<span class="accent">3つの論点</span></h2>
+      <div class="ronten-overview">
+        <div class="ronten-row">
+          <span class="tag">01</span>
+          <h3>誰のどんな課題を解決するのか</h3>
+        </div>
+        <div class="ronten-row">
+          <span class="tag">02</span>
+          <h3>それをどのように解決するのか</h3>
+        </div>
+        <div class="ronten-row">
+          <span class="tag">03</span>
+          <h3>ビジネスとして儲かり得るか</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. 論点① ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="ronten-card">
+        <span class="ronten-num">01</span>
+        <div class="ronten-q">誰のどんな課題を<br>解決するのか？</div>
+        <div class="ronten-hints">
+          <p>「社会人全般」ではなく、<span class="accent bold">1人のペルソナ</span>を描く。</p>
+          <p>現状どのような状態で、<span class="accent bold">理想の状態</span>は何か？</p>
+          <p>その課題を解決するために<span class="accent bold">お金を支払う</span>のか？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. 論点② ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="ronten-card">
+        <span class="ronten-num">02</span>
+        <div class="ronten-q">それをどのように<br>解決するのか？</div>
+        <div class="ronten-hints">
+          <p>その方法でターゲットの課題は解消されるのか？<span class="accent bold">理想状態</span>になれるのか？</p>
+          <p>既存サービスでは<span class="accent bold">なぜダメ</span>なのか？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 論点③ ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="ronten-card">
+        <span class="ronten-num">03</span>
+        <div class="ronten-q">ビジネスとして<br>儲かり得るか？</div>
+        <div class="ronten-hints">
+          <p>ビジネスモデルはどうする？<span class="accent bold">誰からいくらもらう</span>？</p>
+          <p><span class="accent bold">売り上げ</span>はいくら？<span class="accent bold">コスト</span>は？</p>
+          <p>5年後にはどれくらいの<span class="accent bold">事業</span>になっている？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. QRコード + 論点リマインド ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="display:flex;flex-direction:row;align-items:center;gap:2.5rem;justify-content:center;">
+      <!-- 左: QR + DLテキスト -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.8rem;flex-shrink:0;">
+        <img src="../intern-2days/QR_747078.png" alt="QR Code" style="width:140px;height:140px;border:2px solid #E8E8E8;border-radius:12px;padding:6px;background:#FFF;">
+        <span style="font-size:var(--text-sm);font-weight:700;color:#999;letter-spacing:.1em;">資料はこちら</span>
+      </div>
+      <!-- 右: 3論点 -->
+      <div style="flex:1;max-width:520px;">
+        <h2 style="font-size:1.4rem;font-weight:900;margin-bottom:1.2rem;">答えるべき<span class="accent">3つの論点</span></h2>
+        <!-- 論点01: フォーカス -->
+        <div style="background:rgba(240,120,0,.08);border:2px solid #F07800;border-radius:12px;padding:1rem 1.4rem;margin-bottom:.6rem;position:relative;">
+          <div style="position:absolute;top:-10px;right:12px;background:#F07800;color:#FFF;font-size:.6rem;font-weight:900;letter-spacing:.15em;padding:.15rem .7rem;border-radius:4px;">START HERE</div>
+          <div style="display:flex;align-items:center;gap:.8rem;">
+            <span style="font-size:1.6rem;font-weight:900;color:#F07800;font-family:var(--font-mono);">01</span>
+            <span style="font-size:1.1rem;font-weight:900;color:#1A1A1A;">誰のどんな課題を解決するのか</span>
+          </div>
+        </div>
+        <!-- 論点02 -->
+        <div style="background:rgba(0,0,0,.02);border:1.5px solid #E0E0E0;border-radius:12px;padding:.8rem 1.4rem;margin-bottom:.6rem;opacity:.55;">
+          <div style="display:flex;align-items:center;gap:.8rem;">
+            <span style="font-size:1.4rem;font-weight:900;color:#CCC;font-family:var(--font-mono);">02</span>
+            <span style="font-size:1rem;font-weight:700;color:#999;">それをどのように解決するのか</span>
+          </div>
+        </div>
+        <!-- 論点03 -->
+        <div style="background:rgba(0,0,0,.02);border:1.5px solid #E0E0E0;border-radius:12px;padding:.8rem 1.4rem;opacity:.55;">
+          <div style="display:flex;align-items:center;gap:.8rem;">
+            <span style="font-size:1.4rem;font-weight:900;color:#CCC;font-family:var(--font-mono);">03</span>
+            <span style="font-size:1rem;font-weight:700;color:#999;">ビジネスとして儲かり得るか</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.deck -->
+
+<div class="slide-ui">
+  <div class="slide-counter">01 / 05</div>
+  <div class="slide-nav">
+    <button id="btn-prev">&larr; Prev</button>
+    <button id="btn-next">Next &rarr;</button>
+    <button id="btn-pdf" title="PDF書き出し">PDF</button>
+    <button id="btn-fs" title="フルスクリーン (F)">&#x26F6;</button>
+  </div>
+</div>
+
+<script src="../../engine/slide.js"></script>
+</body>
+</html>
