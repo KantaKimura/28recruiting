@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2DAYS INTERNSHIP — PROGRIT 4/4 Part 2</title>
+  <link rel="stylesheet" href="../../engine/slide.css">
+  <link rel="stylesheet" href="../../theme/progrit.css">
+  <style>
+    :root {
+      --color-bg: #FFFFFF;
+      --color-fg: #1A1A1A;
+      --color-muted: #1A1A1A;
+      --color-card-bg: rgba(240,120,0,.03);
+      --color-border: rgba(0,0,0,.08);
+      --color-chrome: #F8F8F8;
+      --color-num: rgba(0,0,0,.06);
+    }
+    .slide {
+      background:
+        radial-gradient(ellipse 80% 70% at 85% 20%, rgba(240,120,0,.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(240,120,0,.04) 0%, transparent 50%),
+        #FFFFFF;
+    }
+    .slide p { color: #1A1A1A; }
+    .list li { color: #1A1A1A; }
+    .list li::before { background: var(--color-accent); }
+    .card, .card-top, .card-left, .card-bottom { background: rgba(240,120,0,.03); border-color: rgba(0,0,0,.08); }
+    .copyright { color: rgba(0,0,0,.2); }
+    .slide-logo { filter: none; opacity: .2; }
+
+    /* ランディング */
+    .slide-landing {
+      border-left: none; justify-content: center; align-items: center; text-align: center;
+      padding-left: var(--sp-xl);
+      background:
+        radial-gradient(ellipse 50% 45% at 50% 55%, rgba(240,120,0,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 40% at 90% 10%, rgba(240,120,0,.05) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 5% 90%, rgba(240,120,0,.04) 0%, transparent 50%),
+        #FFFFFF !important;
+    }
+    .slide-landing h2 { color: #1A1A1A; }
+
+    /* オレンジ背景 */
+    .slide-orange {
+      background: linear-gradient(135deg, #F07800 0%, #FF9A30 100%) !important;
+      justify-content: center; align-items: center; text-align: center;
+    }
+    .slide-orange h2, .slide-orange p { color: #FFFFFF !important; }
+    .slide-orange .slide-logo { filter: brightness(10); opacity: .25; }
+
+    /* スケジュール */
+    .sched-list { display: flex; flex-direction: column; gap: .7rem; flex: 1; justify-content: center; }
+    .sched-item { display: flex; align-items: center; gap: 1.5rem; padding: 1rem 1.5rem; border-radius: 12px; background: rgba(240,120,0,.03); border: 1px solid rgba(0,0,0,.04); }
+    .sched-item.is-accent { background: rgba(240,120,0,.08); border-color: rgba(240,120,0,.2); }
+    .sched-time { font-family: var(--font-mono); font-size: var(--text-base); font-weight: 700; color: var(--color-accent); min-width: 8.5rem; flex-shrink: 0; }
+    .sched-label { font-size: var(--text-lg); font-weight: 700; color: #1A1A1A; }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ===== 1. DAY 2 スケジュール（再掲） ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <h2><span class="accent">DAY 2</span> Schedule</h2>
+      <div class="sched-list">
+        <div class="sched-item is-accent"><span class="sched-time">10:00 – 12:00</span><span class="sched-label">ワーク</span></div>
+        <div class="sched-item"><span class="sched-time">12:00 – 13:00</span><span class="sched-label">ランチ</span></div>
+        <div class="sched-item is-accent"><span class="sched-time">13:00 – 14:30</span><span class="sched-label">ワーク</span></div>
+        <div class="sched-item" style="background:rgba(240,120,0,.06);border-color:rgba(240,120,0,.2);">
+          <span class="sched-time">14:30</span>
+          <span class="sched-label" style="color:var(--color-accent);">スライド・プロダクト提出締め切り</span>
+        </div>
+        <div class="sched-item" style="background:rgba(240,120,0,.12);border-color:rgba(240,120,0,.3);">
+          <span class="sched-time">15:00 – 17:30</span>
+          <span class="sched-label" style="color:var(--color-accent);">最終プレゼン + FB</span>
+        </div>
+        <div class="sched-item"><span class="sched-time">17:30 – 18:00</span><span class="sched-label">クロージング</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. 無理矢理にでも意見を持つ ===== -->
+  <section class="slide slide-orange">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2 style="font-size:3.5rem;font-weight:900;line-height:1.4;">無理矢理にでも<br>意見を持つ</h2>
+  </section>
+
+  <!-- ===== 3. 最終発表に魂を込める ===== -->
+  <section class="slide slide-orange">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2 style="font-size:3.5rem;font-weight:900;line-height:1.4;">最終発表に<br>魂を込める</h2>
+  </section>
+
+</div><!-- /.deck -->
+
+<div class="slide-ui">
+  <div class="slide-counter">01 / 03</div>
+  <div class="slide-nav">
+    <button id="btn-prev">&larr; Prev</button>
+    <button id="btn-next">Next &rarr;</button>
+    <button id="btn-pdf" title="PDF書き出し">PDF</button>
+    <button id="btn-fs" title="フルスクリーン (F)">&#x26F6;</button>
+  </div>
+</div>
+
+<script src="../../engine/slide.js"></script>
+</body>
+</html>
