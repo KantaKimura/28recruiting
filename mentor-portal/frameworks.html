@@ -85,7 +85,6 @@
   </style>
 </head>
 <body>
-<script src="./_auth.js" defer></script>
 
 <div class="header">
   <a href="./index.html">&larr; ポータルに戻る</a>
@@ -94,33 +93,163 @@
 
 <div class="content">
 
+<!-- Page note -->
+<div style="background:#FFF8F2;border:1.5px solid rgba(240,120,0,.4);border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.8rem;font-size:.87rem;line-height:1.9;color:#555;">
+  <strong style="color:#F07800;">メンターへ：</strong>このページは学生に配布するためのものではありません。会話の中で自然な問いかけとして使い、学生自身が気づけるよう深めてください。フレームワークを「教える」のではなく、問いを通じて引き出すことを意識してください。
+</div>
+
 <!-- TOC -->
 <div class="toc">
   <h2>CONTENTS</h2>
   <ol>
+    <li><a href="#problem-definition">課題とは何か</a> — 解決策設計の前提</li>
     <li><a href="#job-theory">ジョブ理論</a> — 課題発見の武器</li>
     <li><a href="#concept">コンセプトの型</a> — ソリューション設計の武器</li>
     <li><a href="#newbiz">新規事業の4つの発想軸</a></li>
-    <li><a href="#presentation">伝わるプレゼンの型</a></li>
     <li><a href="#service-definition">サービスを一文で定義する</a> — コンセプト言語化の型</li>
+    <li><a href="#presentation">伝わるプレゼンの型</a></li>
   </ol>
 </div>
+
+<!-- ===== 0. 課題とは何か ===== -->
+<div class="section" id="problem-definition">
+  <span class="section-badge">BEFORE YOU START</span>
+  <h2>課題とは何か</h2>
+  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1.2rem;">解決策を考える前に、まず「課題」を正しく定義する。課題とは<strong>現状と理想状態のギャップ</strong>であり、そのギャップに架け橋をかけるのが解決策（プロダクト）だ。</p>
+
+  <!-- ビジュアル図 -->
+  <div style="background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;padding:1.5rem 1.5rem 1.2rem;margin-bottom:1rem;">
+    <div style="display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:.5rem;">
+
+      <!-- 現状 -->
+      <div style="background:#EEF2FF;border:2px solid #7986CB;border-radius:10px;padding:.9rem .8rem;text-align:center;">
+        <div style="font-size:.65rem;font-weight:900;color:#3949AB;letter-spacing:.15em;margin-bottom:.3rem;">現 状</div>
+        <div style="font-size:.88rem;font-weight:700;">今の状態</div>
+        <div style="font-size:.75rem;color:#666;margin-top:.3rem;line-height:1.5;">不満・我慢・<br>問題がある</div>
+      </div>
+
+      <!-- ギャップ＋解決策 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:0 .3rem;">
+        <div style="display:flex;align-items:center;width:100%;gap:.3rem;">
+          <div style="height:2px;flex:1;background:#D32F2F;opacity:.4;"></div>
+          <div style="background:rgba(211,47,47,.07);border:1.5px dashed #EF5350;border-radius:8px;padding:.4rem .8rem;text-align:center;flex-shrink:0;">
+            <div style="font-size:.68rem;font-weight:900;color:#C62828;letter-spacing:.08em;">ギャップ ＝ 課題</div>
+          </div>
+          <div style="height:2px;flex:1;background:#D32F2F;opacity:.4;"></div>
+        </div>
+        <div style="font-size:.72rem;color:#AAA;">架け橋をかけるのが…</div>
+        <div style="background:#F07800;border-radius:8px;padding:.45rem 1.2rem;text-align:center;">
+          <div style="font-size:.72rem;font-weight:900;color:#FFF;letter-spacing:.05em;">解決策・プロダクト</div>
+        </div>
+      </div>
+
+      <!-- 理想状態 -->
+      <div style="background:#E8F5E9;border:2px solid #66BB6A;border-radius:10px;padding:.9rem .8rem;text-align:center;">
+        <div style="font-size:.65rem;font-weight:900;color:#2E7D32;letter-spacing:.15em;margin-bottom:.3rem;">理想状態</div>
+        <div style="font-size:.88rem;font-weight:700;">本当に求める進歩</div>
+        <div style="font-size:.75rem;color:#666;margin-top:.3rem;line-height:1.5;">ジョブ理論の<br>「本当のジョブ」</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1rem;padding-top:.8rem;border-top:1px solid #F0F0F0;font-size:.82rem;color:#888;line-height:1.7;">
+      &#9888;&#65039; <strong style="color:#555;">重要：</strong>現状と理想状態が特定されて初めて、課題が存在する。理想状態を表面的に捉えると、的外れな解決策になる。
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider">
 
 <!-- ===== 1. ジョブ理論 ===== -->
 <div class="section" id="job-theory">
   <span class="section-badge">FRAMEWORK 01</span>
   <h2>ジョブ理論</h2>
-  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1rem;">顧客はプロダクトを「購入」するのではなく、<strong>進歩するために「雇用」する</strong>。</p>
+  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1rem;">顧客はプロダクトを「購入」するのではなく、<strong>進歩するために「雇用」する</strong>。表面的なニーズに惑わされず、顧客が本当に達成したい進歩（ジョブ）を見つけることが重要。</p>
 
   <div class="card">
-    <h4>5つの問い</h4>
+    <h4>4つの問い</h4>
     <ol>
-      <li>その人が成し遂げようとしている<strong>進歩</strong>は何か？（機能的・社会的・感情的側面）</li>
+      <li>その人が成し遂げようとしている<strong>進歩</strong>は何か？（機能的・社会的・感情的など複数の側面）</li>
       <li><strong>苦心している状況</strong>は何か？（誰が・いつ・どこで・何をしている時）</li>
       <li>進歩を阻む<strong>障害物</strong>は何か？</li>
       <li><strong>不完全な解決策で我慢</strong>していないか？</li>
-      <li>より良い解決策のために<strong>トレードオフにしていいもの</strong>は何か？</li>
     </ol>
+  </div>
+
+  <div class="card" style="border-color:rgba(240,120,0,.4);">
+    <div class="label">実例 — ミルクシェイク</div>
+    <p style="font-size:.85rem;color:#555;margin:.5rem 0 1rem;line-height:1.8;">表面的なニーズ（味・見た目）ではなく、<strong>本当のジョブ（用事）を見つけた</strong>ことで売上拡大につながった事例。</p>
+
+    <table class="phase-table" style="margin-bottom:1rem;">
+      <tr><th style="width:30%">ステップ</th><th>内容</th></tr>
+      <tr>
+        <td><strong>失敗の施策</strong></td>
+        <td>アンケートをもとにフレーバー・トッピングを改善 → 成果なし</td>
+      </tr>
+      <tr>
+        <td><strong>観察で判明</strong></td>
+        <td>朝の通勤中、車内でミルクシェイクを飲んでいる人が多い</td>
+      </tr>
+      <tr>
+        <td><strong>本当のジョブ</strong></td>
+        <td>「<strong>運転中の退屈を、手を汚さず、長く解消したい</strong>」</td>
+      </tr>
+      <tr>
+        <td><strong>競合との比較</strong></td>
+        <td>バナナ → すぐ食べ終わる。ドーナツ → 手が汚れる。ミルクシェイク → 手が汚れず長持ち</td>
+      </tr>
+      <tr>
+        <td><strong>打ち手</strong></td>
+        <td>「より長持ちするよう、ボリュームを増量」→ 売上拡大</td>
+      </tr>
+    </table>
+
+    <div style="background:rgba(240,120,0,.06);border-radius:8px;padding:.7rem 1rem;font-size:.85rem;line-height:1.8;">
+      <strong>学べること：</strong>顧客が「買っているもの」と「雇用している理由（ジョブ）」は別物。<br>
+      味を改善しても売れなかったのは、<em>ジョブが「退屈しのぎ」だったから</em>。競合はバナナやドーナツで、他のミルクシェイクではなかった。
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>「進歩」はさまざまな側面から捉える</h4>
+    <p style="font-size:.85rem;color:#666;margin-bottom:.8rem;">機能的な側面だけでなく、その奥にある感情的・社会的な本音まで掘り下げると、本当に求められるプロダクト像が見えてくる。</p>
+    <table class="phase-table">
+      <tr><th style="width:28%">側面</th><th style="width:32%">問い</th><th>オムツの例</th></tr>
+      <tr><td><strong>機能的</strong></td><td>何ができるか？</td><td>尿漏れを防ぐ</td></tr>
+      <tr><td><strong>感情的</strong></td><td>どう感じたいか？</td><td>「夜泣きされずに自分もよく眠れる」</td></tr>
+      <tr><td><strong>社会的</strong></td><td>どう見られたいか？</td><td>「良い親だと思われたい」</td></tr>
+    </table>
+    <div style="margin-top:.8rem;background:rgba(240,120,0,.04);border-left:3px solid #F07800;border-radius:0 8px 8px 0;padding:.8rem 1rem;font-size:.85rem;line-height:1.8;">
+      <strong>より深い進歩まで特定した例：</strong><br>
+      「尿漏れを防ぐ」だけ訴求しても売れない。<strong>「夜泣きしないから、あなたもよく眠れる」</strong>に変えたら売上が伸びた（米国）。<br>
+      中国では<strong>「尿漏れしないから、よく寝て脳が育って賢い子になります」</strong>と社会的側面（子どもへの期待）まで捉えてヒットした。
+    </div>
+  </div>
+
+  <div class="card" style="border-color:#81C784;">
+    <div class="label" style="color:#2E7D32;background:rgba(46,125,82,.08);">本当の進歩を特定する — 日経新聞 × 新規事業の例</div>
+    <p style="font-size:.85rem;color:#555;margin:.5rem 0 1rem;line-height:1.8;">「表面的な理想状態」で止まると、解決策が的外れになる。本当に求めている進歩まで掘り下げることが重要。</p>
+
+    <table class="phase-table" style="margin-bottom:1rem;">
+      <tr><th style="width:22%">ターゲット</th><th style="width:36%">表面的な理想</th><th>本当に求める進歩</th></tr>
+      <tr>
+        <td><strong>就活生</strong></td>
+        <td style="color:#888;">楽に・手軽に・わかりやすく<br>情報収集したい</td>
+        <td><strong>志望企業に入社したい</strong></td>
+      </tr>
+      <tr>
+        <td><strong>法人営業</strong></td>
+        <td style="color:#888;">業界ニュースを<br>理解したい</td>
+        <td><strong>担当企業から信頼を得て、<br>受注したい</strong></td>
+      </tr>
+    </table>
+
+    <div style="background:rgba(46,125,82,.05);border-left:3px solid #66BB6A;border-radius:0 8px 8px 0;padding:.8rem 1rem;font-size:.85rem;line-height:1.8;">
+      <strong>本当の進歩から導かれる解決策：</strong><br>
+      単に「簡単な言葉で届ける」「動画にする」では解決できない。<br>
+      就活生なら<strong>志望業界・企業のニュースを就活の文脈で活かす視座まで提供</strong>し、営業なら<strong>担当企業・業界のニュースを自社提案と紐づけて活用方法まで示す</strong>、というサービス設計になる。
+    </div>
   </div>
 
   <div class="example">
@@ -132,7 +261,6 @@
       <li>「その人は<strong>今どうやって</strong>勉強してる？」（問い④）</li>
       <li>「それで<strong>なぜ上手くいってない</strong>の？」（問い③）</li>
       <li>「本当に求めている<strong>進歩</strong>って何？」（問い①）</li>
-      <li>「その進歩のためなら、<strong>何を犠牲にしてもいい</strong>？」（問い⑤）</li>
     </ol>
   </div>
 </div>
@@ -154,6 +282,23 @@
     </ul>
   </div>
 
+  <div class="card" style="border-color:rgba(240,120,0,.4);">
+    <div class="label">INSIGHT の具体例</div>
+    <p style="font-size:.85rem;color:#555;margin-bottom:1.2rem;line-height:1.8;">インサイトとは、<strong>「〜したい、でも〜」という人間の矛盾</strong>。本人も言語化できていない、行動の裏にある本当の動機。これを言い当てると、プロダクトやメッセージが一気に刺さるようになる。</p>
+
+    <h4 style="margin-bottom:.4rem;">① OISIX（半冷凍ミールキット）</h4>
+    <p style="font-size:.85rem;line-height:1.7;color:#444;margin-bottom:.6rem;">「15〜20分だけ調理が必要な半冷凍食品」がヒット。一見、なぜ？と思う。完全にチンするだけの方が楽で、ガチ料理の方が本格的。それなのに「ちょっとだけ調理する」製品が売れた。</p>
+    <div style="background:rgba(240,120,0,.06);border-radius:8px;padding:.7rem 1rem;font-size:.85rem;line-height:1.8;margin-bottom:1.2rem;">
+      <strong>インサイト：</strong>「料理に手間をかける時間はない。<em>でも</em>、手抜き料理だとは思われたくない（完全な手抜きはしたくない）」という母親の矛盾。
+    </div>
+
+    <h4 style="margin-bottom:.4rem;">② Instagram ストーリーズ</h4>
+    <p style="font-size:.85rem;line-height:1.7;color:#444;margin-bottom:.6rem;">ストーリーズ追加前、フィードの投稿は「一生残る」からおしゃれに仕上げなきゃいけないプレッシャーで誰も投稿せず、アクティブユーザーが伸び悩んでいた。ストーリーズ追加後に一気に拡大。</p>
+    <div style="background:rgba(240,120,0,.06);border-radius:8px;padding:.7rem 1rem;font-size:.85rem;line-height:1.8;">
+      <strong>インサイト：</strong>「友達に自分の日常を発信して承認されたい。<em>でも</em>、それがずっと残り続けるほど完璧に作り込むのはしんどい」という矛盾。→ 24時間で消えるストーリーズが解決。
+    </div>
+  </div>
+
   <div class="example">
     <p><strong>活用例:</strong> 学生が「面接練習をAIでやるアプリ」と言ったら</p>
     <ol>
@@ -167,17 +312,173 @@
 
 <hr class="divider">
 
-<!-- ===== 4. 新規事業の4つの発想軸 ===== -->
+<!-- ===== 3. 新規事業の4つの発想軸 ===== -->
 <div class="section" id="newbiz">
   <span class="section-badge">FRAMEWORK 03</span>
   <h2>新規事業の4つの発想軸</h2>
+  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1.2rem;">アイデアは「どこから発想するか」で質が変わる。4つの軸で視野を広げ、まずロングリストを作ることが第一歩。</p>
+
+  <!-- AXIS 01 -->
+  <div class="card">
+    <div class="label">AXIS 01</div>
+    <h4>ニーズから発想する</h4>
+    <p>正確なターゲットカスタマーを意識して、カスタマージャーニー等から<strong>ペインポイント・アンメットニーズ</strong>を探し出し、そこへのソリューションとして事業機会を見出す。</p>
+    <div style="margin-top:.8rem;background:#F8F8F8;border-radius:8px;padding:.8rem 1rem;font-size:.85rem;line-height:1.9;">
+      <strong>問いかけ例：</strong><br>
+      ・「誰が」「いつ」「どんな場面で」困っているか？<br>
+      ・今の解決策で<strong>我慢・妥協</strong>していることは何か？<br>
+      ・「本当はこうなりたい」のにまだ叶っていないこと（アンメットニーズ）は何か？
+    </div>
+  </div>
+
+  <!-- AXIS 02 -->
+  <div class="card">
+    <div class="label">AXIS 02</div>
+    <h4>シーズ（自社アセット）から発想する</h4>
+    <p>企業が保有しているアセットを活かして新しい事業機会を見出す。<strong>ハードなものだけでなくソフトなものも幅広く</strong>考えることがポイント。</p>
+    <table class="phase-table" style="margin-top:.8rem;">
+      <tr><th style="width:22%">種類</th><th style="width:38%">例</th><th>発想の起点</th></tr>
+      <tr>
+        <td><strong>ハード</strong></td>
+        <td>設備・工場・技術・特許</td>
+        <td>この技術・設備を別の顧客・市場に使えないか？</td>
+      </tr>
+      <tr>
+        <td><strong>ソフト</strong></td>
+        <td>ブランド・顧客基盤・ノウハウ・データ</td>
+        <td>この顧客との関係やデータを別の事業に活かせないか？</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- AXIS 03 -->
+  <div class="card">
+    <div class="label">AXIS 03</div>
+    <h4>川上・川下領域での機会を確認する</h4>
+    <p>既存事業のバリューチェーンを書き出し、<strong>川上・川下の収益プール</strong>や魅力度を確認していく。</p>
+    <div style="margin-top:.8rem;display:flex;gap:.4rem;align-items:center;font-size:.82rem;text-align:center;">
+      <div style="flex:1;background:#F0F8FF;border-radius:8px;padding:.8rem .5rem;border:1px solid #C8E0F0;">
+        <div style="font-weight:700;color:#1565C0;margin-bottom:.3rem;">川上</div>
+        <div style="color:#555;line-height:1.6;">素材・技術・<br>仕入れ領域</div>
+      </div>
+      <div style="color:#BBB;font-size:1.3rem;flex-shrink:0;">→</div>
+      <div style="flex:2;background:rgba(240,120,0,.08);border-radius:8px;padding:.8rem .5rem;border:2px solid #F07800;">
+        <div style="font-weight:700;color:#F07800;margin-bottom:.3rem;">既存事業</div>
+        <div style="color:#555;line-height:1.6;">自社の現在の<br>バリューチェーン</div>
+      </div>
+      <div style="color:#BBB;font-size:1.3rem;flex-shrink:0;">→</div>
+      <div style="flex:1;background:#F0FFF4;border-radius:8px;padding:.8rem .5rem;border:1px solid #A5D6B7;">
+        <div style="font-weight:700;color:#2E7D32;margin-bottom:.3rem;">川下</div>
+        <div style="color:#555;line-height:1.6;">流通・販売・<br>アフター領域</div>
+      </div>
+    </div>
+    <div style="margin-top:.8rem;background:#F8F8F8;border-radius:8px;padding:.8rem 1rem;font-size:.85rem;line-height:1.9;">
+      <strong>問いかけ例：</strong><br>
+      ・バリューチェーンのどのステップに最も大きな収益プールがあるか？<br>
+      ・どのステップが最も非効率・不満が多いか？<br>
+      ・川上・川下のプレーヤーの役割を自社が担えないか？
+    </div>
+  </div>
+
+  <!-- AXIS 04 -->
+  <div class="card">
+    <div class="label">AXIS 04</div>
+    <h4>環境変化・メガトレンドから発想する</h4>
+    <p>社会・技術・規制・市場の<strong>大きな変化</strong>を起点に、「この変化で生まれる新しいニーズは何か？」「今まで不可能だったことが可能になるとしたら？」を問う。</p>
+    <table class="phase-table" style="margin-top:.8rem;">
+      <tr><th style="width:30%">変化の種類</th><th>例</th></tr>
+      <tr><td><strong>技術変化</strong></td><td>AI・生成AI・ロボティクス・量子コンピュータ</td></tr>
+      <tr><td><strong>社会変化</strong></td><td>少子高齢化・共働き世帯増加・価値観の多様化</td></tr>
+      <tr><td><strong>規制変化</strong></td><td>働き方改革・DX推進・カーボンニュートラル</td></tr>
+      <tr><td><strong>市場変化</strong></td><td>グローバル化・産業構造の変化・新興国台頭</td></tr>
+    </table>
+  </div>
+
+  <hr style="border:none;border-top:1px dashed #E0E0E0;margin:1.5rem 0;">
+
+  <!-- ショートリスト化 -->
+  <h3>ショートリスト化 — アイデアを絞り込む</h3>
+  <p style="font-size:.88rem;line-height:1.8;margin-bottom:1rem;color:#555;">4軸で出したロングリストを、以下2ステップで評価して深掘りするアイデアを絞り込む。</p>
+
+  <div class="card" style="border-color:#D32F2F;">
+    <div class="label" style="color:#D32F2F;background:rgba(211,47,47,.08);">STEP 1 — 課題の妥当性チェック（大前提）</div>
+    <p style="margin-top:.5rem;font-size:.88rem;line-height:1.8;">アイデアを進める前に、<strong>課題そのものが本当に存在するか</strong>を確認する。ここが曖昧なままだと、どんなに良いソリューションでも刺さらない。</p>
+    <ul style="margin-top:.6rem;font-size:.85rem;line-height:1.9;color:#444;padding-left:1.4rem;">
+      <li>「<strong>どこの誰が</strong>」困っているのか？名前がつくレベルで具体的か？</li>
+      <li>「<strong>本当に</strong>」困っているか？我慢・妥協している証拠はあるか？</li>
+      <li>その課題のために今お金や時間を<strong>すでに使っている</strong>か？</li>
+    </ul>
+  </div>
 
   <div class="card">
+    <div class="label">STEP 2 — 事業ポテンシャル評価（2軸）</div>
+    <p style="margin-top:.5rem;font-size:.88rem;line-height:1.8;margin-bottom:.8rem;">以下の2軸で評価し、<strong>右上のゾーン（魅力度高×競争優位性高）</strong>を優先的にショートリスト入りさせる。</p>
+    <table class="phase-table">
+      <tr><th style="width:38%">評価軸</th><th>チェックポイント</th></tr>
+      <tr>
+        <td><strong>① 事業の魅力度</strong><br><span style="font-size:.78rem;color:#888;">十分な市場規模・収益プール</span></td>
+        <td style="font-size:.83rem;line-height:1.8;">
+          ・十分な市場規模・収益プールがあるか？<br>
+          ・市場は成長しているか？<br>
+          ・単価・LTVが十分確保できるか？
+        </td>
+      </tr>
+      <tr>
+        <td><strong>② 自社の競争優位性</strong><br><span style="font-size:.78rem;color:#888;">市場でシェアを取れるか</span></td>
+        <td style="font-size:.83rem;line-height:1.8;">
+          ・市場で勝つためのKSF（成功要因）は何か？<br>
+          ・そのKSFで他社より優れているか？<br>
+          ・自社アセット（技術・顧客・データ等）が活きるか？
+        </td>
+      </tr>
+    </table>
+    <div style="margin-top:.8rem;background:#F8F8F8;border-radius:8px;padding:.8rem 1rem;font-size:.83rem;line-height:1.8;color:#555;">
+      <strong>整理の目安：</strong> 2軸を縦横に置いた9象限マトリクスで候補を整理する。「魅力度は高いが自社優位性が低い」場合は、アライアンスや補完関係で優位性を作れないかも検討する。
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+<!-- ===== 4. サービスを一文で定義する ===== -->
+<div class="section" id="service-definition">
+  <span class="section-badge">FRAMEWORK 04</span>
+  <h2>サービスを一文で定義する</h2>
+  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1rem;">コンセプトを正確に言語化することで、<strong>設計の軸</strong>が定まり、プレゼンの説得力も上がる。以下の型に当てはめて「誰に・何を・なぜ」を一文に凝縮する。</p>
+
+  <div class="card">
+    <h4>定義の型</h4>
+    <div style="background:rgba(240,120,0,.05);border:1.5px dashed rgba(240,120,0,.5);border-radius:10px;padding:1.2rem 1.5rem;margin:.8rem 0;font-size:.95rem;line-height:2.2;font-weight:500;">
+      <strong>〔状況〕</strong>という状況で、<strong>〔課題〕</strong>という課題を持つ
+      <strong>〔対象顧客〕</strong>向けの
+      <strong>〔製品/サービス名〕</strong>という<strong>〔製品/サービスジャンル〕</strong>です。
+      これには<strong>〔利点〕</strong>という利点があります。
+      <strong>〔既存の競合・代替品〕</strong>とは違い<strong>〔差別化要素〕</strong>が備わっています。
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>各要素の解説</h4>
+    <table class="phase-table">
+      <tr><th style="width:36%">要素</th><th>問いかけ</th></tr>
+      <tr><td><strong>〔状況〕</strong></td><td>対象顧客の1日の中で、その課題が生まれる具体的なシーンはどこか？（いつ・どこで・何をしている時）</td></tr>
+      <tr><td><strong>〔課題〕</strong></td><td>その状況でユーザーが感じているペイン・フラストレーションは何か？</td></tr>
+      <tr><td><strong>〔対象顧客〕</strong></td><td>名前がつけられるくらい具体的に、誰か？</td></tr>
+      <tr><td><strong>〔製品/サービス名〕</strong></td><td>プロダクトの名前・呼び方</td></tr>
+      <tr><td><strong>〔製品/サービスジャンル〕</strong></td><td>アプリ・プラットフォーム・コーチング・マーケットプレイス等</td></tr>
+      <tr><td><strong>〔利点〕</strong></td><td>ユーザーにとっての機能的・感情的便益は何か？</td></tr>
+      <tr><td><strong>〔既存の競合・代替品〕</strong></td><td>今ユーザーが代わりに使っているもの・方法は何か？</td></tr>
+      <tr><td><strong>〔差別化要素〕</strong></td><td>競合・代替品と比べて際立って優れている点は何か？</td></tr>
+    </table>
+  </div>
+
+  <div class="example">
+    <p><strong>メンターの使い方：</strong></p>
     <ol>
-      <li><strong>ニーズから</strong> — ペインポイント・アンメットニーズから</li>
-      <li><strong>シーズから</strong> — 既存アセット（今回はAI）を活かして</li>
-      <li><strong>バリューチェーンから</strong> — 川上・川下の収益プール</li>
-      <li><strong>メガトレンドから</strong> — 環境変化・技術変化</li>
+      <li>学生がアイデアを話し始めたら、この型に当てはめるよう促す</li>
+      <li>どの要素が曖昧か特定し、そこに絞って問いかけを深める（ジョブ理論と組み合わせると効果的）</li>
+      <li>一文を完成させてからプレゼン構成・スライド設計に入るよう誘導する</li>
     </ol>
   </div>
 </div>
@@ -186,7 +487,7 @@
 
 <!-- ===== 5. プレゼンの型 ===== -->
 <div class="section" id="presentation">
-  <span class="section-badge">FRAMEWORK 04</span>
+  <span class="section-badge">FRAMEWORK 05</span>
   <h2>伝わるプレゼンの型</h2>
 
   <div class="card">
@@ -211,55 +512,6 @@
       <li>「なぜこれが必要か。理由は3つ」（根拠）</li>
       <li>「実際に見てください」— 一番"おっ"となるシーンから見せる（デモ）</li>
       <li>「このプロダクトが広がれば、○○な世界が実現します」（アクション）</li>
-    </ol>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- ===== 5. サービスを一文で定義する ===== -->
-<div class="section" id="service-definition">
-  <span class="section-badge">FRAMEWORK 05</span>
-  <h2>サービスを一文で定義する</h2>
-  <p style="font-size:.92rem;line-height:1.8;margin-bottom:1rem;">コンセプトを正確に言語化することで、<strong>設計の軸</strong>が定まり、プレゼンの説得力も上がる。以下の型に当てはめて「誰に・何を・なぜ」を一文に凝縮する。</p>
-
-  <div class="card">
-    <h4>定義の型</h4>
-    <div style="background:rgba(240,120,0,.05);border:1.5px dashed rgba(240,120,0,.5);border-radius:10px;padding:1.2rem 1.5rem;margin:.8rem 0;font-size:.95rem;line-height:2.2;font-weight:500;">
-      <strong>〔状況〕</strong>という状況で、<strong>〔課題〕</strong>という課題を持つ
-      <strong>〔対象顧客〕</strong>向けの
-      <strong>〔製品/サービス名〕</strong>という<strong>〔製品/サービスジャンル〕</strong>です。
-      これには<strong>〔利点〕</strong>という利点があります。
-      <strong>〔既存の競合・代替品〕</strong>とは違い<strong>〔差別化要素〕</strong>が備わっています。
-    </div>
-  </div>
-
-  <div class="card">
-    <h4>各要素の解説</h4>
-    <table class="phase-table">
-      <tr><th style="width:36%">要素</th><th>問いかけ</th></tr>
-      <tr><td><strong>〔状況〕</strong></td><td>どんな社会・市場・ユーザーの環境が背景にあるか？</td></tr>
-      <tr><td><strong>〔課題〕</strong></td><td>その状況でユーザーが感じているペイン・フラストレーションは何か？</td></tr>
-      <tr><td><strong>〔対象顧客〕</strong></td><td>名前がつけられるくらい具体的に、誰か？</td></tr>
-      <tr><td><strong>〔製品/サービス名〕</strong></td><td>プロダクトの名前・呼び方</td></tr>
-      <tr><td><strong>〔製品/サービスジャンル〕</strong></td><td>アプリ・プラットフォーム・コーチング・マーケットプレイス等</td></tr>
-      <tr><td><strong>〔利点〕</strong></td><td>ユーザーにとっての機能的・感情的便益は何か？</td></tr>
-      <tr><td><strong>〔既存の競合・代替品〕</strong></td><td>今ユーザーが代わりに使っているもの・方法は何か？</td></tr>
-      <tr><td><strong>〔差別化要素〕</strong></td><td>競合・代替品と比べて際立って優れている点は何か？</td></tr>
-    </table>
-  </div>
-
-  <div class="example">
-    <p><strong>記入例（シャドテン）：</strong></p>
-    <p style="margin-top:.6rem;">英語を話せるようになりたいが独学では継続できない社会人が増えているという<strong>状況</strong>で、「練習しても上達している実感がない」という<strong>課題</strong>を持つ<strong>忙しいビジネスパーソン</strong>向けの<strong>シャドテン</strong>という<strong>英語コーチングサービス</strong>です。これには<strong>毎日プロが発音・リズムをフィードバックしてくれる</strong>という利点があります。<strong>独学アプリや従来の英会話スクール</strong>とは違い<strong>シャドーイング特化 × 毎日の個別添削</strong>が備わっています。</p>
-  </div>
-
-  <div class="example">
-    <p><strong>メンターの使い方：</strong></p>
-    <ol>
-      <li>学生がアイデアを話し始めたら、この型に当てはめるよう促す</li>
-      <li>どの要素が曖昧か特定し、そこに絞って問いかけを深める（ジョブ理論と組み合わせると効果的）</li>
-      <li>一文を完成させてからプレゼン構成・スライド設計に入るよう誘導する</li>
     </ol>
   </div>
 </div>
