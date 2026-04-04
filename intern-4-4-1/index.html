@@ -126,32 +126,32 @@
       background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(240,120,0,.08) 0%, transparent 60%), #FFFFFF !important;
       justify-content: center; align-items: center; text-align: center; gap: 2rem;
     }
-    .mission-title { font-size: 2.4rem; font-weight: 900; color: #1A1A1A; letter-spacing: -.02em; line-height: 1.5; max-width: 800px; }
-    .mission-sub { font-size: var(--text-xl); color: #1A1A1A; max-width: 700px; line-height: 1.7; }
+    .mission-title { font-size: 3.1rem; font-weight: 900; color: #1A1A1A; letter-spacing: -.02em; line-height: 1.5; max-width: 900px; }
+    .mission-sub { font-size: 1.5rem; color: #1A1A1A; max-width: 800px; line-height: 1.7; }
 
-    /* 論点カード（個別スライド — 大きく） */
+    /* 論点カード（個別スライド） */
     .ronten-card {
       background: rgba(240,120,0,.04); border: 1.5px solid rgba(240,120,0,.15);
-      border-radius: 20px; padding: 3.5rem 4rem;
-      display: flex; flex-direction: column; gap: 2rem; flex: 1; justify-content: center;
+      border-radius: 16px; padding: 2.5rem 3rem;
+      display: flex; flex-direction: column; gap: 1.2rem; flex: 1; justify-content: center;
     }
     .ronten-num {
-      font-size: 8rem; font-weight: 900; font-family: var(--font-mono);
+      font-size: 5rem; font-weight: 900; font-family: var(--font-mono);
       color: var(--color-accent); opacity: .3; line-height: 1;
     }
-    .ronten-q { font-size: 4.2rem; font-weight: 900; color: #1A1A1A; line-height: 1.35; }
-    .ronten-hints { display: flex; flex-direction: column; gap: 1rem; margin-top: .5rem; }
-    .ronten-hints p { font-size: 1.6rem; padding-left: 1.4rem; border-left: 4px solid rgba(240,120,0,.3); line-height: 1.6; }
+    .ronten-q { font-size: 2.8rem; font-weight: 900; color: #1A1A1A; line-height: 1.35; }
+    .ronten-hints { display: flex; flex-direction: column; gap: .6rem; margin-top: .5rem; }
+    .ronten-hints p { font-size: var(--text-lg); padding-left: 1.2rem; border-left: 3px solid rgba(240,120,0,.3); line-height: 1.6; }
 
-    /* 3論点 横長カード（概要スライド — 大きく） */
-    .ronten-overview { display: flex; flex-direction: column; gap: 1.6rem; flex: 1; justify-content: center; }
+    /* 3論点 横長カード（概要スライド） */
+    .ronten-overview { display: flex; flex-direction: column; gap: 1.2rem; flex: 1; justify-content: center; }
     .ronten-row {
-      display: flex; align-items: center; gap: 2rem; padding: 2.2rem 2.8rem;
+      display: flex; align-items: center; gap: 1.5rem; padding: 1.8rem 2.2rem;
       background: rgba(240,120,0,.04); border: 1px solid rgba(240,120,0,.12);
-      border-left: 5px solid var(--color-accent); border-radius: 14px;
+      border-left: 4px solid var(--color-accent); border-radius: 12px;
     }
-    .ronten-row .tag { flex-shrink: 0; font-size: 1.3rem; font-weight: 900; }
-    .ronten-row h3 { font-size: 2.4rem; font-weight: 900; color: #1A1A1A; }
+    .ronten-row .tag { flex-shrink: 0; }
+    .ronten-row h3 { font-size: var(--text-xl); font-weight: 900; color: #1A1A1A; }
 
     /* フレームワーク */
     .fw-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; flex: 1; align-items: stretch; }
@@ -259,8 +259,8 @@
   <!-- ===== 5. インターン概要ミッション ===== -->
   <section class="slide mission-slide">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
-    <div class="mission-title" style="font-size:3.6rem;">
-      新規事業を立案し、<br>それを<span class="accent">AIで形にしてください</span>
+    <div class="mission-title">
+      株式会社プログリットの<br>新規事業を立案し、<br>それを<span class="accent">AIで形にしてください</span>
     </div>
     <p class="mission-sub">課題を発見し、解決策を設計し、実際に動くプロダクトをAIで開発してください。</p>
   </section>
@@ -277,7 +277,189 @@
     <h2><span class="accent">AIが、この1年で、</span><br>私たちの働き方を<br>根本から変えているから。</h2>
   </section>
 
-  <!-- ===== 8. AI体験メッセージ ===== -->
+  <!-- ===== 8c. 人間に何が残るのか ===== -->
+  <section class="slide slide-landing">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <h2 style="font-size:3.6rem;line-height:1.5;">人間には<br><span class="accent">何が残るのか？</span></h2>
+  </section>
+
+  <!-- ===== 8d. 情熱 ===== -->
+  <section class="slide" style="background:linear-gradient(135deg,#F07800 0%,#FF9A30 100%);justify-content:center;align-items:center;text-align:center;">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT" style="filter:brightness(10);opacity:.2;">
+    <h2 style="font-size:10.4rem;font-weight:900;color:#FFFFFF;line-height:1;letter-spacing:-.02em;">情熱</h2>
+  </section>
+
+  <!-- ===== 8e. Bill Gurley ===== -->
+  <section class="slide slide-content" style="padding:0;">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div style="display:flex;flex:1;min-height:0;padding:2rem 2.4rem 1.6rem;align-items:center;gap:2.4rem;">
+      <!-- 左：テキスト -->
+      <div style="flex:1;display:flex;flex-direction:column;gap:1.4rem;justify-content:center;">
+        <p style="font-size:1rem;font-weight:700;color:#F07800;letter-spacing:.15em;font-family:var(--font-mono);text-transform:uppercase;">Bill Gurley — 著名VC / Benchmark</p>
+        <h2 style="font-size:2.4rem;font-weight:900;color:#1A1A1A;line-height:1.45;">
+          AIに仕事を奪われるリスクが<br>最も高いのは、<br><span style="color:#F07800;">自分の仕事が好きではない人</span>だ。
+        </h2>
+        <div style="border-left:4px solid #F07800;padding:1rem 1.4rem;background:rgba(240,120,0,.05);border-radius:0 10px 10px 0;">
+          <p style="font-size:1.45rem;font-weight:700;color:#1A1A1A;line-height:1.6;">
+            AIが代替するのは<span style="color:#F07800;">「作業」</span>。<br>
+            <span style="color:#F07800;">「情熱」</span>は代替できない。
+          </p>
+        </div>
+      </div>
+      <!-- 右：画像 -->
+      <div style="width:260px;flex-shrink:0;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.12);">
+        <img src="../../shared/images/bill_gurley.png" alt="Bill Gurley" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8f. AIの使い方 ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>AIの<span class="accent">使い方</span>はシンプル</h2>
+      <!-- 大前提 -->
+      <div style="background:rgba(240,120,0,.08);border:2px solid #F07800;border-radius:14px;padding:1.2rem 1.8rem;margin-bottom:1rem;position:relative;">
+        <div style="position:absolute;top:-12px;left:16px;background:#F07800;color:#FFF;font-size:.65rem;font-weight:900;letter-spacing:.15em;padding:.2rem .9rem;border-radius:4px;">大前提</div>
+        <p style="font-size:1.8rem;font-weight:900;color:#1A1A1A;margin-top:.4rem;">わからないことは、とにかくAIに聞く。</p>
+      </div>
+      <!-- 2つの前提 -->
+      <div style="display:flex;gap:1rem;margin-top:.4rem;flex:1;">
+        <div style="flex:1;background:rgba(240,120,0,.04);border:1.5px solid rgba(240,120,0,.2);border-radius:12px;padding:1.6rem 1.8rem;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:1rem;font-weight:900;color:#F07800;margin-bottom:.8rem;letter-spacing:.05em;">POINT 01</p>
+          <p style="font-size:2.2rem;font-weight:900;color:#1A1A1A;line-height:1.35;">やりたいことを<br><span style="color:#F07800;">言語化</span>する</p>
+        </div>
+        <div style="flex:1;background:rgba(240,120,0,.04);border:1.5px solid rgba(240,120,0,.2);border-radius:12px;padding:1.6rem 1.8rem;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:1rem;font-weight:900;color:#F07800;margin-bottom:.8rem;letter-spacing:.05em;">POINT 02</p>
+          <p style="font-size:2.2rem;font-weight:900;color:#1A1A1A;line-height:1.35;"><span style="color:#F07800;">前提情報</span>を<br>ちゃんと伝える</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8g. AI時代の心得（概要） ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>AI時代の<span class="accent">心得</span></h2>
+      <div style="display:flex;gap:2rem;margin-top:.4rem;flex:1;">
+        <div style="flex:1;background:rgba(240,120,0,.04);border:1.5px solid rgba(240,120,0,.2);border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+          <p style="font-size:2.6rem;font-weight:900;color:rgba(240,120,0,.25);font-family:var(--font-mono);line-height:1;">01</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#1A1A1A;line-height:1.4;"><span style="color:#F07800;">「なぜ」</span>を深掘る</p>
+        </div>
+        <div style="flex:1;background:rgba(240,120,0,.04);border:1.5px solid rgba(240,120,0,.2);border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+          <p style="font-size:2.6rem;font-weight:900;color:rgba(240,120,0,.25);font-family:var(--font-mono);line-height:1;">02</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#1A1A1A;line-height:1.4;"><span style="color:#F07800;">情熱</span>とやりきり力</p>
+        </div>
+        <div style="flex:1;background:rgba(240,120,0,.04);border:1.5px solid rgba(240,120,0,.2);border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+          <p style="font-size:2.6rem;font-weight:900;color:rgba(240,120,0,.25);font-family:var(--font-mono);line-height:1;">03</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#1A1A1A;line-height:1.4;">無理矢理にでも、<br><span style="color:#F07800;">意見を持つ</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8g-1. 心得01フォーカス ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>AI時代の<span class="accent">心得</span></h2>
+      <div style="display:flex;gap:2rem;margin-top:.4rem;flex:1;">
+        <div style="flex:1;background:rgba(240,120,0,.08);border:2px solid #F07800;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+          <p style="font-size:2.6rem;font-weight:900;color:rgba(240,120,0,.4);font-family:var(--font-mono);line-height:1;">01</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#1A1A1A;line-height:1.4;"><span style="color:#F07800;">「なぜ」</span>を深掘る</p>
+        </div>
+        <div style="flex:1;background:rgba(0,0,0,.02);border:1.5px solid #E8E8E8;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;opacity:.35;">
+          <p style="font-size:2.6rem;font-weight:900;color:#CCC;font-family:var(--font-mono);line-height:1;">02</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#999;line-height:1.4;">情熱とやりきり力</p>
+        </div>
+        <div style="flex:1;background:rgba(0,0,0,.02);border:1.5px solid #E8E8E8;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;opacity:.35;">
+          <p style="font-size:2.6rem;font-weight:900;color:#CCC;font-family:var(--font-mono);line-height:1;">03</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#999;line-height:1.4;">無理矢理にでも、<br>意見を持つ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8g-2. 心得02フォーカス ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>AI時代の<span class="accent">心得</span></h2>
+      <div style="display:flex;gap:2rem;margin-top:.4rem;flex:1;">
+        <div style="flex:1;background:rgba(0,0,0,.02);border:1.5px solid #E8E8E8;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;opacity:.35;">
+          <p style="font-size:2.6rem;font-weight:900;color:#CCC;font-family:var(--font-mono);line-height:1;">01</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#999;line-height:1.4;">「なぜ」を深掘る</p>
+        </div>
+        <div style="flex:1;background:rgba(240,120,0,.08);border:2px solid #F07800;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+          <p style="font-size:2.6rem;font-weight:900;color:rgba(240,120,0,.4);font-family:var(--font-mono);line-height:1;">02</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#1A1A1A;line-height:1.4;"><span style="color:#F07800;">情熱</span>とやりきり力</p>
+        </div>
+        <div style="flex:1;background:rgba(0,0,0,.02);border:1.5px solid #E8E8E8;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;opacity:.35;">
+          <p style="font-size:2.6rem;font-weight:900;color:#CCC;font-family:var(--font-mono);line-height:1;">03</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#999;line-height:1.4;">無理矢理にでも、<br>意見を持つ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8g-3. 心得03フォーカス ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>AI時代の<span class="accent">心得</span></h2>
+      <div style="display:flex;gap:2rem;margin-top:.4rem;flex:1;">
+        <div style="flex:1;background:rgba(0,0,0,.02);border:1.5px solid #E8E8E8;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;opacity:.35;">
+          <p style="font-size:2.6rem;font-weight:900;color:#CCC;font-family:var(--font-mono);line-height:1;">01</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#999;line-height:1.4;">「なぜ」を深掘る</p>
+        </div>
+        <div style="flex:1;background:rgba(0,0,0,.02);border:1.5px solid #E8E8E8;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;opacity:.35;">
+          <p style="font-size:2.6rem;font-weight:900;color:#CCC;font-family:var(--font-mono);line-height:1;">02</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#999;line-height:1.4;">情熱とやりきり力</p>
+        </div>
+        <div style="flex:1;background:rgba(240,120,0,.08);border:2px solid #F07800;border-radius:16px;padding:2.2rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+          <p style="font-size:2.6rem;font-weight:900;color:rgba(240,120,0,.4);font-family:var(--font-mono);line-height:1;">03</p>
+          <p style="font-size:1.9rem;font-weight:900;color:#1A1A1A;line-height:1.4;">無理矢理にでも、<br><span style="color:#F07800;">意見を持つ</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8h. Claudeの3タイプ ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body" style="justify-content:center;">
+      <h2>Claudeの<span class="accent">3つの使い方</span></h2>
+      <div style="display:flex;gap:1rem;margin-top:.4rem;flex:1;">
+        <div style="flex:1;border-radius:14px;border:1.5px solid rgba(240,120,0,.2);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#F07800;padding:.8rem 1.2rem;">
+            <p style="font-size:1.1rem;font-weight:900;color:#FFF;letter-spacing:.05em;">CHAT</p>
+          </div>
+          <div style="padding:1.6rem 1.4rem;background:rgba(240,120,0,.03);flex:1;display:flex;align-items:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:#1A1A1A;line-height:1.4;">ちょっとした質問<br>や会話</p>
+          </div>
+        </div>
+        <div style="flex:1;border-radius:14px;border:1.5px solid rgba(240,120,0,.2);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#F07800;padding:.8rem 1.2rem;">
+            <p style="font-size:1.1rem;font-weight:900;color:#FFF;letter-spacing:.05em;">COWORK</p>
+          </div>
+          <div style="padding:1.6rem 1.4rem;background:rgba(240,120,0,.03);flex:1;display:flex;align-items:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:#1A1A1A;line-height:1.4;">資料作成</p>
+          </div>
+        </div>
+        <div style="flex:1;border-radius:14px;border:1.5px solid rgba(240,120,0,.2);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#F07800;padding:.8rem 1.2rem;">
+            <p style="font-size:1.1rem;font-weight:900;color:#FFF;letter-spacing:.05em;">CODE</p>
+          </div>
+          <div style="padding:1.6rem 1.4rem;background:rgba(240,120,0,.03);flex:1;display:flex;align-items:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:#1A1A1A;line-height:1.4;">コーディング</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8b. AI体験メッセージ ===== -->
   <section class="slide slide-landing">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <h2>最先端のAIを、<br>少しでも<br><span class="accent">体験してほしい。</span></h2>
@@ -301,29 +483,7 @@
     </div>
   </section>
 
-  <!-- ===== 9-b. Claudeの3つの使い方 ===== -->
-  <section class="slide slide-content">
-    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
-    <div class="body">
-      <h2>Claudeの<span class="accent">3つの使い方</span></h2>
-      <div class="fw-grid">
-        <div class="fw-card">
-          <h3>Chat</h3>
-          <p>ちょっとした質問や会話</p>
-        </div>
-        <div class="fw-card">
-          <h3>Cowork</h3>
-          <p>資料作成</p>
-        </div>
-        <div class="fw-card">
-          <h3>Code</h3>
-          <p>コーディング</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 10. 答えるべき3つの論点（概要 — 大きく） ===== -->
+  <!-- ===== 10. 答えるべき3つの論点（概要 — 画面いっぱい） ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
@@ -345,7 +505,7 @@
     </div>
   </section>
 
-  <!-- ===== 11. 論点①（大きく） ===== -->
+  <!-- ===== 11. 論点①（画面いっぱい） ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
@@ -361,7 +521,7 @@
     </div>
   </section>
 
-  <!-- ===== 12. 論点②（大きく） ===== -->
+  <!-- ===== 12. 論点②（画面いっぱい） ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
@@ -376,7 +536,7 @@
     </div>
   </section>
 
-  <!-- ===== 13. 論点③（大きく） ===== -->
+  <!-- ===== 13. 論点③（画面いっぱい） ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
@@ -433,9 +593,9 @@
         <div class="sched-item is-accent"><span class="sched-time">10:30 – 12:00</span><span class="sched-label">ワーク</span></div>
         <div class="sched-item"><span class="sched-time">12:00 – 13:00</span><span class="sched-label">ランチ</span></div>
         <div class="sched-item"><span class="sched-time">13:00 – 14:00</span><span class="sched-label">就活講座</span></div>
-        <div class="sched-item is-accent"><span class="sched-time">14:00 – 16:00</span><span class="sched-label">ワーク</span></div>
+        <div class="sched-item is-accent"><span class="sched-time">14:00 – 16:30</span><span class="sched-label">ワーク</span></div>
         <div class="sched-item" style="background:rgba(240,120,0,.12);border-color:rgba(240,120,0,.3);">
-          <span class="sched-time">16:00 – 17:30</span>
+          <span class="sched-time">16:30 – 17:30</span>
           <span class="sched-label" style="color:var(--color-accent);">中間フィードバック</span>
         </div>
         <div class="sched-item"><span class="sched-time">17:30 – 18:00</span><span class="sched-label">振り返り + Day2準備</span></div>
@@ -493,6 +653,14 @@
     </div>
   </section>
 
+  <!-- ===== 20. SPECIAL INVITATION ===== -->
+  <section class="slide slide-orange">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <span class="hero-eyebrow" style="color:#FFF;border-color:rgba(255,255,255,.4);">Special Invitation</span>
+    <h2 style="font-size:3.5rem;font-weight:900;line-height:1.4;">優秀者には、特別なイベントに<br>招待します。</h2>
+    <p style="font-size:var(--text-lg);margin-top:.5rem;opacity:.9;">マーケティング、営業、ファイナンス。<br>各領域のプロフェッショナルから直接学べます。</p>
+  </section>
+
   <!-- ===== 21. メンターシステム ===== -->
   <section class="slide slide-orange">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
@@ -508,23 +676,55 @@
     <p>あなたのチームを全力でサポートするメンターです。</p>
   </section>
 
-  <!-- ===== 23. Hideki ===== -->
+  <!-- ===== 23. Shu ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
       <div class="person-slide">
-        <img class="person-photo" src="../../shared/images/Hideki_メンター_画像.png" alt="Hideki">
+        <img class="person-photo" src="../../shared/images/Shu_メンター_画像.png" alt="Shu">
         <div class="person-info">
           <span class="person-role-tag">Mentor</span>
-          <div class="person-name">Hideki</div>
+          <div class="person-name">Shu</div>
           <div class="person-dept">株式会社プログリット<br><strong>法人営業部</strong></div>
-          <div class="person-hobby">趣味: サッカー、野球、将棋</div>
+          <div class="person-hobby">趣味: ボルダリング、観葉植物、ゲーム、キャンプ</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 24. Kosuke ===== -->
+  <!-- ===== 24. Daisuke ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../../shared/images/Daisuke_メンター_画像.jpg" alt="Daisuke">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Daisuke</div>
+          <div class="person-dept">株式会社プログリット<br><strong>新規事業開発部 兼 Learning Labs</strong></div>
+          <div class="person-hobby">趣味: 温泉・サウナ、娘と遊ぶ、英語学習</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 25. Daichi ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../../shared/images/Daichi_メンター_画像.jpg" alt="Daichi">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Daichi</div>
+          <div class="person-dept">株式会社プログリット<br><strong>シャドテン PdM</strong></div>
+          <div class="person-hobby">趣味: キャンプ、ラーメン、ランニング</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 25b. Kosuke ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
@@ -540,18 +740,33 @@
     </div>
   </section>
 
-  <!-- ===== 25. Yusuke ===== -->
+  <!-- ===== 25c. Taishi ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
     <div class="body">
       <div class="person-slide">
-        <img class="person-photo" src="../../shared/images/Yusuke_メンター_画像.jpeg" alt="Yusuke">
+        <img class="person-photo" src="../../shared/images/Taishi_メンター_画像.jpg" alt="Taishi">
         <div class="person-info">
           <span class="person-role-tag">Mentor</span>
-          <div class="person-name">Yusuke</div>
-          <div class="person-name-sub">森田 侑裕（もりた ゆうすけ）</div>
-          <div class="person-dept">株式会社プログリット<br><strong>法人営業部</strong></div>
-          <div class="person-hobby">趣味: 漫才（見るじゃなくて、やる方）、麻雀、キャンプ</div>
+          <div class="person-name">Taishi</div>
+          <div class="person-dept">株式会社プログリット<br><strong>スピフル マーケティング責任者</strong></div>
+          <div class="person-hobby">趣味: サウナ、そば巡り、登山</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 25c. Ken ===== -->
+  <section class="slide slide-content">
+    <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
+    <div class="body">
+      <div class="person-slide">
+        <img class="person-photo" src="../../shared/images/Ken_メンター_画像.png" alt="Ken">
+        <div class="person-info">
+          <span class="person-role-tag">Mentor</span>
+          <div class="person-name">Ken</div>
+          <div class="person-dept">株式会社プログリット<br><strong>スピフル PdM</strong></div>
+          <div class="person-hobby">趣味: 散歩、コーヒー</div>
         </div>
       </div>
     </div>
@@ -572,33 +787,38 @@
     <div class="mission-title"><span class="accent">ワーク開始</span></div>
   </section>
 
-  <!-- ===== 28. 資料DL + 論点リマインド（QRコード） ===== -->
+  <!-- ===== 28. 資料DL + 論点リマインド（QRコード — 画面いっぱい） ===== -->
   <section class="slide slide-content">
     <img class="slide-logo" src="../../shared/logo/Progrit_logo.png" alt="PROGRIT">
-    <div class="body" style="display:flex;flex-direction:row;align-items:center;gap:2.5rem;justify-content:center;">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.8rem;flex-shrink:0;">
-        <img src="../intern-2days/QR_747078.png" alt="QR Code" style="width:140px;height:140px;border:2px solid #E8E8E8;border-radius:12px;padding:6px;background:#FFF;">
-        <span style="font-size:var(--text-sm);font-weight:700;color:#999;letter-spacing:.1em;">資料はこちら</span>
+    <div class="body" style="display:flex;flex-direction:row;align-items:center;gap:4rem;justify-content:center;padding:2rem 4rem;">
+      <!-- 左: QR -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1.2rem;flex-shrink:0;">
+        <img src="../intern-2days/QR_20260404.png" alt="QR Code" style="width:260px;height:260px;border:3px solid #E8E8E8;border-radius:16px;padding:8px;background:#FFF;">
+        <span style="font-size:1.2rem;font-weight:700;color:#999;letter-spacing:.1em;">資料はこちら</span>
       </div>
-      <div style="flex:1;max-width:520px;">
-        <h2 style="font-size:1.4rem;font-weight:900;margin-bottom:1.2rem;">答えるべき<span class="accent">3つの論点</span></h2>
-        <div style="background:rgba(240,120,0,.08);border:2px solid #F07800;border-radius:12px;padding:1rem 1.4rem;margin-bottom:.6rem;position:relative;">
-          <div style="position:absolute;top:-10px;right:12px;background:#F07800;color:#FFF;font-size:.6rem;font-weight:900;letter-spacing:.15em;padding:.15rem .7rem;border-radius:4px;">START HERE</div>
-          <div style="display:flex;align-items:center;gap:.8rem;">
-            <span style="font-size:1.6rem;font-weight:900;color:#F07800;font-family:var(--font-mono);">01</span>
-            <span style="font-size:1.1rem;font-weight:900;color:#1A1A1A;">誰のどんな課題を解決するのか</span>
+      <!-- 右: 3論点 -->
+      <div style="flex:1;">
+        <h2 style="font-size:2.4rem;font-weight:900;margin-bottom:1.8rem;">答えるべき<span class="accent">3つの論点</span></h2>
+        <!-- 論点01: フォーカス -->
+        <div style="background:rgba(240,120,0,.08);border:2.5px solid #F07800;border-radius:14px;padding:1.6rem 2rem;margin-bottom:1rem;position:relative;">
+          <div style="position:absolute;top:-12px;right:16px;background:#F07800;color:#FFF;font-size:.75rem;font-weight:900;letter-spacing:.15em;padding:.2rem .9rem;border-radius:6px;">START HERE</div>
+          <div style="display:flex;align-items:center;gap:1.2rem;">
+            <span style="font-size:2.8rem;font-weight:900;color:#F07800;font-family:var(--font-mono);">01</span>
+            <span style="font-size:1.9rem;font-weight:900;color:#1A1A1A;">誰のどんな課題を解決するのか</span>
           </div>
         </div>
-        <div style="background:rgba(0,0,0,.02);border:1.5px solid #E0E0E0;border-radius:12px;padding:.8rem 1.4rem;margin-bottom:.6rem;opacity:.55;">
-          <div style="display:flex;align-items:center;gap:.8rem;">
-            <span style="font-size:1.4rem;font-weight:900;color:#CCC;font-family:var(--font-mono);">02</span>
-            <span style="font-size:1rem;font-weight:700;color:#999;">それをどのように解決するのか</span>
+        <!-- 論点02 -->
+        <div style="background:rgba(0,0,0,.02);border:1.5px solid #E0E0E0;border-radius:14px;padding:1.4rem 2rem;margin-bottom:1rem;opacity:.55;">
+          <div style="display:flex;align-items:center;gap:1.2rem;">
+            <span style="font-size:2.4rem;font-weight:900;color:#CCC;font-family:var(--font-mono);">02</span>
+            <span style="font-size:1.7rem;font-weight:700;color:#999;">それをどのように解決するのか</span>
           </div>
         </div>
-        <div style="background:rgba(0,0,0,.02);border:1.5px solid #E0E0E0;border-radius:12px;padding:.8rem 1.4rem;opacity:.55;">
-          <div style="display:flex;align-items:center;gap:.8rem;">
-            <span style="font-size:1.4rem;font-weight:900;color:#CCC;font-family:var(--font-mono);">03</span>
-            <span style="font-size:1rem;font-weight:700;color:#999;">ビジネスとして儲かり得るか</span>
+        <!-- 論点03 -->
+        <div style="background:rgba(0,0,0,.02);border:1.5px solid #E0E0E0;border-radius:14px;padding:1.4rem 2rem;opacity:.55;">
+          <div style="display:flex;align-items:center;gap:1.2rem;">
+            <span style="font-size:2.4rem;font-weight:900;color:#CCC;font-family:var(--font-mono);">03</span>
+            <span style="font-size:1.7rem;font-weight:700;color:#999;">ビジネスとして儲かり得るか</span>
           </div>
         </div>
       </div>
@@ -608,7 +828,7 @@
 </div><!-- /.deck -->
 
 <div class="slide-ui">
-  <div class="slide-counter">01 / 28</div>
+  <div class="slide-counter">01 / 41</div>
   <div class="slide-nav">
     <button id="btn-prev">&larr; Prev</button>
     <button id="btn-next">Next &rarr;</button>
