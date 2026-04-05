@@ -81,6 +81,148 @@
       color: #1A1A1A;
     }
 
+    /* ── 4. 先行フローについて（セクション区切り） ── */
+    .slide-section-divider {
+      background:
+        radial-gradient(ellipse 50% 60% at 90% 50%, rgba(240,120,0,.07) 0%, transparent 70%),
+        #FFFFFF;
+      justify-content: center;
+      align-items: flex-start;
+      border-left: 6px solid var(--color-accent);
+      padding-left: calc(4rem - 6px);
+    }
+    .section-label-sm {
+      font-size: 1.1rem;
+      font-family: var(--font-mono);
+      letter-spacing: .22em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .section-heading {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #1A1A1A;
+    }
+
+    /* ── 5. 選考スケジュール ── */
+    .sched-slide {
+      background: #FAFAF7;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 3.5rem 4rem 2.5rem;
+      gap: 0;
+    }
+    .sched-title {
+      font-size: 3.4rem;
+      font-weight: 700;
+      color: #111111;
+      flex-shrink: 0;
+      margin-bottom: 2rem;
+    }
+    .sched-title .orange { color: #F07800; }
+    .timeline-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+    }
+    .month-row {
+      display: grid;
+      grid-template-columns: 200px repeat(13, 1fr);
+      align-items: center;
+      margin-bottom: .8rem;
+    }
+    .month-label {
+      font-size: 1.1rem;
+      color: #999999;
+      text-align: center;
+      font-family: var(--font-mono);
+    }
+    .lane-row {
+      display: grid;
+      grid-template-columns: 200px repeat(13, 1fr);
+      align-items: center;
+      height: 6.5rem;
+      position: relative;
+    }
+    .lane-label-pill {
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: .4rem 1.1rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      text-align: center;
+      align-self: center;
+      justify-self: flex-start;
+    }
+    .lane-label-pill.normal { background: #F0F0F0; color: #666666; }
+    .lane-label-pill.special { background: #F07800; color: #FFFFFF; }
+    .axis-row {
+      display: grid;
+      grid-template-columns: 200px repeat(13, 1fr);
+      align-items: center;
+      height: 1px;
+      margin: .5rem 0;
+    }
+    .axis-line { grid-column: 2 / 16; height: 1px; background: #DDDDDD; }
+    .lane-bars {
+      grid-column: 2 / 16;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .bar {
+      position: absolute;
+      height: 4rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .bar-normal {
+      background: #E8E8E8;
+      color: #555555;
+      font-size: 1.3rem;
+      left: calc(11 / 13 * 100%);
+      width: calc(2 / 13 * 100%);
+    }
+    .bar-intern {
+      background: linear-gradient(90deg, #F07800 0%, #F5A623 100%);
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      left: calc(1 / 13 * 100%);
+      width: calc(4 / 13 * 100%);
+    }
+    .bar-early {
+      background: #E8850A;
+      color: #FFFFFF;
+      font-size: 1.3rem;
+      left: calc(5 / 13 * 100% + 3px);
+      width: calc(2 / 13 * 100% - 3px);
+    }
+    .bar-offer {
+      background: #D43A35;
+      color: #FFFFFF;
+      font-size: 1.3rem;
+      left: calc(7 / 13 * 100% + 3px);
+      width: calc(1 / 13 * 100% - 3px);
+    }
+    .sched-footer {
+      font-size: 1.3rem;
+      color: #333333;
+      text-align: center;
+      flex-shrink: 0;
+      margin-top: 1.8rem;
+      line-height: 1.6;
+    }
+
     /* ── 3. だから28卒は15名 ── */
     .num-slide {
       display: flex;
@@ -128,6 +270,54 @@
     <div class="num-slide">
       <div class="num-line">28卒は<span class="num-big">15名</span>の採用をします。</div>
     </div>
+  </section>
+
+  <!-- ===== 4. 先行フローについて ===== -->
+  <section class="slide slide-section-divider">
+    <div class="section-label-sm">Special Selection</div>
+    <div class="section-heading">先行フローについて</div>
+  </section>
+
+  <!-- ===== 5. 選考スケジュール ===== -->
+  <section class="slide sched-slide">
+    <div class="sched-title"><span>選考</span><span class="orange">スケジュール</span></div>
+    <div class="timeline-wrap">
+      <div class="month-row">
+        <div></div>
+        <div class="month-label">3月</div>
+        <div class="month-label">4月</div>
+        <div class="month-label">5月</div>
+        <div class="month-label">6月</div>
+        <div class="month-label">7月</div>
+        <div class="month-label">8月</div>
+        <div class="month-label">9月</div>
+        <div class="month-label">10月</div>
+        <div class="month-label">11月</div>
+        <div class="month-label">12月</div>
+        <div class="month-label">1月</div>
+        <div class="month-label">2月</div>
+        <div class="month-label">3月</div>
+      </div>
+      <div class="lane-row">
+        <div class="lane-label-pill normal">通常の選考フロー</div>
+        <div class="lane-bars">
+          <div class="bar bar-normal">ES → 面接（×5）</div>
+        </div>
+      </div>
+      <div class="axis-row">
+        <div></div>
+        <div class="axis-line"></div>
+      </div>
+      <div class="lane-row">
+        <div class="lane-label-pill special">特別選考フロー</div>
+        <div class="lane-bars">
+          <div class="bar bar-intern">2 Days Internship</div>
+          <div class="bar bar-early">早期選考</div>
+          <div class="bar bar-offer">内定</div>
+        </div>
+      </div>
+    </div>
+    <div class="sched-footer">早期から就職活動を始め、当インターンにご参加いただいた皆さん限定の、特別選考ルートです。</div>
   </section>
 
 </div>
