@@ -81,6 +81,50 @@
       color: #1A1A1A;
     }
 
+    /* ── 6. SPECIAL INVITATION エンディング ── */
+    .slide-invitation {
+      background:
+        radial-gradient(ellipse 70% 60% at 70% 50%, rgba(240,120,0,.22) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(240,120,0,.08) 0%, transparent 60%),
+        linear-gradient(160deg, #110C07 0%, #0C0C0C 55%, #080808 100%);
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .inv-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .inv-eyebrow {
+      font-size: 1.1rem;
+      font-family: var(--font-mono);
+      letter-spacing: .35em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      border: 1px solid rgba(240,120,0,.35);
+      padding: .4rem 1.6rem;
+      border-radius: 100px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .inv-title {
+      font-size: 6rem;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      background: linear-gradient(90deg, #F07800 20%, #FFAA44 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .inv-sub {
+      font-size: 1.4rem;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .1em;
+      margin-top: .5rem;
+    }
+
     /* ── 4. 先行フローについて（セクション区切り） ── */
     .slide-section-divider {
       background:
@@ -322,6 +366,15 @@
       </div>
     </div>
     <div class="sched-footer">早期から就職活動を始め、当インターンにご参加いただいた皆さん限定の、特別選考ルートです。</div>
+  </section>
+
+  <!-- ===== 6. SPECIAL INVITATION ===== -->
+  <section class="slide slide-invitation">
+    <div class="inv-inner">
+      <span class="inv-eyebrow">For You</span>
+      <div class="inv-title">SPECIAL<br>INVITATION</div>
+      <p class="inv-sub">株式会社プログリット</p>
+    </div>
   </section>
 
 </div>
