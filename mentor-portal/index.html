@@ -106,13 +106,48 @@
 
     <div style="margin-top:1.2rem;background:rgba(211,47,47,.04);border-radius:10px;padding:1rem 1.2rem;">
       <div style="font-weight:900;color:#D32F2F;font-size:.75rem;margin-bottom:.5rem;">AIプロダクトデプロイ手順</div>
-      <p style="font-size:.83rem;color:#444;line-height:1.7;margin-bottom:.5rem;">
-        クロードコードのチャット欄で「GitHubにプッシュしてVercelにデプロイしてください」と指示するだけでOKです。
-      </p>
+      <ol style="font-size:.83rem;color:#444;line-height:1.9;padding-left:1.4rem;margin-bottom:.5rem;">
+        <li><strong>GitHub</strong>のアカウント作成 → <span style="color:#D32F2F;font-weight:700;">Googleアカウントで認証</span>してください</li>
+        <li><strong>Vercel</strong>のアカウント作成 → <span style="color:#D32F2F;font-weight:700;">同じGoogleアカウントで認証</span>してください</li>
+        <li>両方ログインできたら、Claude Codeのチャット欄で「<strong>GitHubにプッシュしてVercelにデプロイしてください</strong>」と指示するだけでOKです</li>
+      </ol>
       <p style="font-size:.78rem;color:#888;line-height:1.6;">
-        ⚠️ 認証などを求められた場合は、Kanta・Kosuke・Kanatoまで連絡してください。
+        ⚠️ 上記以外のエラー・認証が出た場合は、Kanta・Kosuke・Kanatoまで連絡してください。パーソナルアクセストークンは発行しないでください。
       </p>
     </div>
+  </div>
+</div>
+
+<!-- AI使用タイミングガイド -->
+<div style="max-width:760px;margin:1.5rem auto 0;padding:0 1.5rem;">
+  <div style="background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;padding:1.6rem 1.8rem;position:relative;">
+    <div style="position:absolute;top:-12px;left:20px;background:#1A1A1A;color:#FFF;font-size:.65rem;font-weight:900;letter-spacing:.15em;padding:.2rem .8rem;border-radius:5px;">AI使用タイミング</div>
+    <p style="font-size:.82rem;color:#666;margin-bottom:1rem;line-height:1.6;">課題設定フェーズと調査・実装フェーズでAIの使い方を切り替えます。この切り替えを学生に明確にアナウンスしてください。</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
+      <div style="background:rgba(0,0,0,.03);border-radius:10px;padding:1rem 1.2rem;border:1px solid #E8E8E8;">
+        <div style="font-weight:900;font-size:.78rem;color:#555;margin-bottom:.4rem;">PHASE 1｜課題設定（AIなし）</div>
+        <p style="font-size:.82rem;color:#444;line-height:1.6;">PCを閉じて目を見ながらディスカッション。誰の課題か・どう解決するかを自分たちの頭で考える。AIに頼らないことで地頭と情熱が見える。</p>
+      </div>
+      <div style="background:rgba(240,120,0,.04);border-radius:10px;padding:1rem 1.2rem;border:1px solid rgba(240,120,0,.2);">
+        <div style="font-weight:900;font-size:.78rem;color:#F07800;margin-bottom:.4rem;">PHASE 2｜調査・実装（AI全力活用）</div>
+        <p style="font-size:.82rem;color:#444;line-height:1.6;">課題の方向性が決まったらAI解禁。市場調査・プロダクト実装・プレゼン資料作成まで全力で使う。プロンプトをAIで改善させるのも有効。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 役割分担ガイドライン -->
+<div style="max-width:760px;margin:1rem auto 0;padding:0 1.5rem;">
+  <div style="background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;padding:1.6rem 1.8rem;position:relative;">
+    <div style="position:absolute;top:-12px;left:20px;background:#1A1A1A;color:#FFF;font-size:.65rem;font-weight:900;letter-spacing:.15em;padding:.2rem .8rem;border-radius:5px;">役割分担ガイド</div>
+    <p style="font-size:.82rem;color:#666;margin-bottom:1rem;line-height:1.6;">ワーク開始直後に役割を決めさせることで、自責志向と参加意欲が高まります。以下を参考に促してください。</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;font-size:.82rem;">
+      <div style="background:rgba(240,120,0,.04);border-radius:8px;padding:.6rem 1rem;"><strong>タイムキーパー</strong><br><span style="color:#888;">時間管理・進捗の把握</span></div>
+      <div style="background:rgba(240,120,0,.04);border-radius:8px;padding:.6rem 1rem;"><strong>リサーチ担当</strong><br><span style="color:#888;">市場・競合・ペルソナ調査</span></div>
+      <div style="background:rgba(240,120,0,.04);border-radius:8px;padding:.6rem 1rem;"><strong>アイデア出し担当</strong><br><span style="color:#888;">解決策の発散・整理</span></div>
+      <div style="background:rgba(240,120,0,.04);border-radius:8px;padding:.6rem 1rem;"><strong>実装担当</strong><br><span style="color:#888;">プロダクト・資料の作成</span></div>
+    </div>
+    <p style="font-size:.78rem;color:#888;margin-top:.8rem;line-height:1.5;">※ 役割は固定でなくOK。チームの状況を見て担当を変えることも評価ポイント。</p>
   </div>
 </div>
 
@@ -148,9 +183,15 @@
           <span style="font-weight:700;color:#F07800;min-width:7.5rem;flex-shrink:0;">16:00 – 17:30</span>
           <span style="font-weight:700;color:#F07800;">中間フィードバック</span>
         </div>
-        <div style="display:flex;gap:.8rem;align-items:baseline;">
+        <div style="background:rgba(240,120,0,.04);border-radius:6px;padding:.5rem .8rem;margin:.2rem 0;font-size:.77rem;color:#666;line-height:1.6;border-left:3px solid rgba(240,120,0,.3);">
+          💡 <strong>FB構造：</strong>まず「今の課題の答えを3分でまとめて」と伝え、残り時間は「どう進めるか・何に詰まっているか」の相談時間に使う。詰め込みすぎないこと。
+        </div>
+        <div style="display:flex;gap:.8rem;align-items:baseline;background:rgba(240,120,0,.05);border-radius:6px;padding:.3rem .5rem;margin:0 -.5rem;">
           <span style="font-weight:700;color:#F07800;min-width:7.5rem;flex-shrink:0;">17:30 – 18:00</span>
-          <span>振り返り + Day2準備</span>
+          <span style="font-weight:700;">チーム振り返り + Day2準備</span>
+        </div>
+        <div style="background:rgba(240,120,0,.04);border-radius:6px;padding:.5rem .8rem;margin:.2rem 0;font-size:.77rem;color:#666;line-height:1.6;border-left:3px solid rgba(240,120,0,.3);">
+          💡 <strong>振り返りのやり方：</strong>まず5分間学生に個人で「良かった点・改善点」を書かせる → メンターがファシリしてチームで共有。全員が発言できるよう促す。
         </div>
       </div>
     </div>
@@ -296,6 +337,31 @@
       <p>学生の最終成果物（Google Sheets）</p>
     </a>
 
+  </div>
+</div>
+
+<!-- 運営TIPS（振り返りから） -->
+<div style="max-width:760px;margin:0 auto;padding:1rem 1.5rem 0;">
+  <div style="background:#FFF;border:1.5px solid #E8E8E8;border-radius:14px;padding:1.6rem 1.8rem;position:relative;">
+    <div style="position:absolute;top:-12px;left:20px;background:#1A1A1A;color:#FFF;font-size:.65rem;font-weight:900;letter-spacing:.15em;padding:.2rem .8rem;border-radius:5px;">運営TIPS</div>
+    <div style="display:flex;flex-direction:column;gap:.8rem;font-size:.82rem;margin-top:.4rem;">
+      <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.7rem 1rem;background:rgba(0,0,0,.02);border-radius:8px;">
+        <span style="font-size:1rem;flex-shrink:0;">🏠</span>
+        <div><strong>執務室の清潔感</strong>：弁当は段ボールから出してきれいに配置。ゴミ・ペットボトルは片付けておく。学生は意外とオフィス環境を見ています。</div>
+      </div>
+      <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.7rem 1rem;background:rgba(0,0,0,.02);border-radius:8px;">
+        <span style="font-size:1rem;flex-shrink:0;">🖥️</span>
+        <div><strong>モニターの公平性</strong>：一部チームのみディスプレイがある状態は不公平感が生まれます。全チーム共通の環境を用意する。</div>
+      </div>
+      <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.7rem 1rem;background:rgba(0,0,0,.02);border-radius:8px;">
+        <span style="font-size:1rem;flex-shrink:0;">📂</span>
+        <div><strong>チーム別Google Driveフォルダ</strong>：各チームに共有フォルダを事前に用意する。ファイルをLINE送信・メール添付する手間がなくなる。</div>
+      </div>
+      <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.7rem 1rem;background:rgba(0,0,0,.02);border-radius:8px;">
+        <span style="font-size:1rem;flex-shrink:0;">🎤</span>
+        <div><strong>プレゼン練習は別室で</strong>：プレゼン提出締め切り後、本番前の練習時間は別室またはエリアを分けて行う。本番に向けて集中できる環境を作る。</div>
+      </div>
+    </div>
   </div>
 </div>
 
