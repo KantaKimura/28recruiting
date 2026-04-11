@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プログリット 会社説明</title>
+  <link rel="stylesheet" href="../../engine/slide.css">
+  <link rel="stylesheet" href="../../theme/progrit.css">
+  <style>
+    /* =========================================================
+       company-explanation デッキ固有スタイル
+       ========================================================= */
+
+    /* ── 全スライド: 枠線 + 白背景 ── */
+    .slide {
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+    }
+
+    /* ── スライド1: ヒーロー ── */
+    .slide-hero {
+      background: #FFFFFF;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      width: 100%;
+    }
+    .hero-tag {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--color-accent);
+      border: 1px solid rgba(240,120,0,.35);
+      padding: .4rem 1.6rem;
+      border-radius: 100px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .hero-title {
+      font-size: clamp(3.5rem, 7vw, 5.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      white-space: normal;
+      background: linear-gradient(120deg, #F07800 0%, #FFAA44 60%, #F07800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub { display: none; }
+
+    /* ── スライド2: アジェンダ ── */
+    .agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .agenda-item {
+      display: flex;
+      align-items: center;
+      gap: 2.4rem;
+    }
+    .agenda-num {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1;
+      min-width: 5.5rem;
+    }
+    .agenda-text {
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      line-height: 1.3;
+    }
+
+    /* ── スライド3/15/21: セクション区切り（白背景カスタム） ── */
+    .slide-section-custom {
+      justify-content: center;
+      align-items: flex-start;
+      border-left: 6px solid var(--color-accent);
+      padding-left: calc(var(--sp-xl) - 6px);
+      background:
+        radial-gradient(ellipse 50% 60% at 90% 50%, rgba(240,120,0,.07) 0%, transparent 70%),
+        #FFFFFF;
+    }
+    .section-label {
+      font-size: 1.1rem;
+      font-family: var(--font-mono);
+      letter-spacing: .2em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .section-title {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1.2;
+      white-space: nowrap;
+      letter-spacing: -.02em;
+      color: var(--color-fg);
+    }
+
+    /* ── スライド4: 問いかけ ── */
+    .slide-question {
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .question-text {
+      font-size: 3.6rem;
+      font-weight: 900;
+      line-height: 1.35;
+      width: 100%;
+      color: var(--color-fg);
+    }
+    .question-text .accent-u {
+      color: var(--color-accent);
+    }
+
+    /* ── スライド6: 事業レイアウト（左:コーチング大 / 右:サブスク3枚） ── */
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 1.4rem;
+      flex: 1;
+    }
+    .service-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--color-accent);
+      border-radius: 2px 2px 0 0;
+    }
+    .service-logo {
+      height: 32px;
+      object-fit: contain;
+      object-position: left;
+    }
+    .service-desc {
+      font-size: var(--text-base);
+      color: var(--color-fg);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .service-phone {
+      position: absolute;
+      right: 1.5rem;
+      bottom: 0;
+      height: 120px;
+      opacity: .22;
+      pointer-events: none;
+    }
+    /* 左: 大カード */
+    .service-card-large {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.4rem;
+      padding: 2.6rem 2.8rem;
+    }
+    .service-category-label {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: .08em;
+      text-transform: none;
+    }
+    .service-logo-large {
+      height: 44px;
+      object-fit: contain;
+      object-position: left;
+    }
+    .service-desc-large {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--color-fg);
+      line-height: 1.65;
+    }
+    .service-phone-large {
+      height: 0;
+      display: none;
+    }
+    /* 右: サブスクカラム */
+    .service-sub-col {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+    .service-sub-cards {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+      flex: 1;
+    }
+    .service-card-sub {
+      flex: 1;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .5rem;
+    }
+
+    /* ── 歩み：ステップ番号 ── */
+    .step-num {
+      font-size: 5rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      opacity: .15;
+      line-height: 1;
+      position: absolute;
+      right: var(--sp-xl);
+      top: 50%;
+      transform: translateY(-50%);
+      letter-spacing: -.04em;
+    }
+    .step-sub {
+      font-size: 1.1rem;
+      font-family: var(--font-mono);
+      letter-spacing: .1em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .step-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .step-point {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      line-height: 1.4;
+    }
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    /* ── スライド10: グラフスライド ── */
+    .graph-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      align-items: center;
+    }
+    .graph-img {
+      flex: 1;
+      max-height: 440px;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+    }
+    .graph-compare {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem 3rem;
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .graph-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .3rem;
+    }
+    .graph-stat .num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .graph-stat .num.orange { color: var(--color-accent); }
+    .graph-stat .lbl {
+      font-size: 1.1rem;
+      color: var(--color-fg);
+      font-weight: 500;
+    }
+    .graph-vs {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+
+    /* ── VS比較（スライド11） ── */
+    .vs-header {
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      margin-bottom: .8rem;
+    }
+    .vs-header-label {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+    }
+    .vs-header-label.gray { color: #666; }
+    .vs-header-label.orange { color: var(--color-accent); }
+    .vs-wrap {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      align-items: stretch;
+      gap: 0;
+    }
+    .vs-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.8rem;
+      padding: 2.4rem 3rem;
+      border-radius: var(--radius-lg);
+    }
+    .vs-col.vs-gray {
+      background: #F2F2F2;
+      border: 2px solid #DADADA;
+    }
+    .vs-col.is-accent {
+      border: 2px solid rgba(240,120,0,.5);
+      background: rgba(240,120,0,.06);
+    }
+    .vs-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vs-badge {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      border: 1px solid rgba(240,120,0,.4);
+      border-radius: 100px;
+      padding: .4rem .7rem;
+    }
+    .vs-item {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .vs-item-label {
+      font-size: 1.05rem;
+      color: #888;
+      font-family: var(--font-mono);
+      letter-spacing: .05em;
+    }
+    .vs-item-val {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      line-height: 1.25;
+    }
+    .vs-item-val.big {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+    }
+    .vs-item-val.big-gray {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #1A1A1A;
+    }
+    .vs-bottom-note {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      padding: 1.2rem;
+      background: rgba(240,120,0,.06);
+      border: 1.5px solid rgba(240,120,0,.3);
+      border-radius: var(--radius-lg);
+      margin-top: .5rem;
+    }
+
+    /* ── フロー図（スライド12） ── */
+    .flow-compare {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .flow-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .flow-row.is-accent {
+      border-color: rgba(240,120,0,.4);
+    }
+    .flow-row-label {
+      font-size: 1.4rem;
+      font-weight: 700;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      padding: 1.2rem .8rem;
+      background: rgba(0,0,0,.04);
+      color: var(--color-fg);
+      letter-spacing: .1em;
+      min-width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flow-row.is-accent .flow-row-label {
+      background: rgba(240,120,0,.12);
+      color: var(--color-accent);
+    }
+    .flow-steps {
+      display: flex;
+      align-items: stretch;
+      flex: 1;
+    }
+    .flow-step-item {
+      flex: 1;
+      padding: 1.4rem 1.6rem;
+      font-size: 1.7rem;
+      color: var(--color-fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.35;
+      border-right: 1px solid var(--color-border);
+    }
+    .flow-step-item:last-child { border-right: none; }
+    .flow-step-item.orange {
+      color: var(--color-accent);
+      font-weight: 700;
+      background: rgba(240,120,0,.04);
+    }
+    .flow-arrow-item {
+      padding: 1.2rem .6rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .flow-bottom-em {
+      text-align: center;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      padding: 1rem;
+      background: rgba(240,120,0,.05);
+      border: 1px solid rgba(240,120,0,.2);
+      border-radius: var(--radius-lg);
+    }
+
+    /* ── 2カラムカード（スライド13） ── */
+    .invest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      flex: 1;
+      align-items: stretch;
+    }
+    .invest-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-top: 3px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .invest-card h3 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--color-fg);
+      line-height: 1.25;
+    }
+    .invest-points {
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .invest-point {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      font-size: 1.1rem;
+      color: var(--color-fg);
+      line-height: 1.55;
+      font-weight: 500;
+    }
+    .invest-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: .6em;
+    }
+
+    /* ── 人物カード（スライド14） ── */
+    .person-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      flex: 1;
+      align-items: stretch;
+    }
+    .person-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: .6rem;
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-top: 3px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.8rem;
+    }
+    .person-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .person-name {
+      font-size: 2.0rem;
+      font-weight: 900;
+      text-align: center;
+      color: var(--color-fg);
+    }
+    .person-role {
+      font-size: 1.7rem;
+      color: var(--color-accent);
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .person-note {
+      font-size: 1.25rem;
+      color: var(--color-fg);
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* ── タイムライン（スライド18） ── */
+    .timeline-v {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-left: 2rem;
+      border-left: 3px solid rgba(240,120,0,.4);
+      flex: 1;
+      justify-content: center;
+    }
+    .tl-item {
+      position: relative;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -2.45rem;
+      top: .5em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+    .tl-year {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      letter-spacing: .1em;
+      margin-bottom: .3rem;
+      font-family: var(--font-mono);
+    }
+    .tl-desc {
+      font-size: 1.8rem;
+      color: var(--color-fg);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .tl-quote {
+      margin-top: .6rem;
+      padding: .8rem 1.4rem;
+      border-left: 3px solid rgba(240,120,0,.4);
+      font-size: 1.5rem;
+      color: var(--color-fg);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ── スライド19: ダーク比較 ── */
+    .slide-dark {
+      background:
+        radial-gradient(ellipse 60% 70% at 60% 50%, rgba(240,120,0,.14) 0%, transparent 65%),
+        linear-gradient(160deg, #0F0B06 0%, #0C0C0C 60%, #080808 100%);
+      color: #f0f0ee;
+    }
+    .slide-dark h2 {
+      color: #f0f0ee;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      flex: 1;
+      align-items: stretch;
+    }
+    .compare-col {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .compare-col.is-now {
+      border-color: rgba(240,120,0,.4);
+      background: rgba(240,120,0,.06);
+    }
+    .compare-col-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .08em;
+    }
+    .compare-col-title.orange { color: var(--color-accent); }
+    .compare-tl {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid rgba(255,255,255,.15);
+    }
+    .compare-col.is-now .compare-tl {
+      border-left-color: rgba(240,120,0,.4);
+    }
+    .compare-tl-item {
+      position: relative;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.6;
+    }
+    .compare-tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: .55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.3);
+    }
+    .compare-col.is-now .compare-tl-item::before {
+      background: var(--color-accent);
+    }
+    .compare-tl-item .hl {
+      color: #f0f0ee;
+      font-weight: 700;
+    }
+    .compare-tl-item .hl-orange {
+      color: var(--color-accent);
+      font-weight: 900;
+    }
+
+    /* ── スライド20: クライマックス ── */
+    .slide-climax {
+      background:
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(240,120,0,.18) 0%, transparent 70%),
+        linear-gradient(180deg, #0C0C0C 0%, #0E0905 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 2.4rem;
+    }
+    .climax-title {
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      color: #FFFFFF;
+    }
+    .climax-title span {
+      display: block;
+      background: linear-gradient(90deg, #F07800 0%, #FFAA44 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .climax-sub {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .08em;
+      line-height: 1.6;
+    }
+
+    /* ── スライド22: コミットメント ── */
+    .commit-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .commit-line {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      padding: 2rem 2.4rem;
+      border-radius: var(--radius-lg);
+      background: var(--color-card-bg);
+      border: var(--border);
+    }
+    .commit-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      width: 3rem;
+      text-align: center;
+    }
+    .commit-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      line-height: 1.4;
+    }
+    .commit-text .accent { color: var(--color-accent); }
+    .commit-bottom {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1A1A1A;
+      padding-top: 1rem;
+    }
+
+    /* ── エンディング ── */
+    .slide-end-custom {
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 30%, rgba(240,120,0,.1) 0%, transparent 65%),
+        #FFFFFF;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    .end-logo {
+      height: 40px;
+      opacity: .75;
+    }
+    .end-mark {
+      width: 48px;
+      height: 3px;
+      background: var(--color-accent);
+      margin: 0 auto;
+    }
+    .end-title {
+      font-size: 4.2rem;
+      font-weight: 900;
+      letter-spacing: -.025em;
+      color: var(--color-fg);
+      line-height: 1.15;
+    }
+    .end-sub {
+      font-size: var(--text-lg);
+      color: #1A1A1A;
+      letter-spacing: .1em;
+    }
+
+    /* ── スライド5: ミッション（slide-contentベース） ── */
+    .mission-block {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .mission-label {
+      font-size: 1.0rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      color: var(--color-accent);
+    }
+    .mission-text {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.25;
+      background: linear-gradient(100deg, #F07800 10%, #FFAA44 60%, #F07800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .mission-essence-card {
+      background: rgba(240,120,0,.05);
+      border: 1.5px solid rgba(240,120,0,.35);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.6rem;
+    }
+    .mission-essence-pre {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: .08em;
+      margin-bottom: .8rem;
+    }
+    .mission-essence {
+      font-size: 4.2rem;
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--color-fg);
+    }
+    .mission-note {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-fg);
+      line-height: 1.85;
+    }
+
+    /* ── WHY: 国家の成長エンジン ── */
+    .why-engine {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      width: 100%;
+    }
+    .why-engine-q {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      letter-spacing: .08em;
+      opacity: .6;
+    }
+    .why-engine-a {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.55;
+      color: var(--color-fg);
+    }
+
+    /* ── 本文のみスライド（slide-landing内）標準サイズ ── */
+    /* 1行: 5.0rem / 2行: 4.0rem / 3行: 3.2rem / 4行: 2.6rem */
+    .lmsg {
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--color-fg);
+      width: 100%;
+    }
+    .lmsg-1 { font-size: 5.0rem; }
+    .lmsg-2 { font-size: 4.0rem; }
+    .lmsg-3 { font-size: 3.2rem; }
+    .lmsg-4 { font-size: 2.6rem; }
+
+    /* ── WHY: 一文インパクトスライド ── */
+    .why-single {
+      font-size: 5.2rem;
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--color-fg);
+    }
+
+    /* ── 歩み 全体像 ── */
+    .journey-overview {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr 40px 1fr;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+    }
+    .journey-step {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-top: 3px solid rgba(240,120,0,.25);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      height: 100%;
+      justify-content: center;
+    }
+    .journey-step-accent {
+      border-top: 3px solid var(--color-accent);
+      background: rgba(240,120,0,.04);
+    }
+    .journey-step.is-active {
+      border-top-color: var(--color-accent);
+      background: rgba(240,120,0,.08);
+    }
+    .journey-step.is-active .journey-num,
+    .journey-step.is-active .journey-title {
+      color: var(--color-accent);
+    }
+    .journey-step.is-dim {
+      opacity: .18;
+      filter: grayscale(1);
+    }
+    .journey-arrow.is-dim {
+      opacity: .12;
+    }
+    .journey-num {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: .1em;
+    }
+    .journey-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--color-fg);
+      line-height: 1.3;
+    }
+    .journey-service {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .journey-desc {
+      font-size: 1.1rem;
+      color: var(--color-fg);
+      line-height: 1.65;
+    }
+    .journey-arrow {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--color-accent);
+      opacity: .5;
+    }
+    .journey-axis {
+      margin-top: 1.6rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      text-align: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid rgba(240,120,0,.2);
+    }
+
+    /* ── 歩み締め: キーメッセージ（landing内） ── */
+    .journey-key {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+    .journey-key-label {
+      font-size: 1.0rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      color: var(--color-accent);
+      text-transform: none;
+    }
+    .journey-key-message {
+      font-size: 3.4rem;
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--color-fg);
+    }
+    .journey-key-sub {
+      font-size: 1.25rem;
+      color: var(--color-fg);
+      line-height: 1.85;
+    }
+
+    /* ── 歩み未来: 展開4カード ── */
+    .expand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      flex: 1;
+    }
+    .expand-card {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-left: 3px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      justify-content: center;
+    }
+    .expand-num {
+      font-size: 1.0rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      letter-spacing: .15em;
+    }
+    .expand-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--color-fg);
+      line-height: 1.3;
+    }
+    .expand-desc {
+      font-size: 1.1rem;
+      color: var(--color-fg);
+      line-height: 1.65;
+    }
+
+    /* ── サブ強調テキスト共通 ── */
+    .sub-em {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1.4;
+      margin-bottom: .2rem;
+    }
+    .body-large {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--color-fg);
+      line-height: 1.55;
+    }
+
+    /* ── stat グリッド（スライド17） ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .stat-item {
+      background: var(--color-card-bg);
+      border: var(--border);
+      border-bottom: 2px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .stat-num {
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1;
+      font-family: var(--font-mono);
+    }
+    .stat-label {
+      font-size: 1.3rem;
+      color: var(--color-fg);
+      font-weight: 700;
+    }
+    .recruit-services {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+    .r-svc {
+      font-size: 2.0rem;
+      font-weight: 900;
+      color: var(--color-fg);
+      padding: 1.2rem;
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--color-card-bg);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .recruit-logo {
+      height: 52px;
+      opacity: .7;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ===== 1. 表紙 ===== -->
+  <section class="slide slide-hero">
+    <div class="hero-inner">
+      <span class="hero-tag">2 Days Internship 特別講座 04 / 05</span>
+      <div class="hero-title">プログリット会社説明</div>
+    </div>
+  </section>
+
+  <!-- ===== 2. アジェンダ ===== -->
+  <section class="slide slide-content">
+    <div class="body">
+      <h2>今日のテーマ</h2>
+      <div class="agenda-list">
+        <div class="agenda-item">
+          <span class="agenda-num">①</span>
+          <span class="agenda-text">プログリットとはどんな会社か</span>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-num">②</span>
+          <span class="agenda-text">プログリットのフェーズ</span>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-num">③</span>
+          <span class="agenda-text">最後に</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. セクション① ===== -->
+  <section class="slide slide-section-custom">
+    <div class="section-label">Section 01</div>
+    <div class="section-title">① プログリットとはどんな会社か</div>
+  </section>
+
+  <!-- ===== 現在の事業内容 ===== -->
+  <section class="slide slide-content">
+    <div class="body">
+      <h2>現在の事業内容</h2>
+      <!-- 内容は後で入れる -->
+    </div>
+  </section>
+
+  <!-- ===== 5. ミッション ===== -->
+  <section class="slide slide-content">
+    <div class="body">
+      <h2>プログリットは、英語教育の会社ではありません</h2>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.8rem;">
+        <div class="mission-block">
+          <div class="mission-label">MISSION</div>
+          <div class="mission-text">世界で自由に活躍できる人を増やす</div>
+        </div>
+        <div class="mission-essence-card">
+          <div class="mission-essence-pre">プログリットは、</div>
+          <div class="mission-essence">人・組織の可能性を開花させる<br>テクノロジーカンパニー</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 英語教育 注力領域 ===== -->
+  <section class="slide slide-landing">
+    <div class="lmsg" style="font-size:2.9rem;">英語教育は当社にとって最初の注力領域であり、<br><span class="accent">人・組織の可能性を開花させることが、<br>我々の仕事です。</span></div>
+  </section>
+
+  <!-- ===== WHY 問い ===== -->
+  <section class="slide slide-landing">
+    <div class="lmsg" style="font-size:3.0rem;">それでは、<br>我々はどのような思いでこの仕事をしているのか。</div>
+  </section>
+
+  <!-- ===== WHY 答え ===== -->
+  <section class="slide slide-landing">
+    <div class="lmsg lmsg-2">この国の強みは<span class="accent">「人」</span>であり、<br><span class="accent">国家の成長エンジン</span>であるから。</div>
+  </section>
+
+  <!-- ===== 7a. 当社の歩み 第一段階 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:0;">
+      <h2 style="flex-shrink:0;">当社の歩み</h2>
+      <!-- 大テキストエリア -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.8rem;">
+        <div style="font-size:2.0rem;font-family:var(--font-mono);letter-spacing:.15em;color:var(--color-accent);">第一段階</div>
+        <div style="font-size:4.5rem;font-weight:900;color:var(--color-fg);line-height:1.2;text-align:center;">人間の力で証明</div>
+      </div>
+      <!-- タイムラインバー -->
+      <div style="flex-shrink:0;width:85%;margin:0 auto 1.6rem;">
+        <!-- マーカー行 -->
+        <div style="position:relative;height:2.8rem;margin-bottom:.2rem;">
+          <!-- 2016: 0/10 = 0% -->
+          <div style="position:absolute;left:0%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">創業</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <!-- 2020: 4/10 = 40% -->
+          <div style="position:absolute;left:40%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">シャドテン開始</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <!-- 2024: 8/10 = 80% -->
+          <div style="position:absolute;left:80%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">スピフル・ディアトーク開始</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <!-- 2026: 10/10 = 100% -->
+          <div style="position:absolute;left:100%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">現在</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+        </div>
+        <!-- バー本体（2016〜2026、各1年=1/10） -->
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden;">
+          <!-- 2016〜2020 ハイライト(4コマ) -->
+          <div style="flex:4;background:var(--color-accent);height:6px;"></div>
+          <!-- 2020〜2026 グレー(6コマ) -->
+          <div style="flex:6;background:#E0E0E0;height:4px;margin-top:1px;opacity:.4;"></div>
+        </div>
+        <!-- ハイライト帯 -->
+        <div style="position:relative;height:1.4rem;">
+          <div style="position:absolute;left:0%;width:40%;top:0;bottom:0;background:rgba(240,120,0,.06);border-radius:0 0 4px 4px;"></div>
+        </div>
+        <!-- 年ラベル行 -->
+        <div style="display:flex;">
+          <div style="flex:1;text-align:left;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2016</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2017</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2018</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2019</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2020</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2021</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2022</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2023</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2024</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2025</div>
+          <div style="flex:1;text-align:right;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7b. 当社の歩み 第二段階 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:0;">
+      <h2 style="flex-shrink:0;">当社の歩み</h2>
+      <!-- 大テキストエリア -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.8rem;">
+        <div style="font-size:2.0rem;font-family:var(--font-mono);letter-spacing:.15em;color:var(--color-accent);">第二段階</div>
+        <div style="font-size:4.5rem;font-weight:900;color:var(--color-fg);line-height:1.2;text-align:center;">テクノロジーが増幅</div>
+      </div>
+      <!-- タイムラインバー -->
+      <div style="flex-shrink:0;width:85%;margin:0 auto 1.6rem;">
+        <!-- マーカー行 -->
+        <div style="position:relative;height:2.8rem;margin-bottom:.2rem;">
+          <div style="position:absolute;left:0%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">創業</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <div style="position:absolute;left:40%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">シャドテン開始</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <div style="position:absolute;left:80%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">スピフル・ディアトーク開始</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <div style="position:absolute;left:100%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">現在</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+        </div>
+        <!-- バー本体 -->
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden;">
+          <!-- 2016〜2020 グレー(4コマ) -->
+          <div style="flex:4;background:#E0E0E0;height:4px;margin-top:1px;opacity:.4;"></div>
+          <!-- 2020〜2024 ハイライト(4コマ) -->
+          <div style="flex:4;background:var(--color-accent);height:6px;"></div>
+          <!-- 2024〜2026 グレー(2コマ) -->
+          <div style="flex:2;background:#E0E0E0;height:4px;margin-top:1px;opacity:.4;"></div>
+        </div>
+        <!-- ハイライト帯 -->
+        <div style="position:relative;height:1.4rem;">
+          <div style="position:absolute;left:40%;width:40%;top:0;bottom:0;background:rgba(240,120,0,.06);border-radius:0 0 4px 4px;"></div>
+        </div>
+        <!-- 年ラベル行 -->
+        <div style="display:flex;">
+          <div style="flex:1;text-align:left;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2016</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2017</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2018</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2019</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2020</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2021</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2022</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2023</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2024</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2025</div>
+          <div style="flex:1;text-align:right;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7c. 当社の歩み 第三段階 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:0;">
+      <h2 style="flex-shrink:0;">当社の歩み</h2>
+      <!-- 大テキストエリア -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.8rem;">
+        <div style="font-size:2.0rem;font-family:var(--font-mono);letter-spacing:.15em;color:var(--color-accent);">第三段階</div>
+        <div style="font-size:4.5rem;font-weight:900;color:var(--color-fg);line-height:1.2;text-align:center;">AI × 人間の新しい形</div>
+      </div>
+      <!-- タイムラインバー -->
+      <div style="flex-shrink:0;width:85%;margin:0 auto 1.6rem;">
+        <!-- マーカー行 -->
+        <div style="position:relative;height:2.8rem;margin-bottom:.2rem;">
+          <div style="position:absolute;left:0%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">創業</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <div style="position:absolute;left:40%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">シャドテン開始</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <div style="position:absolute;left:80%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">スピフル・ディアトーク開始</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+          <div style="position:absolute;left:100%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.2rem;">
+            <div style="font-size:1.1rem;font-weight:700;color:var(--color-fg);white-space:nowrap;">現在</div>
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);"></div>
+          </div>
+        </div>
+        <!-- バー本体 -->
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden;">
+          <!-- 2016〜2024 グレー(8コマ) -->
+          <div style="flex:8;background:#E0E0E0;height:4px;margin-top:1px;opacity:.4;"></div>
+          <!-- 2024〜2026 ハイライト(2コマ) -->
+          <div style="flex:2;background:var(--color-accent);height:6px;"></div>
+        </div>
+        <!-- ハイライト帯 -->
+        <div style="position:relative;height:1.4rem;">
+          <div style="position:absolute;left:80%;width:20%;top:0;bottom:0;background:rgba(240,120,0,.06);border-radius:0 0 4px 4px;"></div>
+        </div>
+        <!-- 年ラベル行 -->
+        <div style="display:flex;">
+          <div style="flex:1;text-align:left;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2016</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2017</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2018</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2019</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2020</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2021</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2022</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:#AAA;">2023</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2024</div>
+          <div style="flex:1;text-align:center;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2025</div>
+          <div style="flex:1;text-align:right;font-size:1.0rem;font-family:var(--font-mono);color:var(--color-accent);">2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 歩み 締め: キーメッセージ ===== -->
+  <section class="slide slide-landing">
+    <div style="display:flex; flex-direction:column; gap:1.6rem;">
+      <div style="font-size:1.3rem; font-weight:700; color:var(--color-accent); letter-spacing:.2em;">一貫した軸</div>
+      <div class="lmsg lmsg-2">科学 × テクノロジーで、<br><span class="accent">人の成長プロセスを最適化する。</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 歩み 未来: 展開方向 ===== -->
+  <section class="slide slide-content">
+    <div class="body">
+      <h2>人・組織の成長を科学する技術を、あらゆる領域へ</h2>
+      <div style="flex:1; display:flex; align-items:flex-start; justify-content:center; min-height:0;">
+        <svg width="100%" viewBox="0 0 800 375" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+          <!--
+            center=(400,184)
+            r_center=55 (1.2×), r_inner=95, r_outer=147
+            top card center: (400, 37)  → rect y=10..64
+            bottom card center: (400, 331) → rect y=304..358
+            left card center: (233, 184) → rect x=146..321
+            right card center: (567, 184) → rect x=479..654
+          -->
+
+          <!-- outer ring -->
+          <circle cx="400" cy="184" r="147" fill="none" stroke="rgba(240,120,0,0.18)" stroke-width="1.5"/>
+          <!-- inner ring -->
+          <circle cx="400" cy="184" r="95" fill="none" stroke="rgba(240,120,0,0.35)" stroke-width="1.5"/>
+          <!-- center circle -->
+          <circle cx="400" cy="184" r="55" fill="#F07800"/>
+          <!-- center text (fits within r=55, diameter=110) -->
+          <text x="400" y="177" text-anchor="middle" font-family="inherit" font-size="11" font-weight="900" fill="#FFFFFF">人・組織の成長を</text>
+          <text x="400" y="192" text-anchor="middle" font-family="inherit" font-size="11" font-weight="900" fill="#FFFFFF">科学する技術</text>
+
+          <!-- connectors: from center circle edge to card edges -->
+          <!-- top: circle top(400,129)→top card bottom(400,64) -->
+          <line x1="400" y1="129" x2="400" y2="64" stroke="#F07800" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.55"/>
+          <!-- bottom: circle bottom(400,239)→bottom card top(400,304) -->
+          <line x1="400" y1="239" x2="400" y2="304" stroke="#F07800" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.55"/>
+          <!-- left: circle left(345,184)→left card right(321,184) -->
+          <line x1="345" y1="184" x2="321" y2="184" stroke="#F07800" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.55"/>
+          <!-- right: circle right(455,184)→right card left(479,184) -->
+          <line x1="455" y1="184" x2="479" y2="184" stroke="#F07800" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.55"/>
+
+          <!-- TOP card: 学習領域の拡張 — center (400,37), rect y=10..64 -->
+          <rect x="300" y="10" width="200" height="54" rx="12" fill="#FAFAF8" stroke="#F07800" stroke-width="1.5"/>
+          <text x="400" y="43" text-anchor="middle" font-family="inherit" font-size="17" font-weight="900" fill="#1A1A1A">学習領域の拡張</text>
+
+          <!-- BOTTOM card: グローバル展開 — center (400,331), rect y=304..358 -->
+          <rect x="300" y="304" width="200" height="54" rx="12" fill="#FAFAF8" stroke="#F07800" stroke-width="1.5"/>
+          <text x="400" y="337" text-anchor="middle" font-family="inherit" font-size="17" font-weight="900" fill="#1A1A1A">グローバル展開</text>
+
+          <!-- LEFT card: AI × パーソナライズ — center (233,184), rect x=146..321 -->
+          <rect x="146" y="157" width="175" height="54" rx="12" fill="#FAFAF8" stroke="#F07800" stroke-width="1.5"/>
+          <text x="233" y="190" text-anchor="middle" font-family="inherit" font-size="15" font-weight="900" fill="#1A1A1A">AI × パーソナライズ</text>
+
+          <!-- RIGHT card: 企業のグローバル組織変革 — center (567,184), rect x=479..654 -->
+          <rect x="479" y="157" width="175" height="54" rx="12" fill="#FAFAF8" stroke="#F07800" stroke-width="1.5"/>
+          <text x="567" y="177" text-anchor="middle" font-family="inherit" font-size="14" font-weight="900" fill="#1A1A1A">企業のグローバル</text>
+          <text x="567" y="195" text-anchor="middle" font-family="inherit" font-size="14" font-weight="900" fill="#1A1A1A">組織変革</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 10. 急成長グラフ ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:0.5rem; height:100%;">
+      <h2 style="flex-shrink:0;">プログリットの成長</h2>
+      <div style="display:flex; align-items:flex-start; gap:2.4rem; flex:1; min-height:0;">
+        <!-- 棒グラフ本体 -->
+        <div style="flex:1; height:100%; display:flex; flex-direction:column; min-height:0;">
+          <div style="flex:1; display:flex; align-items:flex-end; gap:0.5rem; min-height:0; padding-bottom:32px; position:relative;">
+            <!-- ベースライン -->
+            <div style="position:absolute;left:0;right:0;bottom:32px;height:2px;background:rgba(0,0,0,.12);"></div>
+            <!-- FY22→FY26 赤矢印（二次関数カーブ） -->
+            <svg style="position:absolute;left:0;top:0;width:100%;height:calc(100% - 32px);pointer-events:none;overflow:visible;" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="red-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,7 L10,3.5 z" fill="#E53E3E"/>
+                </marker>
+              </defs>
+              <!-- start: FY22 bar top (x≈550, y≈710)  end: FY26 bar top (x≈950, y≈90) -->
+              <!-- control point: same x as end, same y as start → 二次関数カーブ -->
+              <path d="M550,710 Q950,710 950,100" fill="none" stroke="#E53E3E" stroke-width="8" stroke-linecap="round" marker-end="url(#red-arrow)"/>
+            </svg>
+            <div style="position:absolute;left:0;right:0;bottom:calc(32px + 33%);height:1px;background:rgba(0,0,0,.05);"></div>
+            <div style="position:absolute;left:0;right:0;bottom:calc(32px + 66%);height:1px;background:rgba(0,0,0,.05);"></div>
+
+            <!-- FY17 1.06億 / max=78億換算 → 1.4% -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.8rem;font-weight:700;color:#aaa;margin-bottom:3px;">1.1億</div>
+              <div style="width:100%;height:1.4%;background:#E8E8E8;border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.8rem;font-weight:700;color:#aaa;margin-top:5px;">FY17</div>
+            </div>
+            <!-- FY18 6.93億 → 8.9% -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.8rem;font-weight:700;color:#aaa;margin-bottom:3px;">6.9億</div>
+              <div style="width:100%;height:8.9%;background:#E4E4E4;border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.8rem;font-weight:700;color:#aaa;margin-top:5px;">FY18</div>
+            </div>
+            <!-- FY19 17.11億 → 21.9% -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.8rem;font-weight:700;color:#aaa;margin-bottom:3px;">17.1億</div>
+              <div style="width:100%;height:21.9%;background:#DEDEDE;border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.8rem;font-weight:700;color:#aaa;margin-top:5px;">FY19</div>
+            </div>
+            <!-- FY20 21.83億 → 28.0% -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.8rem;font-weight:700;color:#888;margin-bottom:3px;">21.8億</div>
+              <div style="width:100%;height:28%;background:#D4D4D4;border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.8rem;font-weight:700;color:#888;margin-top:5px;">FY20</div>
+            </div>
+            <!-- FY21 19.81億 → 25.4% -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.8rem;font-weight:700;color:#888;margin-bottom:3px;">19.8億</div>
+              <div style="width:100%;height:25.4%;background:#C8C8C8;border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.8rem;font-weight:700;color:#888;margin-top:5px;">FY21</div>
+            </div>
+            <!-- FY22 22.53億 → 28.9% -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.85rem;font-weight:700;color:#666;margin-bottom:3px;">22.5億</div>
+              <div style="width:100%;height:28.9%;background:#BBBBBB;border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.85rem;font-weight:700;color:#444;margin-top:5px;">FY22</div>
+            </div>
+            <!-- FY23 30.24億 → 38% (等間隔起点) -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.85rem;font-weight:700;color:#666;margin-bottom:3px;">30.2億</div>
+              <div style="width:100%;height:38%;background:rgba(240,120,0,.35);border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.85rem;font-weight:700;color:#555;margin-top:5px;">FY23</div>
+            </div>
+            <!-- FY24 44.53億 → 57% (+19pp) -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.85rem;font-weight:700;color:#555;margin-bottom:3px;">44.5億</div>
+              <div style="width:100%;height:57%;background:rgba(240,120,0,.55);border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.85rem;font-weight:700;color:#444;margin-top:5px;">FY24</div>
+            </div>
+            <!-- FY25 57.48億 → 74% (+17pp) -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.85rem;font-weight:700;color:#444;margin-bottom:3px;">57.5億</div>
+              <div style="width:100%;height:74%;background:rgba(240,120,0,.75);border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.85rem;font-weight:700;color:#333;margin-top:5px;">FY25</div>
+            </div>
+            <!-- FY26 71.00億 → 91% (+17pp) -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="font-size:.9rem;font-weight:900;color:var(--color-accent);margin-bottom:3px;">71.0億</div>
+              <div style="width:100%;height:91%;background:var(--color-accent);border-radius:3px 3px 0 0;"></div>
+              <div style="font-size:.9rem;font-weight:900;color:var(--color-accent);margin-top:5px;">FY26</div>
+            </div>
+          </div>
+        </div>
+        <!-- 右側: バッジ2枚 -->
+        <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:1.2rem;padding-top:1rem;width:330px;">
+          <div style="background:rgba(240,120,0,.06);border:2px solid rgba(240,120,0,.3);border-radius:16px;padding:1.6rem 2rem;text-align:center;">
+            <div style="font-size:1.0rem;font-weight:700;color:#888;letter-spacing:.08em;margin-bottom:.4rem;white-space:nowrap;">今期末売上</div>
+            <div style="font-size:4.4rem;font-weight:900;color:var(--color-accent);line-height:1;white-space:nowrap;">71<span style="font-size:3.5rem;">億円</span></div>
+          </div>
+          <div style="background:rgba(240,120,0,.06);border:2px solid rgba(240,120,0,.3);border-radius:16px;padding:1.6rem 2rem;text-align:center;">
+            <div style="font-size:1.0rem;font-weight:700;color:#888;letter-spacing:.08em;margin-bottom:.4rem;white-space:nowrap;">上場後成長率（CAGR）</div>
+            <div style="font-size:4.4rem;font-weight:900;color:var(--color-accent);line-height:1;white-space:nowrap;">+33.3<span style="font-size:3.5rem;">%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10b. 急成長グラフ 問い ===== -->
+  <section class="slide slide-landing">
+    <div style="display:flex; flex-direction:column; gap:1.8rem;">
+      <div style="font-size:1.4rem; font-weight:700; color:#888; letter-spacing:.12em;">英語業界全体の成長率は <span style="color:var(--color-fg);font-size:2.2rem;">2%</span></div>
+      <div class="lmsg lmsg-3">そんな環境で、<br>プログリットはなぜ<span class="accent">成長し続けられたのか。</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 11. 急成長理由① VS比較 ===== -->
+  <section class="slide slide-content">
+    <div class="body">
+      <h2>急成長の理由 ① ビジネスモデルの発明</h2>
+      <div class="vs-header">
+        <div class="vs-header-label gray">従来モデル</div>
+        <div></div>
+        <div class="vs-header-label orange">プログリットモデル</div>
+      </div>
+      <div class="vs-wrap">
+        <div class="vs-col vs-gray">
+          <div class="vs-item">
+            <div class="vs-item-label">サービス</div>
+            <div class="vs-item-val">英会話レッスン</div>
+          </div>
+          <div class="vs-item">
+            <div class="vs-item-label">単価</div>
+            <div class="vs-item-val big-gray">5,000円/週</div>
+          </div>
+        </div>
+        <div class="vs-center">
+          <span class="vs-badge">VS</span>
+        </div>
+        <div class="vs-col is-accent">
+          <div class="vs-item">
+            <div class="vs-item-label">サービス</div>
+            <div class="vs-item-val">自学自習の徹底サポート</div>
+          </div>
+          <div class="vs-item">
+            <div class="vs-item-label">単価</div>
+            <div class="vs-item-val big">5万円/週<span style="font-size:1.5rem;font-weight:700;"> （約10倍）</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="vs-bottom-note">コストはほぼ同等 → 利益を成長に再投資</div>
+    </div>
+  </section>
+
+  <!-- ===== 12. 急成長理由② 顧客起点 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:1.4rem;">
+      <h2>急成長の理由 ② 徹底した「お客様主義」</h2>
+      <div style="display:flex; flex-direction:column; gap:1.2rem; flex:1; min-height:0;">
+        <!-- 上: 一般的な企業 -->
+        <div style="flex:1; display:flex; align-items:stretch; gap:2.4rem; background:#F0F0EE; border:1.5px solid #D0D0CC; border-radius:var(--radius-lg); padding:1.4rem 2.8rem; min-height:0;">
+          <div style="flex-shrink:0; display:flex; align-items:center; font-size:2.0rem; font-weight:900; color:#666; white-space:nowrap; min-width:11rem;">一般的な企業</div>
+          <div style="width:2px; align-self:stretch; background:#D0D0CC; flex-shrink:0;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:.5rem; min-width:0;">
+            <div style="font-size:2.0rem; font-weight:900; color:#555; line-height:1.45; word-break:keep-all;">競合を分析してビジネスモデルを構築する</div>
+            <div style="font-size:1.5rem; color:#AAAAAA; font-weight:700;">↓</div>
+            <div style="font-size:2.0rem; font-weight:900; color:#888; line-height:1.45; word-break:keep-all;">類似サービスが量産される</div>
+          </div>
+        </div>
+        <!-- 下: プログリット -->
+        <div style="flex:1; display:flex; align-items:stretch; gap:2.4rem; background:rgba(240,120,0,.10); border:2px solid rgba(240,120,0,0.55); border-radius:var(--radius-lg); padding:1.4rem 2.8rem; min-height:0;">
+          <div style="flex-shrink:0; display:flex; align-items:center; font-size:2.0rem; font-weight:900; color:var(--color-accent); white-space:nowrap; min-width:11rem;">プログリット</div>
+          <div style="width:2px; align-self:stretch; background:rgba(240,120,0,.4); flex-shrink:0;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:.5rem; min-width:0;">
+            <div style="font-size:2.0rem; font-weight:900; color:var(--color-fg); line-height:1.45;">お客様と徹底的に向き合い、<br>本質的な「未解決ニーズ」を発見する</div>
+            <div style="font-size:1.5rem; color:var(--color-accent); font-weight:700;">↓</div>
+            <div style="font-size:2.0rem; font-weight:900; color:var(--color-accent); line-height:1.45; word-break:keep-all;">唯一無二のオリジナルサービスが生まれる</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-bottom-em" style="flex-shrink:0;">競合ではなく、顧客を見る</div>
+    </div>
+  </section>
+
+  <!-- ===== 13. 急成長理由③ 投資 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:1.2rem;">
+      <h2>急成長の理由 ③ 人とテクノロジー両方に本気で投資する</h2>
+      <div style="display:flex; gap:2rem; flex:1; min-height:0;">
+        <!-- 左列: 人への投資 -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:0.7rem; min-height:0;">
+          <div style="font-size:1.7rem; font-weight:900; color:var(--color-accent);">人への投資</div>
+          <div style="display:flex; flex-direction:column; gap:0.8rem; flex:1; min-height:0;">
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; background:var(--color-card-bg); border:2px solid rgba(240,120,0,0.6); border-radius:var(--radius-lg); padding:1.2rem 1.6rem;">
+              <div style="font-size:1.93rem; font-weight:900; text-align:center; line-height:1.4; word-break:keep-all;">給与を上げ続ける経営コミット</div>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; background:var(--color-card-bg); border:2px solid rgba(240,120,0,0.6); border-radius:var(--radius-lg); padding:1.2rem 1.6rem;">
+              <div style="font-size:1.93rem; font-weight:900; text-align:center; line-height:1.4; word-break:keep-all;">ポテンシャル抜擢</div>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; background:var(--color-card-bg); border:2px solid rgba(240,120,0,0.6); border-radius:var(--radius-lg); padding:1.2rem 1.6rem;">
+              <div style="font-size:1.93rem; font-weight:900; text-align:center; line-height:1.4; word-break:keep-all;">経験豊富なスペシャリストの採用</div>
+            </div>
+          </div>
+        </div>
+        <!-- 右列: テクノロジーへの投資 -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:0.7rem; min-height:0;">
+          <div style="font-size:1.7rem; font-weight:900; color:var(--color-accent);">テクノロジーへの投資</div>
+          <div style="display:flex; flex-direction:column; gap:0.8rem; flex:1; min-height:0;">
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; background:var(--color-card-bg); border:2px solid rgba(240,120,0,0.6); border-radius:var(--radius-lg); padding:1.2rem 1.6rem;">
+              <div style="font-size:1.93rem; font-weight:900; text-align:center; line-height:1.4; word-break:keep-all;">最先端AIを全社員に配布</div>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; background:var(--color-card-bg); border:2px solid rgba(240,120,0,0.6); border-radius:var(--radius-lg); padding:1.2rem 1.6rem;">
+              <div style="font-size:1.93rem; font-weight:900; text-align:center; line-height:1.4; word-break:keep-all;">全プロダクトを内製で開発</div>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; background:var(--color-card-bg); border:2px solid rgba(240,120,0,0.6); border-radius:var(--radius-lg); padding:1.2rem 1.6rem;">
+              <div style="font-size:1.93rem; font-weight:900; text-align:center; line-height:1.4; word-break:keep-all;">AIとデータで成長を科学</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14. 急成長理由④ 若手抜擢 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:1.0rem;">
+      <h2>急成長の理由 ④ 若手の抜擢</h2>
+      <div class="person-grid" style="flex:1; min-height:0;">
+        <!-- Kanta -->
+        <div class="person-card">
+          <img class="person-photo" src="../../shared/images/マーケティング責任者_木村_画像02.jpg" alt="Kanta">
+          <div class="person-name">Kanta</div>
+          <div class="person-role">シャドテン マーケティング責任者<br>新卒採用責任者</div>
+          <div class="person-note">入社1年目で売上年間約30億円の事業部で、<br>年間10億円弱の広告予算の意思決定を担う。<br>新卒採用責任者も兼務。</div>
+        </div>
+        <!-- Kossy -->
+        <div class="person-card">
+          <img class="person-photo" src="../../shared/images/スピフル事業責任者_越野_画像.png" alt="Kossy">
+          <div class="person-name">Kossy</div>
+          <div class="person-role">スピフル 事業責任者</div>
+          <div class="person-note">入社3年目から事業責任者に着任し、ゼロイチから拡大まで、事業の全ての意思決定を担う。サービス立ち上げから2年が経過し、凄まじい勢いで事業成長中。</div>
+        </div>
+      </div>
+      <div class="flow-bottom-em" style="flex-shrink:0;">年次・経歴ではなく、能力と成果で抜擢する</div>
+    </div>
+  </section>
+
+  <!-- ===== 15. セクション② ===== -->
+  <section class="slide slide-section-custom">
+    <div class="section-label">Section 02</div>
+    <div class="section-title">② プログリットのフェーズ</div>
+  </section>
+
+  <!-- ===== 16. リクルートの規模 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:1.2rem;">
+      <h2>リクルートという会社を知っていますか？</h2>
+      <!-- 上段: 左ロゴ ＋ 右2×2カード -->
+      <div style="flex:1;min-height:0;display:flex;gap:2.4rem;align-items:stretch;">
+        <!-- 左: ロゴ -->
+        <div style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;min-width:220px;">
+          <img src="../../shared/images/recruit-logo.png" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/0/01/Recruit_Holdings_logo.svg';" style="width:220px;object-fit:contain;opacity:.8;" alt="Recruit Holdings">
+        </div>
+        <!-- 右: 2×2グリッド -->
+        <div style="flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:1.2rem;">
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <div style="font-size:1.25rem;font-weight:700;color:#666;text-align:center;">売上収益</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;background:var(--color-card-bg);border:2px solid rgba(240,120,0,0.6);border-radius:var(--radius-lg);padding:1.2rem .8rem;">
+              <span style="font-size:3.4rem;font-weight:900;color:var(--color-accent);white-space:nowrap;font-family:var(--font-mono);">3.6<span style="font-size:2.72rem;">兆円</span></span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <div style="font-size:1.25rem;font-weight:700;color:#666;text-align:center;">営業利益</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;background:var(--color-card-bg);border:2px solid rgba(240,120,0,0.6);border-radius:var(--radius-lg);padding:1.2rem .8rem;">
+              <span style="font-size:3.4rem;font-weight:900;color:var(--color-accent);white-space:nowrap;font-family:var(--font-mono);">4,905<span style="font-size:2.72rem;">億円</span></span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <div style="font-size:1.25rem;font-weight:700;color:#666;text-align:center;">時価総額</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;background:var(--color-card-bg);border:2px solid rgba(240,120,0,0.6);border-radius:var(--radius-lg);padding:1.2rem .8rem;">
+              <span style="font-size:3.4rem;font-weight:900;color:var(--color-accent);white-space:nowrap;font-family:var(--font-mono);"><span style="font-size:2.72rem;">約</span>11<span style="font-size:2.72rem;">兆円</span></span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <div style="font-size:1.25rem;font-weight:700;color:#666;text-align:center;">従業員数</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;background:var(--color-card-bg);border:2px solid rgba(240,120,0,0.6);border-radius:var(--radius-lg);padding:1.2rem .8rem;">
+              <span style="font-size:3.4rem;font-weight:900;color:var(--color-accent);white-space:nowrap;font-family:var(--font-mono);">49,000<span style="font-size:2.72rem;">名</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 主なサービス -->
+      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:.6rem;">
+        <div style="font-size:1.2rem;font-weight:700;color:#888;letter-spacing:.1em;">主なサービス</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;">
+          <span class="r-svc" style="white-space:nowrap;">Indeed</span>
+          <span class="r-svc" style="white-space:nowrap;">SUUMO</span>
+          <span class="r-svc" style="white-space:nowrap;">じゃらん</span>
+          <span class="r-svc" style="white-space:nowrap;">ホットペッパー</span>
+          <span class="r-svc" style="white-space:nowrap;">リクナビ</span>
+        </div>
+      </div>
+      <!-- 締めの一文 -->
+      <div style="flex-shrink:0;text-align:center;font-size:1.5rem;font-weight:700;padding:.9rem 1.6rem;background:rgba(240,120,0,.05);border:1px solid rgba(240,120,0,.2);border-radius:var(--radius-lg);white-space:nowrap;">就職・住宅・旅行・飲食・美容 ── あらゆるライフイベントの情報インフラを握る企業</div>
+    </div>
+  </section>
+
+  <!-- ===== 18. リクルートの原点 ===== -->
+  <section class="slide slide-content">
+    <div class="body">
+      <h2>実は、大学新聞の広告から始まった</h2>
+      <div style="font-size:1.3rem;color:var(--color-accent);font-weight:700;padding-left:1.4rem;margin-top:-.5rem;">1960年、東京大学の学生が創業</div>
+      <div class="timeline-v">
+        <div class="tl-item">
+          <div class="tl-year">1960</div>
+          <div class="tl-desc">「企業と学生をつなぐ」というたった一つのことに、<strong>16年間集中し続けた</strong></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1976</div>
+          <div class="tl-desc">初めて求人以外の領域へ（住宅情報誌『月刊住宅情報』を創刊）</div>
+          <div class="tl-quote">「うちの本質は求人広告じゃない。情報の力で人の意思決定を支援することだ」</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">現在</div>
+          <div class="tl-desc">求人 → 住宅 → 旅行 → 飲食 → 美容 → … <strong style="color:var(--color-accent);">3.6兆円へ</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 19. リクルートとの比較 ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="gap:1.4rem;">
+      <h2>現在のプログリットは、あの頃のリクルートに似ている</h2>
+      <!-- リクルート行 -->
+      <div style="display:flex; flex-direction:column; gap:0.5rem; flex:1;">
+        <div style="font-size:1.2rem; font-weight:900; color:#888; letter-spacing:.1em; padding-left:.2rem;">リクルート</div>
+        <div style="display:grid; grid-template-columns:1fr 40px 1fr 40px 1fr; gap:0; flex:1; align-items:stretch;">
+          <div style="background:#F5F5F5; border:2px solid #DCDCDC; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; padding:1.4rem 1.6rem; text-align:center;">
+            <div style="font-size:1.9rem; font-weight:900; color:#555; line-height:1.3;"><span style="font-size:1.4rem;color:#888;display:block;margin-bottom:.3rem;">1960年</span>求人広告で創業</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#AAA;">→</div>
+          <div style="background:#F5F5F5; border:2px solid #DCDCDC; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; padding:1.4rem 1.6rem; text-align:center;">
+            <div style="font-size:1.9rem; font-weight:900; color:#555; line-height:1.4;"><span style="font-size:1.4rem;color:#888;display:block;margin-bottom:.3rem;">1976年（創業16年目）</span>初めて求人以外に<br>踏み出す</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#AAA;">→</div>
+          <div style="background:#F5F5F5; border:2px solid #DCDCDC; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; padding:1.4rem 1.6rem; text-align:center;">
+            <div style="font-size:1.9rem; font-weight:900; color:#555; line-height:1.3;"><span style="font-size:1.4rem;color:#888;display:block;margin-bottom:.3rem;">現在</span>売上収益 3.6兆円</div>
+          </div>
+        </div>
+      </div>
+      <!-- プログリット行 -->
+      <div style="display:flex; flex-direction:column; gap:0.5rem; flex:1;">
+        <div style="font-size:1.2rem; font-weight:900; color:var(--color-accent); letter-spacing:.1em; padding-left:.2rem;">プログリット</div>
+        <div style="display:grid; grid-template-columns:1fr 40px 1fr 40px 1fr; gap:0; flex:1; align-items:stretch;">
+          <div style="background:rgba(240,120,0,.05); border:2px solid rgba(240,120,0,.35); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; padding:1.4rem 1.6rem; text-align:center;">
+            <div style="font-size:1.9rem; font-weight:900; color:var(--color-fg); line-height:1.3; white-space:nowrap;"><span style="font-size:1.4rem;color:var(--color-accent);display:block;margin-bottom:.3rem;">2016年</span>英語領域で創業</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--color-accent);">→</div>
+          <div style="background:rgba(240,120,0,.08); border:2px solid rgba(240,120,0,.5); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; padding:1.4rem 1.6rem; text-align:center;">
+            <div style="font-size:1.9rem; font-weight:900; color:var(--color-accent); line-height:1.4;"><span style="font-size:1.4rem;color:var(--color-accent);display:block;margin-bottom:.3rem;">今ここ（創業10年目）</span>初めて英語以外に<br>踏み出す</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--color-accent);">→</div>
+          <div style="background:rgba(240,120,0,.04); border:2px solid rgba(240,120,0,.25); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; padding:1.4rem 1.6rem; text-align:center;">
+            <div style="font-size:1.9rem; font-weight:900; color:var(--color-fg); line-height:1.3;"><span style="font-size:1.4rem;color:var(--color-accent);display:block;margin-bottom:.3rem;">将来</span><span style="font-size:3rem;">？</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 21. セクション③ ===== -->
+  <section class="slide slide-section-custom">
+    <div class="section-label">Section 03</div>
+    <div class="section-title">③ 最後に</div>
+  </section>
+
+  <!-- ===== 22. コミットメント ===== -->
+  <section class="slide slide-content">
+    <div class="body" style="justify-content:center; gap:2rem;">
+      <div style="font-size:1.3rem; font-weight:700; color:var(--color-accent); letter-spacing:.2em;">入社いただく方へのプログリットのコミットメント</div>
+      <div style="font-size:4.5rem; font-weight:900; color:var(--color-accent); line-height:1.2;">社員の成長を、最大化します。</div>
+    </div>
+  </section>
+
+
+</div><!-- /.deck -->
+
+<div class="slide-ui">
+  <div class="slide-counter">01 / 23</div>
+  <div class="slide-nav">
+    <button id="btn-prev">← Prev</button>
+    <button id="btn-next">Next →</button>
+    <button id="btn-pdf" title="PDF書き出し">PDF</button>
+    <button id="btn-fs" title="フルスクリーン (F)">⛶</button>
+  </div>
+</div>
+<div class="slide-progress" id="slide-progress"></div>
+
+<script src="../../engine/slide.js" defer></script>
+</body>
+</html>
