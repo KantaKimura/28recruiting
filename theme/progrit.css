@@ -1,6 +1,6 @@
 /* ============================================================
-   theme/progrit.css — Progrit ブランドテーマ（ダーク + オレンジ）
-   プログリットのブランドカラー（オレンジ）を軸にしたダークテーマ。
+   theme/progrit.css — Progrit ブランドテーマ（ライト + オレンジ）
+   プログリットのブランドカラー（オレンジ）を軸にしたライトテーマ。
    参考スライドのオレンジ左バー・ボトムライン等をHTMLスライドに移植。
    ============================================================ */
 
@@ -8,15 +8,15 @@
 
 :root {
   /* ── Progrit ブランドカラー ── */
-  --color-chrome:   #060606;
-  --color-bg:       #0C0C0C;
-  --color-fg:       #F2EFEA;           /* warm white */
-  --color-muted:    rgba(242,239,234,.42);
+  --color-chrome:   #D0D0D0;
+  --color-bg:       #FFFFFF;
+  --color-fg:       #1A1A1A;
+  --color-muted:    rgba(26,26,26,.55);
   --color-accent:   #F07800;           /* Progrit Orange */
   --color-accent-2: #FFAA44;           /* lighter amber */
-  --color-border:   rgba(255,255,255,.1);
-  --color-card-bg:  rgba(255,255,255,.05);
-  --color-num:      rgba(255,255,255,.12);
+  --color-border:   rgba(0,0,0,.12);
+  --color-card-bg:  rgba(0,0,0,.04);
+  --color-num:      rgba(0,0,0,.08);
 
   /* ── タイポグラフィ ── */
   --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
@@ -402,7 +402,7 @@ body { font-family: var(--font-sans); }
   left: 50%;
   transform: translateX(-50%);
   font-size: .65rem;
-  color: rgba(255,255,255,.18);
+  color: rgba(0,0,0,.2);
   letter-spacing: .05em;
   white-space: nowrap;
   pointer-events: none;
